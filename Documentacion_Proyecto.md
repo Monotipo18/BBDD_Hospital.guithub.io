@@ -3,7 +3,6 @@
 
 ## Projecte Intermodular
 
-#
 
 ### Contenido
 
