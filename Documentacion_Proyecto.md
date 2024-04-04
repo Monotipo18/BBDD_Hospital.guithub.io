@@ -1,7 +1,7 @@
 
 # PROJECTE PROGRAMACIO Y BASE DE DADES
 
-# Projecte Intermodular
+## Projecte Intermodular
 
 #
 
