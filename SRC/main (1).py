@@ -9,8 +9,12 @@ print("2. Registrar-se")
 while True:
     opcion = input("Seleccione una opción: ")
     if opcion == "1":
-        Login()
+        USUARIO=input("Introduce tu Usuario: ")
+        PASWORD=pwinput.pwinput("Introduce tu Contraseña: ")
+        Login(USUARIO,PASWORD)
     elif opcion == "2":
-        Registro()
+        USUARIO=input("Introduce tu Usuario: ")
+        PASWORD=pwinput.pwinput("Introduce tu Contraseña: ")
+        Registro(USUARIO,PASWORD)
     else:
         print("Opción inválida. Por favor, seleccione nuevamente.")
