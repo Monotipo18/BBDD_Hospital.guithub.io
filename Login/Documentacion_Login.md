@@ -22,6 +22,7 @@ Esta Biblioteca utiliza dos funciones principalmente:
 
 Para la instalacion de la biblioteca utilizamos:
 `pip install pwinput`
+
 ***Link oficial de la documentación***
 [Documentación oficial de pwinput](https://pypi.org/project/pwinput/)
 
