@@ -1,4 +1,4 @@
-from Login.Zloginpruebas import *
+from Login.login import *
 print("-"*50)
 print(" " * ((50 - len("Menú Login")) // 2) + "Menú Login(PRUEBAS)")
 print("-"*50)
