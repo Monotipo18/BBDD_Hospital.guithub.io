@@ -34,6 +34,8 @@ La biblioteca psycopg2 és un adaptador entre PostgreSQL i Python. És a dir, en
 Per instal·lar la biblioteca utilitzem:
 `pip install psycopg2`
 
+[Documentación oficial de Psycopg2](https://www.psycopg.org)
+
 ### **Werkzeug.security, què és i per a què s'utilitza**
 
 És un mòdul de la biblioteca Werkzeug, una col·lecció d'utilitats WSGI (Web Server Gateway Interface) per a Python, proporcionant funcions per treballar amb seguretat i autenticació en aplicacions de tipus 'hash'.
@@ -83,3 +85,4 @@ Ofereixen funcionalitats entre les que destaquen:
 
 La probabilitat de col·lisió és infíma, al voltant de 2^128, ja que `werkzeug.security` utilitza algoritmes de hash segurs, com ara SHA-256 i SHA-512, i també aplica un "salt" que crea una cadena aleatòria única a la nostra encriptació fent-la encara més efectiva contra atacs de força bruta i cerca de col·lisions.
 
+[Documentación de Werkzeug](https://github.com/pallets/werkzeug)
