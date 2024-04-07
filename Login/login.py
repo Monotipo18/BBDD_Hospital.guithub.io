@@ -41,16 +41,16 @@ def Registro(USUARIO, CONTRASEÑA):
     Cargar_csv(USUARIO_ENC, PASWORD_ENC)
     
     # Conexión a la base de datos PostgreSQL
-#   conn = psycopg2.connect(
-#       dbname="Hospital_Pruebas",
-#       user="ASIXProyecto",
-#       password="@s1xPr0y4ct0",
-#       host="snakeeater.equemmfoundation.top",
-#   )
-#    cur = conn.cursor()
-#     cur.execute(sql.SQL("CREATE ROLE {} LOGIN PASSWORD %s").format(sql.Identifier(USUARIO)), (CONTRASEÑA,))
-#    conn.commit()
-#    conn.close()
+   conn = psycopg2.connect(
+       dbname="Hospital_Pruebas",
+       user="ASIXProyecto",
+       password="@s1xPr0y4ct0",
+       host="snakeeater.equemmfoundation.top",
+   )
+    cur = conn.cursor()
+     cur.execute(sql.SQL("CREATE ROLE {} LOGIN PASSWORD %s").format(sql.Identifier(USUARIO)), (CONTRASEÑA,))
+    conn.commit()
+    conn.close()
 
 # Cargamos datos en el archivo CSV
 def Cargar_csv(dato1,dato2):
