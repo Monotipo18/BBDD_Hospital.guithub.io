@@ -12,7 +12,7 @@
 
 #  **Biblioteca:**
 
-#### **Pwinput, què és i per a què s'utilitza**
+### **Pwinput, què és i per a què s'utilitza**
 
 Es una biblioteca original de Python utilizada para enmascarar los caracteres escritos en una cadena de texto, generalmente utilizada en aplicaciones donde haya que mantener una seguridad.
 
@@ -27,14 +27,14 @@ Link oficial de la documentación
 [Documentación oficial de pwinput](https://pypi.org/project/pwinput/)
 
 
-**Psycopg2, què és i per a què s'utilitza**
+### **Psycopg2, què és i per a què s'utilitza**
 
 La biblioteca psycopg2 és un adaptador entre PostgreSQL i Python. És a dir, ens permet treballar amb bases de dades PostgreSQL des de Python.
 
 Per instal·lar la biblioteca utilitzem:
 `pip install psycopg2`
 
-**werkzeug.security, què és i per a què s'utilitza**
+### **werkzeug.security, què és i per a què s'utilitza**
 
 És un mòdul de la biblioteca Werkzeug, una col·lecció d'utilitats WSGI (Web Server Gateway Interface) per a Python, proporcionant funcions per treballar amb seguretat i autenticació en aplicacions de tipus 'hash'.
 Ofereixen funcionalitats entre les que destaquen:
