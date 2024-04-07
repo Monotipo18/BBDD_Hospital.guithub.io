@@ -34,7 +34,7 @@ La biblioteca psycopg2 és un adaptador entre PostgreSQL i Python. És a dir, en
 Per instal·lar la biblioteca utilitzem:
 `pip install psycopg2`
 
-### **werkzeug.security, què és i per a què s'utilitza**
+### **Werkzeug.security, què és i per a què s'utilitza**
 
 És un mòdul de la biblioteca Werkzeug, una col·lecció d'utilitats WSGI (Web Server Gateway Interface) per a Python, proporcionant funcions per treballar amb seguretat i autenticació en aplicacions de tipus 'hash'.
 Ofereixen funcionalitats entre les que destaquen:
