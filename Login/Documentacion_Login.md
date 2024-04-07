@@ -12,7 +12,7 @@
 
 #  **Biblioteca:**
 
-<u>**Pwinput, què és i per a què s'utilitza**<\u>
+<u>**Pwinput, què és i per a què s'utilitza**</u>
 
 Es una biblioteca original de Python utilizada para enmascarar los caracteres escritos en una cadena de texto, generalmente utilizada en aplicaciones donde haya que mantener una seguridad.
 
