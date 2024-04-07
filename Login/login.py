@@ -7,12 +7,13 @@ from psycopg2 import sql
 archivo_csv = 'A.csv'
 Titols=["Usuario","Contraseña"]
 
+#CREACIÓ DEL FITXER
 def Crear_csv():
     with open(archivo_csv, 'a', newline='') as file:
         writer = csv.writer(file, delimiter=';')
         writer.writerow(Titols)
 
-
+#Comprovació Usuario Existent
 def usuario_existente(usuario):
     try:
         with open(archivo_csv, newline='', encoding='utf-8') as csvfile:
@@ -25,7 +26,7 @@ def usuario_existente(usuario):
     except Exception as e:
         print("Usuario Existente")
         return False
-
+#Registre del usuari
 def Registro(USUARIO, CONTRASEÑA):
     if usuario_existente(USUARIO):
         print("El usuario ya existe.")
@@ -43,11 +44,12 @@ def Registro(USUARIO, CONTRASEÑA):
     cur.execute(sql.SQL("CREATE ROLE {} LOGIN PASSWORD %s").format(sql.Identifier(USUARIO)), (CONTRASEÑA,))
     conn.commit()
     conn.close()
-
+#Carrega de informació al CSV
 def Cargar_csv(dato1,dato2):
         with open(archivo_csv, 'a', newline='',encoding='utf-8') as file:
             writer = csv.writer(file, delimiter=';')
             writer.writerow([dato1,dato2])
+#Inici de sesió 
 def Login(USUARIO, CONTRASEÑA):
     try:
         credenciales_validas = False  
