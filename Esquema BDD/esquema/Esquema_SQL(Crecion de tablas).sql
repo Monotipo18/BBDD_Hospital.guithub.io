@@ -37,7 +37,7 @@ CREATE TABLE Reserva_Habitacion
 
 CREATE TABLE Personal
 (
-  Curriculum BLOB NOT NULL,
+  Curriculum BYTEA NOT NULL,
   Estudis TEXT NOT NULL,
   DNI VARCHAR(9) NOT NULL,
   NOM VARCHAR(25) NOT NULL,
