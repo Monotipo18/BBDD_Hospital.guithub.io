@@ -1,41 +1,12 @@
-CREATE TABLE Visitas_Programadas
-(
-  ID_Visita INT NOT NULL,
-  Diagnostic INT NOT NULL,
-  Medicaments INT NOT NULL,
-  Fecha INT NOT NULL,
-  Hora INT NOT NULL,
-  Ya_Visitat INT NOT NULL,
-  ID_Paciente INT NOT NULL,
-  PRIMARY KEY (ID_Visita)
-);
-
 CREATE TABLE Paciente
 (
   ID_Paciente INT NOT NULL,
   DNI INT NOT NULL,
   Nom INT NOT NULL,
-  Primer_Cognom INT NOT NULL,
+  1r_Cognom INT NOT NULL,
   N_ºSeguretat_Social INT NOT NULL,
   PRIMARY KEY (ID_Paciente),
   UNIQUE (N_ºSeguretat_Social)
-);
-
-CREATE TABLE Personal_Vari
-(
-  ID_Personal_Vari INT NOT NULL,
-  Tipus_de_feina INT NOT NULL,
-  PRIMARY KEY (ID_Personal_Vari)
-);
-
-CREATE TABLE Personal
-(
-  Nom INT NOT NULL,
-  Primer_Cognom INT NOT NULL,
-  Segon_Cognom INT NOT NULL,
-  Telefón INT NOT NULL,
-  DNI INT NOT NULL,
-  PRIMARY KEY (DNI)
 );
 
 CREATE TABLE Planta
@@ -64,46 +35,59 @@ CREATE TABLE Reserva_Habitacion
   FOREIGN KEY (ID_Paciente) REFERENCES Paciente(ID_Paciente)
 );
 
-CREATE TABLE Reserva_Quirofan_
+CREATE TABLE Personal
 (
-  Nº_Reserva_Quirofan INT NOT NULL,
-  PRIMARY KEY (Nº_Reserva_Quirofan)
-);
-
-CREATE TABLE Pot_Tenir2
-(
-  ID_Paciente INT NOT NULL,
-  ID_Visita INT NOT NULL,
-  PRIMARY KEY (ID_Paciente, ID_Visita),
-  FOREIGN KEY (ID_Paciente) REFERENCES Paciente(ID_Paciente),
-  FOREIGN KEY (ID_Visita) REFERENCES Visitas_Programadas(ID_Visita)
-);
-
-CREATE TABLE Hi_ha1
-(
+  Curriculum INT NOT NULL,
+  Estudis INT NOT NULL,
   DNI INT NOT NULL,
-  ID_Personal_Vari INT NOT NULL,
-  PRIMARY KEY (DNI, ID_Personal_Vari),
-  FOREIGN KEY (DNI) REFERENCES Personal(DNI),
-  FOREIGN KEY (ID_Personal_Vari) REFERENCES Personal_Vari(ID_Personal_Vari)
+  NOM INT NOT NULL,
+  Primer_Cognom INT NOT NULL,
+  Segon_cognom INT NOT NULL,
+  Telefon INT NOT NULL,
+  ID_PERSONAL INT NOT NULL,
+  PRIMARY KEY (DNI),
+  UNIQUE (ID_PERSONAL)
+);
+
+CREATE TABLE Personal_vari
+(
+  Tipus_Personal INT NOT NULL,
+  DNI INT NOT NULL,
+  PRIMARY KEY (DNI),
+  FOREIGN KEY (DNI) REFERENCES Personal(DNI)
 );
 
 CREATE TABLE Metge_Metgessa
 (
-  ID_Personal_Medic INT NOT NULL,
-  Estudis INT NOT NULL,
-  Curriculum INT NOT NULL,
+  DNI INT NOT NULL,
   ID_Paciente INT NOT NULL,
-  PRIMARY KEY (ID_Personal_Medic),
+  PRIMARY KEY (DNI),
+  FOREIGN KEY (DNI) REFERENCES Personal(DNI),
   FOREIGN KEY (ID_Paciente) REFERENCES Paciente(ID_Paciente)
+);
+
+CREATE TABLE Visitas_Programadas
+(
+  ID_Visita INT NOT NULL,
+  Diagnostic INT NOT NULL,
+  Medicaments INT NOT NULL,
+  Fecha INT NOT NULL,
+  Hora INT NOT NULL,
+  Ya_Visitat INT NOT NULL,
+  ID_Paciente INT NOT NULL,
+  ID_Paciente INT NOT NULL,
+  DNI INT NOT NULL,
+  PRIMARY KEY (ID_Visita),
+  FOREIGN KEY (ID_Paciente) REFERENCES Paciente(ID_Paciente),
+  FOREIGN KEY (DNI) REFERENCES Metge_Metgessa(DNI)
 );
 
 CREATE TABLE Especialidad
 (
   Nom_Especialitat INT NOT NULL,
   ID_Especialidad INT NOT NULL,
-  ID_Personal_Medic INT NOT NULL,
-  FOREIGN KEY (ID_Personal_Medic) REFERENCES Metge_Metgessa(ID_Personal_Medic)
+  DNI INT NOT NULL,
+  FOREIGN KEY (DNI) REFERENCES Metge_Metgessa(DNI)
 );
 
 CREATE TABLE Quirofano
@@ -123,30 +107,11 @@ CREATE TABLE Aparells_Medics
   FOREIGN KEY (NºQuirofano) REFERENCES Quirofano(NºQuirofano)
 );
 
-CREATE TABLE Fa
-(
-  ID_Personal_Medic INT NOT NULL,
-  ID_Visita INT NOT NULL,
-  PRIMARY KEY (ID_Personal_Medic, ID_Visita),
-  FOREIGN KEY (ID_Personal_Medic) REFERENCES Metge_Metgessa(ID_Personal_Medic),
-  FOREIGN KEY (ID_Visita) REFERENCES Visitas_Programadas(ID_Visita)
-);
-
-CREATE TABLE Hi_ha2
-(
-  DNI INT NOT NULL,
-  ID_Personal_Medic INT NOT NULL,
-  PRIMARY KEY (DNI, ID_Personal_Medic),
-  FOREIGN KEY (DNI) REFERENCES Personal(DNI),
-  FOREIGN KEY (ID_Personal_Medic) REFERENCES Metge_Metgessa(ID_Personal_Medic)
-);
-
-CREATE TABLE Pot_Tenir
+CREATE TABLE Reserva_Quirofan_
 (
   Nº_Reserva_Quirofan INT NOT NULL,
   NºQuirofano INT NOT NULL,
-  PRIMARY KEY (Nº_Reserva_Quirofan, NºQuirofano),
-  FOREIGN KEY (Nº_Reserva_Quirofan) REFERENCES Reserva_Quirofan_(Nº_Reserva_Quirofan),
+  PRIMARY KEY (Nº_Reserva_Quirofan),
   FOREIGN KEY (NºQuirofano) REFERENCES Quirofano(NºQuirofano)
 );
 
@@ -156,41 +121,24 @@ CREATE TABLE Operaciones
   Data INT NOT NULL,
   Hora INT NOT NULL,
   Tipus_Operacio INT NOT NULL,
-  ID_Personal_Medic INT NOT NULL,
   ID_Paciente INT NOT NULL,
   NºQuirofano INT NOT NULL,
+  DNI INT NOT NULL,
   PRIMARY KEY (ID_Opereaciones),
-  FOREIGN KEY (ID_Personal_Medic) REFERENCES Metge_Metgessa(ID_Personal_Medic),
   FOREIGN KEY (ID_Paciente) REFERENCES Paciente(ID_Paciente),
-  FOREIGN KEY (NºQuirofano) REFERENCES Quirofano(NºQuirofano)
+  FOREIGN KEY (NºQuirofano) REFERENCES Quirofano(NºQuirofano),
+  FOREIGN KEY (DNI) REFERENCES Metge_Metgessa(DNI)
 );
 
 CREATE TABLE Personal_Infermeria
 (
-  ID_Personal_Infermeria INT NOT NULL,
-  Estudis INT NOT NULL,
-  Curriculum INT NOT NULL,
-  ID_Personal_Medic INT NOT NULL,
-  ID_Opereaciones INT NOT NULL,
-  PRIMARY KEY (ID_Personal_Infermeria),
-  FOREIGN KEY (ID_Personal_Medic) REFERENCES Metge_Metgessa(ID_Personal_Medic),
-  FOREIGN KEY (ID_Opereaciones) REFERENCES Operaciones(ID_Opereaciones)
-);
-
-CREATE TABLE Hi_ha3
-(
   DNI INT NOT NULL,
-  ID_Personal_Infermeria INT NOT NULL,
-  PRIMARY KEY (DNI, ID_Personal_Infermeria),
-  FOREIGN KEY (DNI) REFERENCES Personal(DNI),
-  FOREIGN KEY (ID_Personal_Infermeria) REFERENCES Personal_Infermeria(ID_Personal_Infermeria)
-);
-
-CREATE TABLE Te_Assignat
-(
+  DNI INT NOT NULL,
   Nº_Planta INT NOT NULL,
-  ID_Personal_Infermeria INT NOT NULL,
-  PRIMARY KEY (Nº_Planta, ID_Personal_Infermeria),
+  ID_Opereaciones INT NOT NULL,
+  PRIMARY KEY (DNI),
+  FOREIGN KEY (DNI) REFERENCES Personal(DNI),
+  FOREIGN KEY (DNI) REFERENCES Metge_Metgessa(DNI),
   FOREIGN KEY (Nº_Planta) REFERENCES Planta(Nº_Planta),
-  FOREIGN KEY (ID_Personal_Infermeria) REFERENCES Personal_Infermeria(ID_Personal_Infermeria)
+  FOREIGN KEY (ID_Opereaciones) REFERENCES Operaciones(ID_Opereaciones)
 );
