@@ -5,7 +5,7 @@
 ### Contenido
 
 ## Esquema Relacional 
-![Imagen esquema relacional](Esquema Relacional.png)
+![Imagen esquema relacional](Esquema_Relacional.png)
 
 ## Entitats i els seus atributs:
 1- Personal: Hem creat aquesta entitat per poder tenir tot el personal d'una manera mes recollida i eficient,es definiran en tres relacions asociatives:
