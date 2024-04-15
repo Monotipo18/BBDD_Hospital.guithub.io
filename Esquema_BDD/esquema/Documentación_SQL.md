@@ -1,68 +1,126 @@
-# PROJECTE PROGRAMACIO Y BASE DE DADES
+# PROJECTE PROGRAMACIÓ I BASE DE DADES
 
 ## Projecte Intermodular
 
-### Contenido
+### Contingut
 
 ## Esquema Relacional 
 ![Imagen esquema relacional](esquema_relacional.png)
 
 ## Entitats i els seus atributs:
-1- Personal: Hem creat aquesta entitat per poder tenir tot el personal d'una manera mes recollida i eficient,es definiran en tres relacions asociatives:
-Metge_metgessa, Personal Infermeria i personal vari(aquesta relacio asociativa contindra un atribut de Tipus Personal).
 
-Dins de personal tenim els seguents atributs:
-    1.1 Id_personal, Sera la clau principal.
-    1.2 DNI, Una segona clau principal.
-    1.3 Nom
-    1.4 Primer_cognom
-    1.5 Segon_cognom
-    1.6 Telefon
-    1.7 Estudis
-    1.8 Curriculum
+1. **Personal:** Hem creat aquesta entitat per poder tenir tot el personal d'una manera més recollida i eficient. Es definiran en tres relacions associatives: Metge_metgessa, Personal Infermeria, i personal vari (aquesta relació associativa contindrà un atribut de Tipus Personal).
+   
+   Atributs de Personal:
+   - Id_personal (clau principal)
+   - DNI (segona clau principal)
+   - Nom
+   - Primer_cognom
+   - Segon_cognom
+   - Telèfon
+   - Estudis
+   - Curriculum
+   - Email
 
-2- Paciente: Aquesta entitat l'hem creat per poder guardar totes les dades dels pacients que visitin l'hospital.
+2. **Metge_metgessa:** Aquesta entitat guardarà la informació rellevant dels metges.
+   
+   Atributs de Metge_metgessa:
+   - DNI (clau primària, associada a personal)
+   - ID_Pacientm (clau forana referenciant a pacient)
 
-Dins de Paciente trobarem els atributs:
-    2.1 ID_Paciente, Sera la clau principal.
-    2.2 Nº Seguretat Social, Una segona clau principal.
-    2.3 Nom
-    2.4 Primer_cognom
-    2.5 Segon_cognom
-    2.6 Telefon
-    2.7 Data_Naixament
-    2.8 Sexe
-    2.9 ID_Visita, clau forana de l'entitat Visita.
+3. **Especialtat:** Hem creat aquesta entitat per poder distingir a quina especialitat pertany cada metge.
+   
+   Atributs de Especialitat:
+   - ID_especialitat (clau primària)
+   - Nom_Especialitat
+   - DNI (referència a Metge_Metgessa)
 
-3- Visites Programades: Hem creat aquesta entitat per programar les visites entre metges i pacients.
+4. **Personal_Infermeria:** Hem creat aquesta entitat donat que és una de les principals de la nostra base de dades, juntament amb metges i pacients.
+   
+   Atributs de Personal_Infermeria:
+   - DNI (clau primària)
+   - DNI_Medic (clau forana que uneix infermeria amb metges)
+   - Num_Planta (clau forana per unificar els infermers a la planta assignada)
+   - ID_Operacions (clau forana per unificar els infermers assignats a les operacions)
 
-Dins de Visites Programades trobarem els atributs:
-    3.1 ID_Visita, sera la clau principal.
-    3.2 Diagnostic, Explicara les conclusions a les que ha arrivat el metge
-    3.3 Medicaments, Quins medicaments s'han recceptat (en cas de que es recceptin)
-    3.4 Hora (De la visita)
-    3.5 Data (De la visita)
-    3.6 Ya_visitat, comprovarem si ya ha vingut a fer la visita
-    3.7 ID_Personal medic, clau forana de la relacio metge.
-    3.8 ID_Pacient, clau forana de la l'entitat Pacient.
+5. **Personal_vari:** Aquesta entitat l'hem creat per poder distingir el personal que no siguin metges ni infermers.
+   
+   Atributs de Personal_vari:
+   - DNI (clau primària)
+   - Tipus_Personal (amb aquest atribut distingim el personal al qual pertoca)
 
-4- Reserva d'habitacions: Aquesta entitat l'hem creat per poder portar al dia les reserves de les habitacions de l'hospital i sebre quins pacients tenim ingressats, a quina habitacio, el dia d'entrada i sortida.
+6. **Pacient:** Aquesta entitat l'hem creat per poder guardar totes les dades dels pacients que visitin l'hospital.
+   
+   Atributs de Pacient:
+   - ID_Pacient (clau principal)
+   - Nº Seguretat Social (segona clau principal)
+   - Nom
+   - Primer_cognom
+   - Segon_cognom
+   - Telèfon
+   - Data_Naixement
+   - Sexe
+   - ID_Visita (clau forana de l'entitat Visita)
 
-Dins de Reserva d'habitacions trobarem els atributs:
-    4.1 ID_Reserva, seria la clau principal.
-    4.2 Dia ingres.
-    4.3 Dia sortida.
-    4.4 Nº Habitacio, clau forana de l'entitat Habitacio
-    4.5 ID_Pacient, clau forana de l'entitat Pacient
+7. **Visites Programades:** Hem creat aquesta entitat per programar les visites entre metges i pacients.
+   
+   Atributs de Visites Programades:
+   - ID_Visita (clau principal)
+   - Diagnostic (explicarà les conclusions a les quals ha arribat el metge)
+   - Medicaments (quins medicaments s'han receptat, en cas de que s'hagin receptat)
+   - Hora (de la visita)
+   - Data (de la visita)
+   - Ya_visitat (comprovarem si ja ha vingut a fer la visita)
+   - ID_Personal_medic (clau forana de la relació metge)
+   - ID_Pacient (clau forana de l'entitat Pacient)
 
-5- Habitacio: Hem creat aquesta entitat per sebre la cuantitat d'habitacions que te l'hospital.
+8. **Reserva d'habitacions:** Aquesta entitat l'hem creat per poder portar al dia les reserves de les habitacions de l'hospital i saber quins pacients tenim ingressats, a quina habitació, el dia d'entrada i sortida.
+   
+   Atributs de Reserva d'habitacions:
+   - ID_Reserva (clau principal)
+   - Dia_ingrés
+   - Dia_sortida
+   - Nº Habitació (clau forana de l'entitat Habitació)
+   - ID_Pacient (clau forana de l'entitat Pacient)
 
-Dins d'Habitacio trobarem els atributs:
-    5.1 Nº Habitacio, sera la clau primaria.
-    5.2 Nº Planta, Clau forana de l'entitat planta
+9. **Habitació:** Hem creat aquesta entitat per saber la quantitat d'habitacions que té l'hospital.
+   
+   Atributs d'Habitació:
+   - Nº Habitació (clau primària)
+   - Nº Planta (clau forana de l'entitat Planta)
 
-6 Planta: Aquesta entitat l'hem creat per poder definir cuantes plantes te l'hospital i quins quirofans te asignat a cada planta.
+10. **Planta:** Aquesta entitat l'hem creat per poder definir quantes plantes té l'hospital i quins quirofans té assignats a cada planta, juntament amb quin personal d'infermeria té associat.
+   
+    Atributs de Planta:
+    - Nº Planta (clau principal)
 
-Dins de Planta trobarem els atributs:
-    6.1 Nº Planta, seria la clau principal
-    6.2 
+11. **Quirofan:** Hem creat aquesta entitat on sabrem a quina planta està el quirofan al qual es faran les reserves.
+   
+    Atributs de Quirofan:
+    - Num_Quirofano (clau principal)
+    - Num_Planta (clau forana associada amb Planta)
+
+12. **Reserva_Quirofan:** Aquesta entitat l'hem creat per als pacients que tenen previstes operacions i per poder saber els quirofans que queden lliures.
+   
+    Atributs de Reserva_Quirofan:
+    - Num_reserva_Quirofan (clau principal)
+    - Num_Quirofano (clau forana referenciant Quirofan)
+
+13. **Aparells_Medics:** Hem creat aquesta entitat donat que s'han d'assignar diferents equips medics als diferents quirofans.
+   
+    Atributs de Aparells_Medics:
+    - ID_Aparells_Medics (clau primària)
+    - Nom_Aperell_Medic
+    - Num_Quirofano (clau forana que uneix amb Quirofan)
+
+14. **Operaciones:** Aquesta entitat ha sigut creada per saber quin pacient s'ha d'operar, quin dia i hora, juntament amb el metge que l'operarà i a quin quirofen.
+
+   Atributs de Operaciones:
+   - ID_Operaciones (clau primària)
+   - Dia_Operacio
+   - Hora_Operacio
+   - Tipus_Operacio (l'operació que s'ha de fer)
+   - ID_Paciente (clau forana per saber quin pacient s'ha d'operar)
+   - Num_Quirofano (clau forana per saber a quin quirofà s'opera)
+   - DNI_metge (clau forana per saber quin és el metge que ha d'operar)
+

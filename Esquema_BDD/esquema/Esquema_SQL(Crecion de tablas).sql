@@ -55,7 +55,7 @@ CREATE TABLE Personal
 
 CREATE TABLE Personal_vari
 (
-  Tipus_Personal SERIAL NOT NULL,
+  Tipus_Personal VARCHAR(50) NOT NULL,
   DNI VARCHAR(9) NOT NULL,
   PRIMARY KEY (DNI),
   FOREIGN KEY (DNI) REFERENCES Personal(DNI)
@@ -90,6 +90,7 @@ CREATE TABLE Especialidad
   Nom_Especialitat VARCHAR(50) NOT NULL,
   ID_Especialidad INT NOT NULL,
   DNI VARCHAR(9) NOT NULL,
+  PRIMARY KEY (ID_Especialidad),
   FOREIGN KEY (DNI) REFERENCES Metge_Metgessa(DNI)
 );
 
@@ -126,11 +127,11 @@ CREATE TABLE Operaciones
   Tipus_Operacio VARCHAR(25) NOT NULL,
   ID_Paciente INT NOT NULL,
   Num_Quirofano INT NOT NULL,
-  DNI VARCHAR(9) NOT NULL,
+  DNI_metge VARCHAR(9) NOT NULL,
   PRIMARY KEY (ID_Opereaciones),
   FOREIGN KEY (ID_Paciente) REFERENCES Paciente(ID_Paciente),
   FOREIGN KEY (Num_Quirofano) REFERENCES Quirofano(Num_Quirofano),
-  FOREIGN KEY (DNI) REFERENCES Metge_Metgessa(DNI)
+  FOREIGN KEY (DNI_metge) REFERENCES Metge_Metgessa(DNI)
 );
 
 CREATE TABLE Personal_Infermeria
