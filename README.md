@@ -1,2 +1,3 @@
 # BBDD_Hospital.guithub.io
-Grupo 1ºASIX Unai, Victor, Alex, Manu
+> [!NOTE]
+> Grupo 1ºASIX Unai, Victor, Alex, Manu
