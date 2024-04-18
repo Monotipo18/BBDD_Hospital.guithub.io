@@ -9,21 +9,21 @@ Los médicos pueden tener especialidades de medicina interna, pediatría, cirug�
 Por eso hemos decidido que los médicos pueden realizar las siguientes acciones en las tablas de la BD:
 
 | Tablas | Permisos |
-| :---         |     :---:      |
-| Aparells_medics  | Ver y modificar la tabla     |
-| Especialitat     | Ver la tabla      |
-| Habitacio        | Ver y modificar     |
-| Metge_metgessa   | Nada       |
-| Operacions       | Ver y modificar     |
-| Pacient          | Ver y modificar      |
-| Personal         | Nada    |
-| Personal_infermeria|  Ver la tabla     |
-| Personal_vari    | Nada     |
-| Planta           |  Ver la tabla       |
-| Quirofan         | Ver la tabla     |
-| Reserva_habitacio| Ver y modificar       |
-| Reserva_Quirofan | Ver y modifica     |
-| Visites_programades | Ver y modificar    |
+| :---:       |     :---:      |
+| Aparells_medics  | `Ver y modificar la tabla`    |
+| Especialitat     | `Ver la tabla`      |
+| Habitacio        | `Ver y modificar`     |
+| Metge_metgessa   | `Nada`       |
+| Operacions       | `Ver y modificar`     |
+| Pacient          | `Ver y modificar`      |
+| Personal         | `Nada`    |
+| Personal_infermeria|  `Ver la tabla`     |
+| Personal_vari    | `Nada`     |
+| Planta           |  `Ver la tabla`       |
+| Quirofan         | `Ver la tabla`     |
+| Reserva_habitacio| `Ver y modificar`       |
+| Reserva_Quirofan | `Ver y modifica`     |
+| Visites_programades | `Ver y modificar`    |
 
 Además de eso sé si no es necesario para el médico se le aplicará data masking a los datos de carácter personal y no se le permitirá acceder a ciertas columnas (datos) que no necesita consultar, por ejemplo que no pueda consultar información privada de médicos ( compañeros de trabajo).
 
