@@ -52,4 +52,4 @@ Dins d'aquest requisits trobem documentacio com:
 
 
 ### Webgrafia
-[1] https://advisera.com/es/articulos/lista-de-documentos-obligatorios-requeridos-por-el-rgpd-de-la-ue/
+https://advisera.com/es/articulos/lista-de-documentos-obligatorios-requeridos-por-el-rgpd-de-la-ue/
