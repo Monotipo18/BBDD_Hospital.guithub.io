@@ -29,6 +29,23 @@ Consideramos que el grupo de enfermeros incluye todos los trabajadores que sean 
 
 Por eso hemos decidido que los enfermeros pueden realizar las siguientes acciones en las tablas de la BD:
 
+| Tablas | Permisos |
+| :---         |     :---:      |
+| Aparells_medics  | git status     |
+| Especialitat     | git diff       |
+| Habitacio        | git status     |
+| Metge_metgessa   | git diff       |
+| Operacions       | git status     |
+| Pacient          | git diff       |
+| Personal         | git status     |
+| Personal_infermeria| git diff     |
+| Personal_vari    | git status     |
+| Planta           | git diff       |
+| Quirofan         | git status     |
+| Reserva_habitacio| git diff       |
+| Reserva_Quirofan | git status     |
+| Visites_programades | git diff    |
+
 **Aparells\_medics:** Ver y modificar la tabla
 
 **Especialidad:** Nada
