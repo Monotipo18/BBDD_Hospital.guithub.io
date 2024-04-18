@@ -26,7 +26,11 @@
    
    Atributs de Metge_metgessa:
    - DNI (clau primària, associada a personal)
+<<<<<<< HEAD
    - ID_Pacientm (clau forana referenciant a pacient)
+=======
+   - ID_Pacient (clau forana referenciant a pacient)
+>>>>>>> 35163b5362352f557f6a607667d79ce6e6ff56bb
 
 3. **Especialtat:** Hem creat aquesta entitat per poder distingir a quina especialitat pertany cada metge.
    
