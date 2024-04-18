@@ -5,7 +5,7 @@
 ### Contingut
 
 ## Esquema Relacional 
-![Imagen esquema relacional](modelo_relacional.png)
+![Imagen esquema relacional](modelo_relacional.jpg)
 
 ## Entitats i els seus atributs:
 
