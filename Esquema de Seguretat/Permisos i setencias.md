@@ -31,20 +31,20 @@ Por eso hemos decidido que los enfermeros pueden realizar las siguientes accione
 
 | Tablas | Permisos |
 | :---         |     :---:      |
-| Aparells_medics  | git status     |
-| Especialitat     | git diff       |
-| Habitacio        | git status     |
-| Metge_metgessa   | git diff       |
-| Operacions       | git status     |
-| Pacient          | git diff       |
-| Personal         | git status     |
-| Personal_infermeria| git diff     |
-| Personal_vari    | git status     |
-| Planta           | git diff       |
-| Quirofan         | git status     |
-| Reserva_habitacio| git diff       |
-| Reserva_Quirofan | git status     |
-| Visites_programades | git diff    |
+| Aparells_medics  | Ver y modificar la tabla     |
+| Especialitat     | Ver la tabla      |
+| Habitacio        | Ver y modificar     |
+| Metge_metgessa   | Nada       |
+| Operacions       | Ver y modificar     |
+| Pacient          | Ver y modificar      |
+| Personal         | Nada    |
+| Personal_infermeria|  Ver la tabla     |
+| Personal_vari    | Nada     |
+| Planta           |  Ver la tabla       |
+| Quirofan         | Ver la tabla     |
+| Reserva_habitacio| Ver y modificar       |
+| Reserva_Quirofan | Ver y modifica     |
+| Visites_programades | Ver y modificar    |
 
 **Aparells\_medics:** Ver y modificar la tabla
 
