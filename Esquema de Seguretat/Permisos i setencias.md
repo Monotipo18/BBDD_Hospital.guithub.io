@@ -23,7 +23,7 @@ Por eso hemos decidido que los médicos pueden realizar las siguientes acciones 
 | Reserva_Quirofan | Ver y modifica     |
 | Visites_programades | Ver y modificar    |
 
-Además de eso sé si no es necesario para el médico se le aplicará data masking a los datos de carácter personal y no se le permitirá acceder a ciertas columnas (datos) que no necesita consultar), por ejemplo que no pueda consultar información privada de médicos ( compañeros de trabajo).
+Además de eso sé si no es necesario para el médico se le aplicará data masking a los datos de carácter personal y no se le permitirá acceder a ciertas columnas (datos) que no necesita consultar, por ejemplo que no pueda consultar información privada de médicos ( compañeros de trabajo).
 
 # <a name="_ta759hl62xx6"></a>**Enfermero**
 
