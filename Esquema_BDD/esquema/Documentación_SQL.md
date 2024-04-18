@@ -120,11 +120,11 @@
 14. **Operaciones:** Aquesta entitat ha sigut creada per saber quin pacient s'ha d'operar, quin dia i hora, juntament amb el metge que l'operarà i a quin quirofen.
 
    Atributs de Operaciones:
-   - ID_Operaciones (clau primària)
-   - Dia_Operacio
-   - Hora_Operacio
-   - Tipus_Operacio (l'operació que s'ha de fer)
-   - ID_Paciente (clau forana per saber quin pacient s'ha d'operar)
-   - Num_Quirofano (clau forana per saber a quin quirofà s'opera)
-   - DNI_metge (clau forana per saber quin és el metge que ha d'operar)
+      - ID_Operaciones (clau primària)
+      - Dia_Operacio
+      - Hora_Operacio
+      - Tipus_Operacio (l'operació que s'ha de fer)
+      - ID_Paciente (clau forana per saber quin pacient s'ha d'operar)
+      - Num_Quirofano (clau forana per saber a quin quirofà s'opera)
+      - DNI_metge (clau forana per saber quin és el metge que ha d'operar)
 
