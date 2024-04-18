@@ -1,4 +1,6 @@
-﻿# <a name="_g6jjofn67z48"></a>**Metges**
+﻿# Documentacio del Esquema de seguretat
+
+## <a name="_g6jjofn67z48"></a>**Metges**
 
 Consideramos que el grupo de médicos incluye todos los trabajadores que sean profesionales de la salud capacitados y autorizados para diagnosticar, tratar y prevenir enfermedades y lesiones 
 
