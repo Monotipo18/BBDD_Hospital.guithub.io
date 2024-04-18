@@ -50,3 +50,6 @@ Dins d'aquest requisits trobem documentacio com:
     - Procediment de resposta a la violació de seguretat de dades.
     - Llistat d'activitats de tractament.
 
+
+### Webgrafia
+[1] https://advisera.com/es/articulos/lista-de-documentos-obligatorios-requeridos-por-el-rgpd-de-la-ue/
