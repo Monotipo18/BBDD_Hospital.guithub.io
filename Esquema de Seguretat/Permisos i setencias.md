@@ -64,7 +64,6 @@ A més, si no és necessari per al metge se li aplicarà data masking a les dade
 
 # **Zeladors**
 
-
 Considerem que el grup de zelador inclou tots els treballadors que siguin professionals de la salut que *esten capacitats a l'hora de fer tasques de suport i assistència.Les seves responsabilitats poden incloure el trasllat de pacients d'un lloc a un altre dins del centre, el transport de material mèdic, l'ajuda en la mobilització de pacients, la distribució de subministraments, entre altres funcions relacionades amb la logística i el suport operatiu en l'àmbit sanitari. 
 
 Per això hem decidit que els Zeladors poden realitzar les següents accions en les taules de la BD:
@@ -142,24 +141,28 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Reserva_Quirofan | `Res`     |
 | Visites_programades | `Res`    |
 
-# **Roles de Grupo**
+# **Rols de Grup**
 ## Grup Metges
+### Permisos
 
+Hem decidit crear el rol de metges per adjuntar tots el usuaris que siguin metges (o derivats d'aquest) perque tinguin tots els mateixos permisos.
+```
 CREATE ROLE medicos WITH
 
-`	`NOLOGIN
+	 NOLOGIN
 
-`	`NOSUPERUSER
+	 NOSUPERUSER
 
-`	`NOCREATEDB
+	 NOCREATEDB
 
-`	`NOCREATEROLE
+	 NOCREATEROLE
 
-`	`INHERIT
+	 INHERIT
 
-`	`NOREPLICATION
+	 NOREPLICATION
 
-`	`CONNECTION LIMIT -1;
+	 CONNECTION LIMIT -1;
+```
 
 grant connect on database asixhospitalbd to medicos;
 
