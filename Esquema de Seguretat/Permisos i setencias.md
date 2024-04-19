@@ -149,7 +149,7 @@ Hem decidit crear el rol de metges per adjuntar tots el usuaris que siguin metge
 
 El rol/grup no ha de poder iniciar sesio pero si els usuaris(aixo s'indica a l'hora de crear l'usuari), no seran superusuaris ni podran crear BD ni rols, pero els usuaris membres del rol podran heredar els seus permisos tant a nivell de sitema com a nivell de dades i per ultim no podrian fer replicas de la BD.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Els permis de NOLOGIN no s'hereda , es per aixo que el usuari quan es crea s'ha d'indicar que pot iniciar sessio.
 
 ```
@@ -177,7 +177,7 @@ Hem decidit crear el rol de infermers per adjuntar tots el usuaris que siguin in
 
 El rol/grup no ha de poder iniciar sesio pero si els usuaris(aixo s'indica a l'hora de crear l'usuari), no seran superusuaris ni podran crear BD ni rols, pero els usuaris membres del rol podran heredar els seus permisos tant a nivell de sitema com a nivell de dades i per ultim no podrian fer replicas de la BD.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Els permis de NOLOGIN no s'hereda , es per aixo que el usuari quan es crea s'ha d'indicar que pot iniciar sessio.
 
 ```
@@ -200,29 +200,35 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 grant usage on schema hospital to enfermeros;
 ```
 ## Grup Celadors
+### Permisos
 
+Hem decidit crear el rol de celadors per adjuntar tots el usuaris que siguin celadors, perque tinguin tots els mateixos permisos.
+
+El rol/grup no ha de poder iniciar sesio pero si els usuaris(aixo s'indica a l'hora de crear l'usuari), no seran superusuaris ni podran crear BD ni rols, pero els usuaris membres del rol podran heredar els seus permisos tant a nivell de sitema com a nivell de dades i per ultim no podrian fer replicas de la BD.
+
+> [!NOTE]
+> Els permis de NOLOGIN no s'hereda , es per aixo que el usuari quan es crea s'ha d'indicar que pot iniciar sessio.
+
+```
 CREATE ROLE celadores WITH
+    NOLOGIN
+    NOSUPERUSER
+    NOCREATEDB
+    NOCREATEROLE
+    INHERIT
+    NOREPLICATION
+    CONNECTION LIMIT -1;
 
-`	`NOLOGIN
-
-`	`NOSUPERUSER
-
-`	`NOCREATEDB
-
-`	`NOCREATEROLE
-
-`	`INHERIT
-
-`	`NOREPLICATION
-
-`	`CONNECTION LIMIT -1;
-
+Els membres del grup podran conectarse a la BD
+```
 grant connect on database asixhospitalbd to celadores;
-
+```
+Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dades).
+```
 grant usage on schema hospital to celadores;
-
+```
 ## Grup Administratius
-
+### Permisos
 CREATE ROLE administrativos WITH
 
 `	`NOLOGIN
