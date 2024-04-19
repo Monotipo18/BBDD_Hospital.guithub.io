@@ -230,20 +230,13 @@ grant usage on schema hospital to celadores;
 ## Grup Administratius
 ### Permisos
 CREATE ROLE administrativos WITH
-
-`	`NOLOGIN
-
-`	`NOSUPERUSER
-
-`	`NOCREATEDB
-
-`	`NOCREATEROLE
-
-`	`INHERIT
-
-`	`NOREPLICATION
-
-`	`CONNECTION LIMIT -1;
+    NOLOGIN
+    NOSUPERUSER
+    NOCREATEDB
+    NOCREATEROLE
+    INHERIT
+    NOREPLICATION
+    CONNECTION LIMIT -1;
 
 grant connect on database asixhospitalbd to administrativos;
 
@@ -252,20 +245,13 @@ grant usage on schema hospital to administrativos;
 ## Grup Conductors d'ambulancia
 
 CREATE ROLE conductores\_ambulancia WITH
-
-`	`NOLOGIN
-
-`	`NOSUPERUSER
-
-`	`NOCREATEDB
-
-`	`NOCREATEROLE
-
-`	`INHERIT
-
-`	`NOREPLICATION
-
-`	`CONNECTION LIMIT -1;
+    NOLOGIN
+    NOSUPERUSER
+    NOCREATEDB
+    NOCREATEROLE
+    INHERIT
+    NOREPLICATION
+    CONNECTION LIMIT -1;
 
 grant connect on database asixhospitalbd to conductores\_ambulancia;
 
@@ -275,19 +261,13 @@ grant usage on schema hospital to conductores\_ambulancia;
 
 CREATE ROLE pacientes WITH
 
-`	`NOLOGIN
-
-`	`NOSUPERUSER
-
-`	`NOCREATEDB
-
-`	`NOCREATEROLE
-
-`	`INHERIT
-
-`	`NOREPLICATION
-
-`	`CONNECTION LIMIT -1;
+NOLOGIN
+NOSUPERUSER
+NOCREATEDB
+NOCREATEROLE
+INHERIT
+NOREPLICATION
+CONNECTION LIMIT -1;
 
 grant connect on database asixhospitalbd to pacientes;
 
