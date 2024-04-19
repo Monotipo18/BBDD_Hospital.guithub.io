@@ -1,10 +1,10 @@
 ﻿# Documentacio del Esquema de seguretat
 ## Projecte Intermodular
 ### Contingut
-- ### [Metges](#Metges)
-- ### [Infermer](#Infermer)
-- ### [Zeladors](#Zeladors)
-- ### [Administratius](#Administratius)
+-  [Metges](#Metges)
+-  [Infermer](#Infermer)
+-  [Zeladors](#Zeladors)
+-  [Administratius](#Administratius)
 # Permisos
 ## **Metges**
 
@@ -14,7 +14,7 @@ Els metges poden tenir especialitats de medicina interna, pediatria, cirurgia, g
 
 Per això hem decidit que els metges poden realitzar les següents accions en les taules de la BD:
 
-| Tablas | Permisos |
+| Taules | Permisos |
 | :---:       |     :---:      |
 | Aparells_medics  | `Veure y modificar`    |
 | Especialitat     | `Veure la taula`      |
@@ -39,7 +39,7 @@ Considerem que el grup d'infermers inclou tots els treballadors que siguin profe
 
 Per això hem decidit que els infermers poden realitzar les següents accions en les taules de la BD:
 
-| Tablas | Permisos |
+| Taules | Permisos |
 | :---:         |     :---:      |
 | Aparells_medics  | `Ver i modificar la tabla`     |
 | Especialitat     | `Res`      |
@@ -63,22 +63,26 @@ A més, si no és necessari per al metge se li aplicarà data masking a les dade
 
 Considerem que el grup de zelador inclou tots els treballadors que siguin professionals de la salut que *esten capacitats a l'hora de fer tasques de suport i assistència.Les seves responsabilitats poden incloure el trasllat de pacients d'un lloc a un altre dins del centre, el transport de material mèdic, l'ajuda en la mobilització de pacients, la distribució de subministraments, entre altres funcions relacionades amb la logística i el suport operatiu en l'àmbit sanitari. 
 
-Per això hem decidit que els Zeladors poden realitzar les següents accions en les taules de la *BD:
+Per això hem decidit que els Zeladors poden realitzar les següents accions en les taules de la BD:
 
-- **Aparells\_medics:** Ver y modificar la tabla
-- **Especialidad:** Nada
-- **Habitacion:** Ver la tabla
-- **Metge\_metgessa:** Nada
-- **Operacions:**  Ver la tabla
-- **Paciente:** Nada
-- **Personal:** Nada
-- **personal\_Infermeria:** Nada
-- **personal\_vari:** Nada
-- **planta:** Ver la tabla
-- **quirofano:** Ver la tabla
-- **reserva\_habitacion:** Ver la tabla
-- **reserva\_quirofano:** Ver la tabla
-- **visitas\_programadas:** Ver la tabla
+| Taules | Permisos |
+| :---:       |     :---:      |
+| Aparells_medics  | `Veure y modificar`    |
+| Especialitat     | `Res`      |
+| Habitacio        | `Veure la taula`     |
+| Metge_metgessa   | `Res`       |
+| Operacions       | `Veure la taula`     |
+| Pacient          | `Veure la taula`      |
+| Personal         | `Res`    |
+| Personal_infermeria|  `Res`     |
+| Personal_vari    | `Res`     |
+| Planta           |  `Veure la taula`       |
+| Quirofan         | `Veure la taula`     |
+| Reserva_habitacio| `Veure la taula`       |
+| Reserva_Quirofan | `Veure la taula`     |
+| Visites_programades | `Veure la taula`    |
+
+
 
 
 # **Administratius**
@@ -98,7 +102,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 - **reserva\_quirofano:** Todo
 - **visitas\_programadas:** Todo
 
-# <a name="_nnorx95tsa1c"></a>Conductors ambulancia
+# Conductors ambulancia
 
 - **Aparells\_medics:** Nada
 - **Especialidad:** Nada
@@ -115,7 +119,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 - **reserva\_quirofano:** Nada
 - **visitas\_programadas:** Nada
 
-# <a name="_iif1a84nkwag"></a>Pacients
+# Pacients
 
 
 - **Aparells\_medics:** Nada
@@ -133,8 +137,8 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 - **reserva\_quirofano:** Nada
 - **visitas\_programadas:** Nada
 
-# <a name="_xl5wh6yizu39"></a>**Roles de Grupo**
-## <a name="_ok0bj5a5yab7"></a>Metges
+# **Roles de Grupo**
+## Metges
 
 CREATE ROLE medicos WITH
 
@@ -156,7 +160,7 @@ grant connect on database asixhospitalbd to medicos;
 
 grant usage on schema hospital to medicos;
 
-## <a name="_oaylasd4aovt"></a>Enfermeros
+## Enfermeros
 
 CREATE ROLE enfermeros WITH
 
@@ -183,7 +187,7 @@ grant usage on schema hospital toenfermeros;
 
 
 
-## <a name="_yqep9tpuumzp"></a>Celadores
+## Celadors
 
 CREATE ROLE celadores WITH
 
@@ -205,7 +209,7 @@ grant connect on database asixhospitalbd to celadores;
 
 grant usage on schema hospital to celadores;
 
-## <a name="_9cq1v3izgtip"></a>Administratius
+## Administratius
 
 CREATE ROLE administrativos WITH
 
@@ -236,7 +240,7 @@ grant usage on schema hospital to administrativos;
 
 
 
-## <a name="_gk3xbxij49ab"></a>Conductores de Ambulancia
+## Conductores de Ambulancia
 
 CREATE ROLE conductores\_ambulancia WITH
 
@@ -285,9 +289,9 @@ grant usage on schema hospital to pacientes;
 
 #
 #
-# <a name="_rvg3eja156ps"></a><a name="_b59kukf3nv5s"></a><a name="_5ppwavudzaf8"></a>Permisos de roles en tablas:
+# Permisos de roles en tablas:
 
-## <a name="_7i1ez4cmyur"></a>Rol medicos
+## Rol medicos
 
 |<p>GRANT SELECT, INSERT, UPDATE ON hospital.aparells\_medics TO medicos</p><p>GRANT SELECT ON hospital.especialidad TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.habitacion TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.operaciones TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.paciente TO medicos</p><p>GRANT SELECT ON hospital.personal\_infermeria TO medicos</p><p>GRANT SELECT ON hospital.planta TO medicos</p><p>GRANT SELECT ON hospital.quirofano TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.reserva\_habitacion TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.reserva\_quirofan TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.visitas\_programadas TO medicos</p>|
 | :- |
