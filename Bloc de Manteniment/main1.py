@@ -1,4 +1,4 @@
-from Login import *
+from Login1 import *
 print("-"*50)
 print(" " * ((50 - len("Menú Login")) // 2) + "Menú Login")
 print("-"*50)
@@ -18,7 +18,6 @@ while Centinela:
         USUARIO=input("Introduce tu Usuario: ")
         CONTRASEÑA=pwinput.pwinput("Introduce tu Contraseña: ")
         Login(USUARIO,CONTRASEÑA)
-        print("Credenciales válidas. Conectando a la base de datos...")            
 
         print("-"*50)
         print(" " * ((50 - len("Menu Gestio de Hospital")) // 2) + "Menu Gestio de Hospital")

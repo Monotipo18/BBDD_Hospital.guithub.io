@@ -5,14 +5,23 @@ import psycopg2
 import os
 from psycopg2 import sql
 archivo_csv = 'A.csv'
-Titols=["Usuario","Contraseña"]
+
 
 #CREACIÓ DEL FITXER
 def Crear_csv():
     with open(archivo_csv, 'a', newline='') as file:
+        Titols=["Usuario","Contraseña"]
         writer = csv.writer(file, delimiter=';')
         writer.writerow(Titols)
 
+def conecioo_BDD():
+        conn = psycopg2.connect(
+        dbname="hr",
+        user="postgres",
+        password="unai",
+        host="192.168.56.108",
+    )
+        return conn
 #Comprovació Usuario Existent
 def usuario_existente(usuario):
     try:
@@ -46,6 +55,7 @@ def paciente(USUARIO, CONTRASEÑA):
     cur.execute(sql.SQL("GRANT pacientes TO {}").format(sql.Identifier(USUARIO))) #Cambiar el nombre del rol al que se asigne el usuario
     conn.commit()
     conn.close()
+
 
 def infermer(USUARIO, CONTRASEÑA):
     if usuario_existente(USUARIO):
@@ -132,6 +142,7 @@ def Cargar_csv(dato1,dato2):
         with open(archivo_csv, 'a', newline='',encoding='utf-8') as file:
             writer = csv.writer(file, delimiter=';')
             writer.writerow([dato1,dato2])
+
 #Inici de sesió 
 def Login(USUARIO, CONTRASEÑA):
     try:
@@ -143,13 +154,14 @@ def Login(USUARIO, CONTRASEÑA):
                 hash_usuario = fila[0]
                 hash_contraseña = fila[1]
                 if check_password_hash(hash_usuario, USUARIO) and check_password_hash(hash_contraseña, CONTRASEÑA):
+                    print("Credenciales válidas. Conectando a la base de datos...")            
                     credenciales_validas = True 
-                    conn = psycopg2.connect(
-                        dbname="hr",
-                        user=USUARIO,
-                        password=CONTRASEÑA,
-                        host="192.168.56.108"
-                    )
+   #                 conn = psycopg2.connect(
+    #                    dbname="hr",
+     #                   user=USUARIO,
+      #                  password=CONTRASEÑA,
+       #                 host="192.168.56.108"
+       #             )
                     credenciales_validas = True  
     
         if credenciales_validas==False:
