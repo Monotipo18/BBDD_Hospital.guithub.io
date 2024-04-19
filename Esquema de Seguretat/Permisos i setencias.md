@@ -131,7 +131,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Habitacio        | `Res`     |
 | Metge_metgessa   | `Res`       |
 | Operacions       | `Res`     |
-| Pacient          | `Res`      |
+| Pacient          | `Nomes veure el seu camp a la taula`      |
 | Personal         | `Res`    |
 | Personal_infermeria|  `Res`     |
 | Personal_vari    | `Res`     |
