@@ -1,10 +1,10 @@
 ﻿# Documentacio del Esquema de seguretat
 ## Projecte Intermodular
 ### Contingut
-- #### [Metges](#Metges)
-- #### [Infermer](#Infermer)
-- #### [Zeladors](#Zeladors)
-- #### [Administratius](#Administratius)
+- ### [Metges](#Metges)
+- ### [Infermer](#Infermer)
+- ### [Zeladors](#Zeladors)
+- ### [Administratius](#Administratius)
 # Permisos
 ## **Metges**
 
