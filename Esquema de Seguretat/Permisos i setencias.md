@@ -87,55 +87,61 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 
 # **Administratius**
 
-- **Aparells\_medics:** Todo
-- **Especialidad:** Todo
-- **Habitacion:** Todo
-- **Metge\_metgessa:** Todo
-- **Operacions:**  Todo
-- **Paciente:** Todo
-- **Personal:** Todo
-- **personal\_Infermeria:** Todo
-- **personal\_vari:** Todo
-- **planta:** Todo
-- **quirofano:** Todo
-- **reserva\_habitacion:** Todo
-- **reserva\_quirofano:** Todo
-- **visitas\_programadas:** Todo
+-| Taules | Permisos |
+| :---:       |     :---:      |
+| Aparells_medics  | `Tot`    |
+| Especialitat     | `Tot`      |
+| Habitacio        | `Tot`     |
+| Metge_metgessa   | `Tot`       |
+| Operacions       | `Tot`     |
+| Pacient          | `Tot`      |
+| Personal         | `Tot`    |
+| Personal_infermeria|  `Tot`     |
+| Personal_vari    | `Tot`     |
+| Planta           |  `Tot`       |
+| Quirofan         | `Tot`     |
+| Reserva_habitacio| `Tot`       |
+| Reserva_Quirofan | `Tot`     |
+| Visites_programades | `Tot`    |
 
 # Conductors ambulancia
 
-- **Aparells\_medics:** Nada
-- **Especialidad:** Nada
-- **Habitacion:** Nada
-- **Metge\_metgessa:** Nada
-- **Operacions:**  Nada
-- **Paciente:** Nada
-- **Personal:** Nada
-- **personal\_Infermeria:** Nada
-- **personal\_vari:** Nada
-- **planta:** Nada
-- **quirofano:** Nada
-- **reserva\_habitacion:** Nada
-- **reserva\_quirofano:** Nada
-- **visitas\_programadas:** Nada
+| Taules | Permisos |
+| :---:       |     :---:      |
+| Aparells_medics  | `Res`    |
+| Especialitat     | `Res`      |
+| Habitacio        | `Res`     |
+| Metge_metgessa   | `Res`       |
+| Operacions       | `Res`     |
+| Pacient          | `Res`      |
+| Personal         | `Res`    |
+| Personal_infermeria|  `Res`     |
+| Personal_vari    | `Res`     |
+| Planta           |  `Res`       |
+| Quirofan         | `Res`     |
+| Reserva_habitacio| `Res`       |
+| Reserva_Quirofan | `Res`     |
+| Visites_programades | `Res`    |
 
 # Pacients
 
+| Taules | Permisos |
+| :---:       |     :---:      |
+| Aparells_medics  | `Res`    |
+| Especialitat     | `Res`      |
+| Habitacio        | `Res`     |
+| Metge_metgessa   | `Res`       |
+| Operacions       | `Res`     |
+| Pacient          | `Veure la seva informacio en la taula`      |
+| Personal         | `Res`    |
+| Personal_infermeria|  `Res`     |
+| Personal_vari    | `Res`     |
+| Planta           |  `Res`       |
+| Quirofan         | `Res`     |
+| Reserva_habitacio| `Res`       |
+| Reserva_Quirofan | `Res`     |
+| Visites_programades | `Res`    |
 
-- **Aparells\_medics:** Nada
-- **Especialidad:** Nada
-- **Habitacion:** Nada
-- **Metge\_metgessa:** Nada
-- **Operacions:**  Nada
-- **Paciente:** Ver su campo  en la tabla
-- **Personal:** Nada
-- **personal\_Infermeria:** Nada
-- **personal\_vari:** Nada
-- **planta:** Nada
-- **quirofano:** Nada
-- **reserva\_habitacion:** Nada
-- **reserva\_quirofano:** Nada
-- **visitas\_programadas:** Nada
 
 # **Roles de Grupo**
 ## Metges
