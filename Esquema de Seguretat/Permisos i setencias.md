@@ -1,7 +1,10 @@
 ﻿# Documentacio del Esquema de seguretat
 ## Projecte Intermodular
 ### Contingut
-[Metges](#Metges)
+- [Metges](#Metges)
+- [Infermer](#Infermer)
+- [Zeladors](#Zeladors)
+- [Administratius](#Administratius)
 ## **Metges**
 
 Consideramos que el grupo de médicos incluye todos los trabajadores que sean profesionales de la salud capacitados y autorizados para diagnosticar, tratar y prevenir enfermedades y lesiones 
@@ -29,7 +32,7 @@ Por eso hemos decidido que los médicos pueden realizar las siguientes acciones 
 
 Además de eso sé si no es necesario para el médico se le aplicará data masking a los datos de carácter personal y no se le permitirá acceder a ciertas columnas (datos) que no necesita consultar, por ejemplo que no pueda consultar información privada de médicos ( compañeros de trabajo).
 
-# <a name="_ta759hl62xx6"></a>**Enfermero**
+# **Infermer**
 
 Consideramos que el grupo de enfermeros incluye todos los trabajadores que sean profesionales de la salud capacitados y que brinden cuidados y atención directa a los pacientes, su función sería realizar asistencia en el cuidado de la salud, realizar evaluaciones, administrar medicamentos, llevar a cabo tratamientos prescritos por médicos, monitorear signos vitales, proporcionar apoyo emocional y educación al paciente y familiares, entre otras cosas.
 
@@ -81,7 +84,7 @@ Por eso hemos decidido que los enfermeros pueden realizar las siguientes accione
 **visitas\_programadas:** Ver la tabla
 
 Además de eso sé si no es necesario para el médico se le aplicará data masking a los datos de carácter personal y no se le permitirá acceder a ciertas columnas (datos) que no necesita consultar).
-# <a name="_o55kofuvhe97"></a>**Zeladors**
+# **Zeladors**
 
 
 Consideramos que el grupo de celador incluye todos los trabajadores que sean profesionales de la salud que esten capacitados a la hora de realizar tareas de apoyo y asistencia.Sus responsabilidades pueden incluir el traslado de pacientes de un lugar a otro dentro del centro, el transporte de material médico, la ayuda en la movilización de pacientes, la distribución de suministros, entre otras funciones relacionadas con la logística y el soporte operativo en el ámbito sanitario. 
@@ -104,7 +107,7 @@ Por eso hemos decidido que los Celadores pueden realizar las siguientes acciones
 - **visitas\_programadas:** Ver la tabla
 
 
-# <a name="_5aixhysidyph"></a>**Administratius**
+# **Administratius**
 
 - **Aparells\_medics:** Todo
 - **Especialidad:** Todo
