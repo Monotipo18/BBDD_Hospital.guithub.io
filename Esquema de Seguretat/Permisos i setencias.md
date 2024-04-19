@@ -16,22 +16,22 @@ Per això hem decidit que els metges poden realitzar les següents accions en le
 
 | Tablas | Permisos |
 | :---:       |     :---:      |
-| Aparells_medics  | `Ver y modificar la tabla`    |
-| Especialitat     | `Ver la tabla`      |
-| Habitacio        | `Ver y modificar`     |
-| Metge_metgessa   | `Nada`       |
-| Operacions       | `Ver y modificar`     |
-| Pacient          | `Ver y modificar`      |
-| Personal         | `Nada`    |
-| Personal_infermeria|  `Ver la tabla`     |
-| Personal_vari    | `Nada`     |
-| Planta           |  `Ver la tabla`       |
-| Quirofan         | `Ver la tabla`     |
-| Reserva_habitacio| `Ver y modificar`       |
-| Reserva_Quirofan | `Ver y modifica`     |
-| Visites_programades | `Ver y modificar`    |
+| Aparells_medics  | `Veure y modificar`    |
+| Especialitat     | `Veure la taula`      |
+| Habitacio        | `Veure y modificar`     |
+| Metge_metgessa   | `Res`       |
+| Operacions       | `Veure y modificar`     |
+| Pacient          | `Veure y modificar`      |
+| Personal         | `Res`    |
+| Personal_infermeria|  `Veure la taula`     |
+| Personal_vari    | `Res`     |
+| Planta           |  `Veure la taula`       |
+| Quirofan         | `Veure la taula`     |
+| Reserva_habitacio| `Veure y modificar`       |
+| Reserva_Quirofan | `Veure y modificar`     |
+| Visites_programades | `Veure y modificar`    |
 
-A més d'això sé si no és necessari per al metge se li aplicarà data *masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar, per exemple que no pugui consultar informació privada de metges ( companys de treball).
+A més d'això sé si no és necessari per al metge se li aplicarà data masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar, per exemple que no pugui consultar informació privada de metges ( companys de treball).
 
 # **Infermer**
 
@@ -41,56 +41,29 @@ Per això hem decidit que els infermers poden realitzar les següents accions en
 
 | Tablas | Permisos |
 | :---:         |     :---:      |
-| Aparells_medics  | `Ver y modificar la tabla`     |
-| Especialitat     | `Ver la tabla`      |
-| Habitacio        | `Ver y modificar`     |
-| Metge_metgessa   | `Nada`       |
-| Operacions       | `Ver y modificar`    |
-| Pacient          | `Ver y modificar`      |
-| Personal         | `Nada`    |
-| Personal_infermeria|  `Ver la tabla`     |
-| Personal_vari    | `Nada`     |
-| Planta           |  `Ver la tabla`       |
-| Quirofan         | `Ver la tabla`     |
-| Reserva_habitacio| `Ver y modificar`       |
-| Reserva_Quirofan | `Ver y modifica `    |
-| Visites_programades | `Ver y modificar `   |
+| Aparells_medics  | `Ver i modificar la tabla`     |
+| Especialitat     | `Res`      |
+| Habitacio        | `Veure la taula`     |
+| Metge_metgessa   | `Res`       |
+| Operacions       | `Veure la taula`    |
+| Pacient          | `Res`      |
+| Personal         | `Res`    |
+| Personal_infermeria|  `Res`     |
+| Personal_vari    | `Res`     |
+| Planta           |  `Veure la taula`       |
+| Quirofan         | `Veure la taula`     |
+| Reserva_habitacio| `Veure la taula`       |
+| Reserva_Quirofan | `Veure la taula`    |
+| Visites_programades | `Veure la taula `   |
 
-**Aparells\_medics:** Ver y modificar la tabla
+A més, si no és necessari per al metge se li aplicarà data masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar.
 
-**Especialidad:** Nada
-
-**Habitacion:** Ver la tabla
-
-**Metge\_metgessa:** Nada
-
-**Operacions:**  Ver la tabla
-
-**Paciente:** Nada
-
-**Personal:** Nada
-
-**personal\_Infermeria:** Nada
-
-**personal\_vari:** Nada
-
-**planta:** Ver la tabla
-
-**quirofano:** Ver la tabla
-
-**reserva\_habitacion:** Ver la tabla
-
-**reserva\_quirofano:** Ver la tabla
-
-**visitas\_programadas:** Ver la tabla
-
-Además de eso sé si no es necesario para el médico se le aplicará data masking a los datos de carácter personal y no se le permitirá acceder a ciertas columnas (datos) que no necesita consultar).
 # **Zeladors**
 
 
-Consideramos que el grupo de celador incluye todos los trabajadores que sean profesionales de la salud que esten capacitados a la hora de realizar tareas de apoyo y asistencia.Sus responsabilidades pueden incluir el traslado de pacientes de un lugar a otro dentro del centro, el transporte de material médico, la ayuda en la movilización de pacientes, la distribución de suministros, entre otras funciones relacionadas con la logística y el soporte operativo en el ámbito sanitario. 
+Considerem que el grup de zelador inclou tots els treballadors que siguin professionals de la salut que *esten capacitats a l'hora de fer tasques de suport i assistència.Les seves responsabilitats poden incloure el trasllat de pacients d'un lloc a un altre dins del centre, el transport de material mèdic, l'ajuda en la mobilització de pacients, la distribució de subministraments, entre altres funcions relacionades amb la logística i el suport operatiu en l'àmbit sanitari. 
 
-Por eso hemos decidido que los Celadores pueden realizar las siguientes acciones en las tablas de la BD:
+Per això hem decidit que els Zeladors poden realitzar les següents accions en les taules de la *BD:
 
 - **Aparells\_medics:** Ver y modificar la tabla
 - **Especialidad:** Nada
