@@ -5,13 +5,14 @@
 - [Infermer](#Infermer)
 - [Zeladors](#Zeladors)
 - [Administratius](#Administratius)
+# Permisos
 ## **Metges**
 
-Consideramos que el grupo de médicos incluye todos los trabajadores que sean profesionales de la salud capacitados y autorizados para diagnosticar, tratar y prevenir enfermedades y lesiones 
+Considerem que el grup de metges inclou tots els treballadors que siguin professionals de la salut capacitats i autoritzats per a diagnosticar, tractar i prevenir malalties i lesions 
 
-Los médicos pueden tener especialidades de medicina interna, pediatría, cirugía, ginecología, neurología, entre otras. Además los médicos también pueden realizar cirugías, recetar medicamentos, ordenar pruebas diagnósticas y asesorar a los pacientes.
+Els metges poden tenir especialitats de medicina interna, pediatria, cirurgia, ginecologia, neurologia, entre altres. A més els metges també poden realitzar cirurgies, receptar medicaments, ordenar proves diagnòstiques i assessorar els pacients.
 
-Por eso hemos decidido que los médicos pueden realizar las siguientes acciones en las tablas de la BD:
+Per això hem decidit que els metges poden realitzar les següents accions en les taules de la BD:
 
 | Tablas | Permisos |
 | :---:       |     :---:      |
@@ -30,30 +31,30 @@ Por eso hemos decidido que los médicos pueden realizar las siguientes acciones 
 | Reserva_Quirofan | `Ver y modifica`     |
 | Visites_programades | `Ver y modificar`    |
 
-Además de eso sé si no es necesario para el médico se le aplicará data masking a los datos de carácter personal y no se le permitirá acceder a ciertas columnas (datos) que no necesita consultar, por ejemplo que no pueda consultar información privada de médicos ( compañeros de trabajo).
+A més d'això sé si no és necessari per al metge se li aplicarà data *masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar, per exemple que no pugui consultar informació privada de metges ( companys de treball).
 
 # **Infermer**
 
-Consideramos que el grupo de enfermeros incluye todos los trabajadores que sean profesionales de la salud capacitados y que brinden cuidados y atención directa a los pacientes, su función sería realizar asistencia en el cuidado de la salud, realizar evaluaciones, administrar medicamentos, llevar a cabo tratamientos prescritos por médicos, monitorear signos vitales, proporcionar apoyo emocional y educación al paciente y familiares, entre otras cosas.
+Considerem que el grup d'infermers inclou tots els treballadors que siguin professionals de la salut capacitats i que brindin cures i atenció directa als pacients, la seva funció seria realitzar assistència en la cura de la salut, realitzar avaluacions, administrar medicaments, dur a terme tractaments prescrits per metges, monitorar signes vitals, proporcionar suport emocional i educació al pacient i familiars, entre altres coses.
 
-Por eso hemos decidido que los enfermeros pueden realizar las siguientes acciones en las tablas de la BD:
+Per això hem decidit que els infermers poden realitzar les següents accions en les taules de la BD:
 
 | Tablas | Permisos |
-| :---         |     :---:      |
-| Aparells_medics  | Ver y modificar la tabla     |
-| Especialitat     | Ver la tabla      |
-| Habitacio        | Ver y modificar     |
-| Metge_metgessa   | Nada       |
-| Operacions       | Ver y modificar     |
-| Pacient          | Ver y modificar      |
-| Personal         | Nada    |
-| Personal_infermeria|  Ver la tabla     |
-| Personal_vari    | Nada     |
-| Planta           |  Ver la tabla       |
-| Quirofan         | Ver la tabla     |
-| Reserva_habitacio| Ver y modificar       |
-| Reserva_Quirofan | Ver y modifica     |
-| Visites_programades | Ver y modificar    |
+| :---:         |     :---:      |
+| Aparells_medics  | `Ver y modificar la tabla`     |
+| Especialitat     | `Ver la tabla`      |
+| Habitacio        | `Ver y modificar`     |
+| Metge_metgessa   | `Nada`       |
+| Operacions       | `Ver y modificar`    |
+| Pacient          | `Ver y modificar`      |
+| Personal         | `Nada`    |
+| Personal_infermeria|  `Ver la tabla`     |
+| Personal_vari    | `Nada`     |
+| Planta           |  `Ver la tabla`       |
+| Quirofan         | `Ver la tabla`     |
+| Reserva_habitacio| `Ver y modificar`       |
+| Reserva_Quirofan | `Ver y modifica `    |
+| Visites_programades | `Ver y modificar `   |
 
 **Aparells\_medics:** Ver y modificar la tabla
 
