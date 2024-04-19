@@ -5,6 +5,10 @@
 -  [Infermer](#Infermer)
 -  [Zeladors](#Zeladors)
 -  [Administratius](#Administratius)
+-  [Conductors d'ambulancia](#conductors-ambulancia)
+-  [Pacients](#pacients)
+## Rols de Grup - Permisos de Sistema
+-  []
 # Permisos
 ## **Metges**
 
@@ -82,9 +86,6 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Reserva_Quirofan | `Veure la taula`     |
 | Visites_programades | `Veure la taula`    |
 
-
-
-
 # **Administratius**
 
 | Taules | Permisos |
@@ -142,7 +143,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Visites_programades | `Res`    |
 
 # **Roles de Grupo**
-## Metges
+## Grup Metges
 
 CREATE ROLE medicos WITH
 
@@ -164,7 +165,7 @@ grant connect on database asixhospitalbd to medicos;
 
 grant usage on schema hospital to medicos;
 
-## Enfermeros
+## Grup Infermers
 
 CREATE ROLE enfermeros WITH
 
@@ -186,12 +187,7 @@ grant connect on database asixhospitalbd to enfermeros;
 
 grant usage on schema hospital toenfermeros;
 
-
-
-
-
-
-## Celadors
+## Grup Celadors
 
 CREATE ROLE celadores WITH
 
@@ -213,7 +209,7 @@ grant connect on database asixhospitalbd to celadores;
 
 grant usage on schema hospital to celadores;
 
-## Administratius
+## Grup Administratius
 
 CREATE ROLE administrativos WITH
 
@@ -235,16 +231,7 @@ grant connect on database asixhospitalbd to administrativos;
 
 grant usage on schema hospital to administrativos;
 
-
-
-
-
-
-
-
-
-
-## Conductores de Ambulancia
+## Grup Conductors d'ambulancia
 
 CREATE ROLE conductores\_ambulancia WITH
 
@@ -265,7 +252,8 @@ CREATE ROLE conductores\_ambulancia WITH
 grant connect on database asixhospitalbd to conductores\_ambulancia;
 
 grant usage on schema hospital to conductores\_ambulancia;
-## <a name="_z9t8ww1ycaku"></a>Pacientes
+
+## Grup Pacients
 
 CREATE ROLE pacientes WITH
 
@@ -283,15 +271,10 @@ CREATE ROLE pacientes WITH
 
 `	`CONNECTION LIMIT -1;
 
-
-
-
 grant connect on database asixhospitalbd to pacientes;
 
 grant usage on schema hospital to pacientes;
 
-
-#
 #
 # Permisos de roles en tablas:
 
