@@ -218,7 +218,7 @@ CREATE ROLE celadores WITH
     INHERIT
     NOREPLICATION
     CONNECTION LIMIT -1;
-
+```
 Els membres del grup podran conectarse a la BD
 ```
 grant connect on database asixhospitalbd to celadores;
