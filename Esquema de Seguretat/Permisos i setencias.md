@@ -87,7 +87,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 
 # **Administratius**
 
--| Taules | Permisos |
+| Taules | Permisos |
 | :---:       |     :---:      |
 | Aparells_medics  | `Tot`    |
 | Especialitat     | `Tot`      |
