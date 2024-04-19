@@ -146,28 +146,29 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 ### Permisos
 
 Hem decidit crear el rol de metges per adjuntar tots el usuaris que siguin metges (o derivats d'aquest) perque tinguin tots els mateixos permisos.
+
+El rol/grup no ha de poder iniciar sesio pero si els usuaris(aixo s'indica a l'hora de crear l'usuari), no seran superusuaris ni podran crear BD ni rols, pero els usuaris membres del rol podran heredar els seus permisos tant a nivell de sitema com a nivell de dades i per ultim no podrian fer replicas de la BD.
+> [!IMPORTANT]
+> Els permis de NOLOGIN no s'hereda , es per aixo que el usuari quan es crea s'ha d'indicar que pot iniciar sessio.
+
 ```
 CREATE ROLE medicos WITH
-
 	 NOLOGIN
-
 	 NOSUPERUSER
-
 	 NOCREATEDB
-
 	 NOCREATEROLE
-
 	 INHERIT
-
 	 NOREPLICATION
-
 	 CONNECTION LIMIT -1;
 ```
-
+Els membres del grup podran conectarse a la BD
+```
 grant connect on database asixhospitalbd to medicos;
-
+```
+Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dades).
+```
 grant usage on schema hospital to medicos;
-
+```
 ## Grup Infermers
 
 CREATE ROLE enfermeros WITH
