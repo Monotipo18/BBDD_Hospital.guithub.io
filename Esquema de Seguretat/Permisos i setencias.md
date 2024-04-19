@@ -124,7 +124,6 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Visites_programades | `Res`    |
 
 # Pacients
-
 | Taules | Permisos |
 | :---:       |     :---:      |
 | Aparells_medics  | `Res`    |
@@ -141,7 +140,6 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Reserva_habitacio| `Res`       |
 | Reserva_Quirofan | `Res`     |
 | Visites_programades | `Res`    |
-
 
 # **Roles de Grupo**
 ## Metges
