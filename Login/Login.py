@@ -4,14 +4,14 @@ import pwinput
 import psycopg2
 import os
 from psycopg2 import sql
-archivo_csv = 'A.csv'
+archivo_csv = 'Patata.csv'
 
 #CREACIÓ DEL FITXER
-#def Crear_csv():
-#    Titols=["Usuario","Contraseña"]
-#    with open(archivo_csv, 'w', newline='') as file:
-#        writer = csv.writer(file, delimiter=';')
-#        writer.writerow(Titols)
+def Crear_csv():
+    Titols=["Usuario","Contraseña"]
+    with open(archivo_csv, 'w', newline='') as file:
+        writer = csv.writer(file, delimiter=';')
+        writer.writerow(Titols)
 
 #Comprovació Usuario Existent
 def usuario_existente(usuario):
@@ -24,8 +24,8 @@ def usuario_existente(usuario):
                 if check_password_hash(hash_usuario, usuario):
                     return True
     except Exception as e:
-        print("Usuario Existente")
         return False
+        print("Usuario Existente")
 #Registre del usuari
 def Registro(USUARIO, CONTRASEÑA):
     if usuario_existente(USUARIO):
