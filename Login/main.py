@@ -1,4 +1,4 @@
-from Login import *
+from pruebas_Login import *
 print("-"*50)
 print(" " * ((50 - len("Menú Login")) // 2) + "Menú Login")
 print("-"*50)
@@ -7,6 +7,7 @@ print("1. Iniciar Sesión")
 print("2. Registrar-se")
 print("3. Salir")
 Centinela=True
+Crear_csv()
 while Centinela:
     opcion = input("Seleccione una opcion: ")
     if opcion == "1":
