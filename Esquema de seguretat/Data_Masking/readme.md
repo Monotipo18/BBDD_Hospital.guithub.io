@@ -29,7 +29,7 @@ Adjunto una captura de pantalla de `ls`.
 Seguidament, instal·lem make:
 
 ```bash
-apt install make
+sudo apt install make
 ```
 
 Adjunto una captura de pantalla de la instal·lació de make.
