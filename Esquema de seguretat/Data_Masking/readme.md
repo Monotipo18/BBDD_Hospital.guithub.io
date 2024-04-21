@@ -9,7 +9,7 @@
 3. [Webgrafía](#webgrafía)
 
 # Instal·lació
-##Pasos de instalació
+## Pasos de instalació
 Per poder realitzar la instal·lació correctament, prèviament hem de instal·lar un metapaquet anomenat build-essential amb la següent comanda:
 
 ```bash
