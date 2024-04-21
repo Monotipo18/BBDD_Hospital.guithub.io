@@ -51,10 +51,10 @@ Adjunto captures de pantalla dels comandaments make i make install.
 Seguint els passos anteriors, ja tenim pg_anonymize instal·lat a la nostra màquina.
 
 
-# Com utlitzar pg_anonymize
-## Configuracions Previes
-#### Insertem informació ala base de dades, en el nostre cas varem crear la taula i li varem afegir unes dades inventades
-``` sql
+# Cómo utilizar pg_anonymize
+## Configuraciones Previas
+#### Insertar información en la base de datos, en nuestro caso creamos la tabla y le añadimos unos datos inventados
+```sql
 CREATE TABLE public.customer(id integer,
 first_name text,
 last_name text,
@@ -63,43 +63,44 @@ phone_number text);
 INSERT INTO public.customer VALUES (1, 'Col', 'Iflor', '00-00-00', '+34 1234 5678');
 INSERT INTO public.customer VALUES (2, 'Rosa', 'Melano', '00-00-00', '+34 1234 5678');
 ```
-#### També crearem un usuario que en el nostre cas el l'anomenarem Col
-``` sql
+#### También crearemos un usuario que en nuestro caso lo llamaremos Col
+```sql
 CREATE ROLE Col LOGIN PASSWORD '1234'
 ```
-#### A continuació, assignarem permisos de conexio ala base de dades hospital i de lectura a la taula customer.
-``` sql
+#### A continuación, asignaremos permisos de conexión a la base de datos hospital y de lectura a la tabla customer.
+```sql
 GRANT CONNECT ON DATABASE hospital TO Col;
 GRANT SELECT ON TABLE public.customer TO Col;
 ```
-#### Configuració pg_anonymize
-Amb els passos anteriors realitzats, ens conectem a la Base de dades (en el nostre cas "hospital") i exucutarem les següents comandes per carregar pg_anonymize:
-
-En primer lloc:
-``` sql
+## Configuración pg_anonymize
+Con los pasos anteriores realizados, nos conectamos a la Base de datos (en nuestro caso "hospital") y ejecutaremos las siguientes comandas para cargar pg_anonymize:
+En primer lugar:
+```sql
 LOAD 'pg_anonymize';
-    ```
-Amb aquesta comanda carreguem pg_anonymize dins de la nostra base de dades.
-
-En segon lloc:
-``` sql
+```
+Con esta comando cargamos pg_anonymize dentro de nuestra base de datos.
+En segundo lugar:
+```sql
 SECURITY LABEL FOR pg_anonymize ON ROLE Col IS 'anonymize';
-    ```
-
-``` sql
+```
+Con esta comando anonimizamos las datos que el señor Col podrá ver de la base de datos.
+En tercer lugar:
+```sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN public.customer.last_name
     IS $$substr(last_name, 1, 1) || '*****'$$;
-    ```
-``` sql
+```
+Con esta comando, sustituimos todos los caracteres menos el inicial de la columna last_name de la tabla customers por *, de esta manera los usuarios que no tengan autorización, no podrán ver esta información.
+A continuación:
+```sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN public.customer.birthday
     IS $$date_trunc('year', birthday)::date$$;
-  ```
-``` sql
+```
+Con esta comando cortamos el año de nacimiento para que solo muestre el año.
+Y para acabar:
+```sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN public.customer.phone_number
     IS $$regexp_replace(phone_number, '\d', 'X', 'g')$$;
-  ```
-
-### Webgrafia
-https://github.com/rjuju/pg_anonymize?tab=readme-ov-file
-
-### Instalació detellada
+```
+Con esta comando sustituimos los números de teléfono por una X.
+### Webgrafía
+[https://github.com/rjuju/pg_anonymize?tab=readme-ov-file](https://github.com/rjuju/pg_anonymize?tab=readme-ov-file)
