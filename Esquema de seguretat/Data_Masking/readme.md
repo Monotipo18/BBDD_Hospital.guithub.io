@@ -1,7 +1,7 @@
 # Índex
 
 1. [Instal·lació](#instal·lació)
-    - [Pasos de Instalación](#pasos-de-instalación)
+    - [Pasos de Instalació](#pasos-de-instalació)
     - [Cómo utilizar pg_anonymize](#cómo-utilizar-pg_anonymize)
 2. [Cómo utilizar pg_anonymize](#cómo-utilizar-pg_anonymize)
     - [Configuraciones Previas](#configuraciones-previas)
@@ -9,7 +9,7 @@
 3. [Webgrafía](#webgrafía)
 
 # Instal·lació
-
+##Pasos de instalació
 Per poder realitzar la instal·lació correctament, prèviament hem de instal·lar un metapaquet anomenat build-essential amb la següent comanda:
 
 ```bash
