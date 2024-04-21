@@ -1,20 +1,20 @@
 <!-- Introduccion -->
 <h1>SSL/TLS x PostgreSQL</h1>
-<p>Primer de tot cal aclarir una cosa SSL, avui dia no s'usa, ja que el protocol TLS (Transport Layer Security) el reemplaço en 1999, avui dia, 12 d'abril de 2024, és l'estàndard en la seva versió TLS 1.3, però el terme SSL es continua utilitzant per a referir-se a connexions segures</p>
-<p>Ara bé, per què hauries d'usar TLS per a PostgreSQL?
-La resposta curta és seguretat, la llarga és una mica més complexa, quan et connectes amb el teu client al servidor estàs transmetent informació per la xarxa, ja sigui per WAN o LAN, de per si mateix aquesta informació no sol estar encriptada, així que posar un TLS encriptés la informació entre servidor i client, assegurant-se que la informació ni es llegeixi, ni es modifiqui.
-També cal tenir en compte reglaments i empleno d'estàndards o lleis, varien depèn del país, però normalment totes tenen el mateix objectiu, la seguretat d'informació confidencial i sensible</p>
+<p>Primer de tot cal aclarir una cosa SSL, avui dia no s'utilitza, ja que el protocol TLS (Transport Layer Security) el va substituir en 1999, a dia d'avui, 12 d'abril de 2024, és l'estàndard en la seva versió TLS 1.3, però el terme SSL es continua utilitzant per a referir-se a connexions segures</p>
+<p>Ara bé, per què hauries d'utilitzar TLS per a PostgreSQL?
+La resposta curta és seguretat, la llarga és una mica més complexa, quan et connectes amb el teu client al servidor estàs transmetent informació per la xarxa, ja sigui per WAN o LAN, de per si mateix aquesta informació no sol estar encriptada, així que posar un TLS encripta l'informació entre servidor i client, assegurant-se que la informació ni es llegeixi, ni es modifiqui.
+També cal tenir en compte reglaments,estàndards i lleis, que varien segons el país, però normalment totes tenen el mateix objectiu, la seguretat d'informació confidencial i sensible</p>
 
 <!-- Instalacion -->
 <h3>Preparar domini</h3>
 
-<p>Nosaltres usarem un domini per al TLS així aconseguirem comunicació una mica més segura i a part la renovació automàtica serà més fàcil, jo recomano Cloudflare, però pots usar el que més et convingui.</p>
+<p>Nosaltres utilitzarem un domini per al TLS així aconseguirem comunicació una mica més segura i a part la renovació automàtica serà més fàcil, nosaltres recomanem Cloudflare, però pots utilitzar el que més et convingui.</p>
 <img src="/img/cloudflarepanel.png">
 <img src="/img/cloudflareejemplodesubdominio.png">
 
 <h3>Preparar al Firewall</h3>
 
-<p>Important hem de tenir ben filtrat els ports, en aquest cas el 80, important cal anar amb compte a l'hora de tractar amb ports, ja pot ser un punt flac de seguretat, cal permetre en la màquina, en el meu cas és PROXMOX VEU, com en l'encaminador, encara que nosaltres no vam mostrar com fer-ho en l'encaminador, ja que cada encaminador és un món igualment hi ha molta informació de com obrir un port d'encaminador, però hauria de quedar una cosa així:<p>
+<p>Important hem de tenir ben filtrat els ports, en aquest cas el 80, important cal anar amb compte a l'hora de tractar amb ports, ja pot ser una vulneravilitat de seguretat, cal permetre en la màquina, en el meu cas és PROXMOX VEU, com en l'encaminador, encara que nosaltres no vam mostrar com fer-ho en l'encaminador, ja que cada encaminador és un món igualment hi ha molta informació de com obrir un port d'encaminador, però hauria de quedar una cosa així:<p>
 <p>PROXMOX VE:</p>
 <img src="/img/proxmoxvefirewall.png">
 <p>Router:</p>
@@ -22,8 +22,8 @@ També cal tenir en compte reglaments i empleno d'estàndards o lleis, varien de
 
 <h3>Instalar Certbot</h3>
 
-<p>Per a generar els certificats usarem Certbot,
-nosaltres usarem el comando per a sistemes basats en Ubuntu/Debian:</p>
+<p>Per a generar els certificats utilitzarem Certbot,
+nosaltres utilitzarem la comanda per a sistemes basats en Ubuntu/Debian:</p>
 
 ```bash
 sudo apt install certbot
@@ -53,7 +53,7 @@ sudo certbot certificates
 mkdir /etc/letsencrypt/renewal-hooks/deploy/postgresql.deploy
 ```
 
-<p>Entrem en l'arxiu amb el comando 'nano' i introduïm el següent:</p>
+<p>Entrem en l'arxiu amb la comanda 'nano' i introduïm el següent:</p>
 
 ```bash
 #!/bin/bash
@@ -96,7 +96,7 @@ ssl_prefer_server_ciphers = on
 #ssl_passphrase_command_supports_reload = off
 ```
 
-<p>També hem de configurar el ‘pg_hba.conf’ si volem que tothom es connecti, al final de la línia de l'arxiu agreguem aquest comando:</p>
+<p>També hem de configurar el ‘pg_hba.conf’ si volem que tothom es connecti, al final de la línia de l'arxiu agreguem aquesta comanda:</p>
 
 ```bash
 hostssl all all 0.0.0.0/0 md5
