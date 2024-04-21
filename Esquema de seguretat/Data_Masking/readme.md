@@ -1,26 +1,54 @@
-# Instalació
-Per poder fer l'instalacio correctament prèviament hem d'instal·lar un metapaquet que es diu build-essential amb la seguent comanda:
-```apt-get install build-essential ```
-Captura de pantalla de como hago el comando
-Aquest paquet serveix com a compilador juntament amb make, fent aixo reduim les posibilitats que el make pugui fallar
+# Instal·lació
 
-Seguidament hem de clonar el repositori aquests de aqui: https://github.com/rjuju/pg_anonymize?tab=readme-ov-file.
-Utilitzarem la seguent comanda:
-``` git clone https://github.com/rjuju/pg_anonymize.git ```
-Captura de pantall de como hago el git Clone  
-- A continuacio hem d'entrar a la carpeta que hem descaregat en el pas anterior:
-```bash cd pg_anonymize ```
-Captura de pantall de LS
-- Seguidament intalem make.
-  ``` apt install make```
-  (Captura instalacion make)
-- Quan tenim instal·lat el make, en la carpeta descarregada anteriorment del guitclone executem la següent comanda:
- ``` sudo make```
- Seguidament exucutem un altre
- ``` sudo make install```
-- (Captura make i make install) 
-- Seguin els pasos anteriors ya tenim el pg_anonymize instal·lat ala nostra maquina
-  
+Per poder realitzar la instal·lació correctament, prèviament hem de instal·lar un metapaquet anomenat build-essential amb la següent comanda:
+
+```bash
+apt-get install build-essential
+```
+
+A continuació, adjunto una captura de pantalla de com executar la comanda.
+
+Aquest paquet serveix com a compilador del llenguatge de programació C juntament amb make, d'aquesta manera reduim les possibilitats que make pugui fallar.
+
+Seguidament, clonem el repositori des d'aquí: [https://github.com/rjuju/pg_anonymize?tab=readme-ov-file](https://github.com/rjuju/pg_anonymize?tab=readme-ov-file). Utilitzarem la següent comanda:
+
+```bash
+git clone https://github.com/rjuju/pg_anonymize.git
+```
+
+Adjunto una captura de pantalla de com executar la comanda git Clone.
+
+A continuació, entrem a la carpeta que hem descarregat en el pas anterior:
+
+```bash
+cd pg_anonymize
+```
+
+Adjunto una captura de pantalla de `ls`.
+
+Seguidament, instal·lem make:
+
+```bash
+apt install make
+```
+
+Adjunto una captura de pantalla de la instal·lació de make.
+
+Un cop instal·lat make, a la carpeta descarregada anteriorment del git clone, executem la següent comanda:
+
+```bash
+sudo make
+```
+
+Seguidament, executem una altra:
+
+```bash
+sudo make install
+```
+
+Adjunto captures de pantalla dels comandaments make i make install.
+
+Seguint els passos anteriors, ja tenim pg_anonymize instal·lat a la nostra màquina.
 
 
 # Com utlitzar pg_anonymize
