@@ -152,6 +152,128 @@ Amb aquesta comanda, substituïm els números de telèfon per una X
 
 Dins de la nostra base de dades hi ha informació esmentada anteriorment que encara no estem utilitzant. Aquest document és per a futurs usos i en cas de continuar ampliant la BDD, s'haurà de tenir en compte.
 
+# Enmascarament de les dades de caràcter personal de grau alt
+
+## Rol Médico
+```sql
+SECURITY LABEL FOR pg_anonymize ON ROLE medicos IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Paciente.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Paciente.telefon
+    IS $$substr(telefon, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Paciente.Num_Seguretat_Social
+    IS $$substr(Num_Seguretat_Social, 1, 1) || '*****'$$;
+```
+## Rol Administrativo
+```sql
+SECURITY LABEL FOR pg_anonymize ON ROLE Administratius IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Paciente.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Paciente.telefon
+    IS $$substr(telefon, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Paciente.Num_Seguretat_Social
+    IS $$substr(Num_Seguretat_Social, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.Estudis
+    IS $$substr(Estudis, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.Nom
+    IS $$substr(Nom, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.Primer_Cognom
+    IS $$substr(Primer_Cognom, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.Segon_Cognom
+    IS $$substr(Segon_Cognom, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.Telefon
+    IS $$substr(Telefon, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.Curriculum
+    IS $$substr(Curriculum, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.email
+    IS $$substr(email, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_vari.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Metge_Metgessa.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.Diagnostic
+    IS $$substr(Diagnostic, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.Medicaments
+    IS $$substr(Medicaments, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.Fecha
+    IS $$substr(Fecha, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.Hora
+    IS $$substr(Hora, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+```
+## Rol Paciente
+```sql
+SECURITY LABEL FOR pg_anonymize ON ROLE medicos IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+```
+## Rol Enfermero
+```sql
+SECURITY LABEL FOR pg_anonymize ON ROLE enfermero IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.Diagnostic
+    IS $$substr(Diagnostic, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visitas_Programadas.Medicaments
+    IS $$substr(Medicaments, 1, 1) || '*****'$$;
+```
+## Tabla Especialidad
+```sql
+SECURITY LABEL FOR pg_anonymize ON ROLE medicos IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Especialidad.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON ROLE administratius IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Especialidad.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+```
+## Otras Directivas
+### Tabla Personal Infermeria
+```sql
+SECURITY LABEL FOR pg_anonymize ON medicos IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_Infermeria.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_Infermeria.DNI_Medic
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON Administratius IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_Infermeria.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_Infermeria.DNI_Medic
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+```
+### Tabla Operaciones
+```sql
+SECURITY LABEL FOR pg_anonymize ON medicos IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.DNI
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.DNI_metge
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR Administratius IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.ID_Opereaciones
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.Data
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.Hora
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.Tipus_Operacio
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.ID_Paciente
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.Num_Quirofano
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.DNI_metge
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR enfermeros IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.DNI_metge
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR Celador IS 'anonymize';
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.DNI_metge
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operaciones.Tipus_Operacio
+    IS $$substr(DNI, 1, 1) || '*****'$$;
+```
 
 ### Webgrafía
 [https://github.com/rjuju/pg_anonymize?tab=readme-ov-file](https://github.com/rjuju/pg_anonymize?tab=readme-ov-file)
