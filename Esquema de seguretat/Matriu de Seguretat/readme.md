@@ -50,7 +50,7 @@ Per això hem decidit que els metges poden realitzar les següents accions en le
 | Reserva_Quirofan | `Veure y modificar`     |
 | Visites_programades | `Veure y modificar`    |
 
-A més d'això sé si no és necessari per al metge se li aplicarà data masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar, per exemple que no pugui consultar informació privada de metges ( companys de treball).
+A més d'això si no és necessari per al metge se li aplicarà data masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar, per exemple que no pugui consultar informació privada de metges ( companys de treball).
 
 # **Infermer**
 
