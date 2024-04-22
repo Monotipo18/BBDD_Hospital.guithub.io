@@ -2,7 +2,7 @@
 
 1. [Instal·lació](#instal·lació)
     - [Pasos de Instalació](#pasos-de-instalació)
-2. [Cómo utilizar pg_anonymize](#cómo-utilizar-pg_anonymize)
+2. [Com utilizar pg_anonymize](#com-utilizar-pg_anonymize)
     - [Configuracions Previas](#configuracions-previas)
     - [Configuración pg_anonymize](#configuración-pg_anonymize)
 3. [Dades de caràcter personal de grau alt](#dades-de-caràcter-personal-de-grau-alt)
