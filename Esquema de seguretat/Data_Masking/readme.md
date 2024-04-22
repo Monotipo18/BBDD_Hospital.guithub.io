@@ -93,7 +93,7 @@ LOAD 'pg_anonymize';
 ```
 Amb aquesta comanda carreguem pg_anonymize dins de la nostra base de dades.
 
-En segundo lloc:
+En segon lloc:
 ```sql
 SECURITY LABEL FOR pg_anonymize ON ROLE Col IS 'anonymize';
 ```
