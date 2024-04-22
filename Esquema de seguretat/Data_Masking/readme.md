@@ -4,7 +4,7 @@
     - [Pasos de Instalació](#pasos-de-instalació)
 2. [Com utilizar pg_anonymize](#com-utilizar-pg_anonymize)
     - [Configuracions Previas](#configuracions-previas)
-    - [Configuración pg_anonymize](#configuración-pg_anonymize)
+    - [Configuració pg_anonymize](#configuració-pg_anonymize)
 3. [Dades de caràcter personal de grau alt](#dades-de-caràcter-personal-de-grau-alt)
     - [Aquestes son les dades que enmascararem](#aquestes-son-les-dades-que-enmascararem)
 4. [Enmascarament de les dades de caràcter personal de grau alt](#enmascarament-de-les-dades-de-caràcter-personal-de-grau-alt)
