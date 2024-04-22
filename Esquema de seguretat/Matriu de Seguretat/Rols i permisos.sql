@@ -58,6 +58,7 @@ CREATE ROLE pacient WITH
 	CONNECTION LIMIT -1;
 
 GRANT SELECT(nom, primer_cognom, segon_cognom, telefon, data_naixement) ON hospital.pacient TO pacient;
+GRANT SELECT ON hospital.cita_medica TO pacients
 --Modifiquem per que només el pacient pugui veure la seva fitxa
 CREATE VIEW pacient_usuario_conectado AS
 SELECT nom, primer_cognom, segon_cognom, telefon, data_naixement
