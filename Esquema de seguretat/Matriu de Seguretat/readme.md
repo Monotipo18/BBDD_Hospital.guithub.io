@@ -50,7 +50,7 @@ Per això hem decidit que els metges poden realitzar les següents accions en le
 | Reserva_Quirofan | `Veure y modificar`     |
 | Visites_programades | `Veure y modificar`    |
 
-A més d'això si no és necessari per al metge se li aplicarà data masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar, per exemple que no pugui consultar informació privada de metges ( companys de treball).
+A més d'això, si no és necessari per al metge, se li aplicarà data masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar, per exemple que no pugui consultar informació privada de metges ( companys de treball).
 
 # **Infermer**
 
@@ -75,11 +75,11 @@ Per això hem decidit que els infermers poden realitzar les següents accions en
 | Reserva_Quirofan | `Veure la taula`    |
 | Visites_programades | `Veure la taula `   |
 
-A més, si no és necessari per al metge se li aplicarà data masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar.
+A més, si no és necessari per l'infermer, se li aplicarà data masking a les dades de caràcter personal i no se li permetrà accedir a unes certes columnes (dades) que no necessita consultar.
 
 # **Zeladors**
 
-Considerem que el grup de zelador inclou tots els treballadors que siguin professionals de la salut que *esten capacitats a l'hora de fer tasques de suport i assistència.Les seves responsabilitats poden incloure el trasllat de pacients d'un lloc a un altre dins del centre, el transport de material mèdic, l'ajuda en la mobilització de pacients, la distribució de subministraments, entre altres funcions relacionades amb la logística i el suport operatiu en l'àmbit sanitari. 
+Considerem que el grup de zelador inclou tots els treballadors que siguin professionals de la salut que esten capacitats a l'hora de fer tasques de suport i assistència.Les seves responsabilitats poden incloure el trasllat de pacients d'un lloc a un altre dins del centre, el transport de material mèdic, l'ajuda en la mobilització de pacients, la distribució de subministraments, entre altres funcions relacionades amb la logística i el suport operatiu en l'àmbit sanitari. 
 
 Per això hem decidit que els Zeladors poden realitzar les següents accions en les taules de la BD:
 
@@ -160,7 +160,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 ### Permisos de sistema
 ## **Grup Metges**
 
-Hem decidit crear el rol de metges per adjuntar tots el usuaris que siguin metges (o derivats d'aquest o similars) perque tinguin tots els mateixos permisos.
+Hem decidit crear el rol de metges per adjuntar tots el usuaris que siguin metges perque tinguin tots els mateixos permisos.
 
 El rol/grup no ha de poder iniciar sesio pero si els usuaris(aixo s'indica a l'hora de crear l'usuari), no seran superusuaris ni podran crear BD ni rols, pero els usuaris membres del rol podran heredar els seus permisos tant a nivell de sitema com a nivell de dades i per ultim no podrian fer replicas de la BD.
 
