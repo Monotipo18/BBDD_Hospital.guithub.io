@@ -4,9 +4,11 @@
     - [Pasos de Instalació](#pasos-de-instalació)
     - [Cómo utilizar pg_anonymize](#cómo-utilizar-pg_anonymize)
 2. [Cómo utilizar pg_anonymize](#cómo-utilizar-pg_anonymize)
-    - [Configuraciones Previas](#configuraciones-previas)
+    - [Configuracions Previas](#configuracions-previas)
     - [Configuración pg_anonymize](#configuración-pg_anonymize)
-3. [Webgrafía](#webgrafía)
+3. [Dades de caràcter personal de grau alt](#dades-de-caràcter-personal-de-grau-alt)
+    - [Aquestes son les dades que enmascararem](#aquestes-son-les-dades-que-enmascararem)
+4. [Webgrafía](#webgrafía)
 
 # Instal·lació
 ## Pasos de instalació
