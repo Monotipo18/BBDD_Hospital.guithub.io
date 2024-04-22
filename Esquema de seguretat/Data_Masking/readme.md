@@ -8,7 +8,16 @@
     - [Configuración pg_anonymize](#configuración-pg_anonymize)
 3. [Dades de caràcter personal de grau alt](#dades-de-caràcter-personal-de-grau-alt)
     - [Aquestes son les dades que enmascararem](#aquestes-son-les-dades-que-enmascararem)
-4. [Webgrafía](#webgrafía)
+4. [Enmascarament de les dades de caràcter personal de grau alt](#enmascarament-de-les-dades-de-caràcter-personal-de-grau-alt)
+    - [Rol Médico](#rol-médico)
+    - [Rol Administrativo](#rol-administrativo)
+    - [Rol Paciente](#rol-paciente)
+    - [Rol Enfermero](#rol-enfermero)
+    - [Tabla Especialidad](#tabla-especialidad)
+    - [Otras Directivas](#otras-directivas)
+        - [Tabla Personal Infermeria](#tabla-personal-infermeria)
+        - [Tabla Operaciones](#tabla-operaciones)
+5. [Webgrafía](#webgrafía)
 
 # Instal·lació
 ## Pasos de instalació
