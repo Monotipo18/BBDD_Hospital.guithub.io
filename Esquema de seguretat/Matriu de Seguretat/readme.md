@@ -1,12 +1,13 @@
-﻿# Documentacio del Esquema de seguretat
+# Documentacio del Esquema de seguretat
 ## Projecte Intermodular
 ### Contingut
--  [Metges](#Metges)
--  [Infermer](#Infermer)
--  [Zeladors](#Zeladors)
--  [Administratius](#Administratius)
--  [Conductors d'ambulancia](#conductors-ambulancia)
--  [Pacients](#pacients)
+-  [Permisos_Teorics](#permisos)
+    -  [Metges](#Metges)
+    -  [Infermer](#Infermer)
+    -  [Zeladors](#Zeladors)
+    -  [Administratius](#Administratius)
+    -  [Conductors d'ambulancia](#conductors-ambulancia)
+    -  [Pacients](#pacients)
 ## Rols de Grup - Permisos de Sistema
 -  []
 # Permisos
@@ -229,6 +230,15 @@ grant usage on schema hospital to celadores;
 ```
 ## Grup Administratius
 ### Permisos
+
+Hem decidit crear el rol de Administratius per adjuntar tots el usuaris que siguin Administradors del hospital, perque tinguin tots els mateixos permisos.
+
+El rol/grup no ha de poder iniciar sesio pero si els usuaris(aixo s'indica a l'hora de crear l'usuari), no seran superusuaris ni podran crear BD ni rols, pero els usuaris membres del rol podran heredar els seus permisos tant a nivell de sitema com a nivell de dades i per ultim no podrian fer replicas de la BD.
+
+> [!NOTE]
+> Els permis de NOLOGIN no s'hereda , es per aixo que el usuari quan es crea s'ha d'indicar que pot iniciar sessio.
+
+```
 CREATE ROLE administrativos WITH
     NOLOGIN
     NOSUPERUSER
@@ -237,14 +247,28 @@ CREATE ROLE administrativos WITH
     INHERIT
     NOREPLICATION
     CONNECTION LIMIT -1;
-
+```
+Els membres del grup podran conectarse a la BD
+```
 grant connect on database asixhospitalbd to administrativos;
-
+```
+Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dades).
+```
 grant usage on schema hospital to administrativos;
+```
 
 ## Grup Conductors d'ambulancia
+### Permisos
 
-CREATE ROLE conductores\_ambulancia WITH
+Hem decidit crear el rol de conductors d'ambulancia per adjuntar tots el usuaris que siguin con del mateix sector, perque tinguin tots els mateixos permisos.
+
+El rol/grup no ha de poder iniciar sesio pero si els usuaris(aixo s'indica a l'hora de crear l'usuari), no seran superusuaris ni podran crear BD ni rols, pero els usuaris membres del rol podran heredar els seus permisos tant a nivell de sitema com a nivell de dades i per ultim no podrian fer replicas de la BD.
+
+> [!NOTE]
+> Els permis de NOLOGIN no s'hereda , es per aixo que el usuari quan es crea s'ha d'indicar que pot iniciar sessio.
+
+```
+CREATE ROLE conductores_ambulancia WITH
     NOLOGIN
     NOSUPERUSER
     NOCREATEDB
@@ -252,37 +276,101 @@ CREATE ROLE conductores\_ambulancia WITH
     INHERIT
     NOREPLICATION
     CONNECTION LIMIT -1;
-
-grant connect on database asixhospitalbd to conductores\_ambulancia;
-
-grant usage on schema hospital to conductores\_ambulancia;
+```
+Els membres del grup podran conectarse a la BD
+```
+grant connect on database asixhospitalbd to conudctores_ambulancia;
+```
+Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dades).
+```
+grant usage on schema hospital to grant connect on database asixhospitalbd to conudctores_ambulancia;
+```
 
 ## Grup Pacients
+### Permisos
 
+Hem decidit crear el rol de Pacients per adjuntar tots el usuaris pacients del hospital, cada usuario nomes podra mirar el seu camp d'informacio.
+
+El rol/grup no ha de poder iniciar sesio pero si els usuaris(aixo s'indica a l'hora de crear l'usuari), no seran superusuaris ni podran crear BD ni rols, pero els usuaris membres del rol podran heredar els seus permisos tant a nivell de sitema com a nivell de dades i per ultim no podrian fer replicas de la BD.
+
+> [!NOTE]
+> Els permis de NOLOGIN no s'hereda , es per aixo que el usuari quan es crea s'ha d'indicar que pot iniciar sessio.
+
+```
 CREATE ROLE pacientes WITH
-
-NOLOGIN
-NOSUPERUSER
-NOCREATEDB
-NOCREATEROLE
-INHERIT
-NOREPLICATION
-CONNECTION LIMIT -1;
-
+    NOLOGIN
+    NOSUPERUSER
+    NOCREATEDB
+    NOCREATEROLE
+    INHERIT
+    NOREPLICATION
+    CONNECTION LIMIT -1;
+```
+Els membres del grup podran conectarse a la BD
+```
 grant connect on database asixhospitalbd to pacientes;
-
+```
+Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dades).
+```
 grant usage on schema hospital to pacientes;
+```
 
-#
 # Permisos de roles en tablas:
 
-## Rol medicos
+## Rol metges
 
-|<p>GRANT SELECT, INSERT, UPDATE ON hospital.aparells\_medics TO medicos</p><p>GRANT SELECT ON hospital.especialidad TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.habitacion TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.operaciones TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.paciente TO medicos</p><p>GRANT SELECT ON hospital.personal\_infermeria TO medicos</p><p>GRANT SELECT ON hospital.planta TO medicos</p><p>GRANT SELECT ON hospital.quirofano TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.reserva\_habitacion TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.reserva\_quirofan TO medicos</p><p>GRANT SELECT, INSERT, UPDATE ON hospital.visitas\_programadas TO medicos</p>|
-| :- |
+Els permisos a nivell de dades del rol de metges son els seguents:
+```
+GRANT SELECT, INSERT, UPDATE ON hospital.aparells_medics TO medicos
+GRANT SELECT ON hospital.especialidad TO medicos
+GRANT SELECT, INSERT, UPDATE ON hospital.habitacion TO medicos
+GRANT SELECT, INSERT, UPDATE ON hospital.operaciones TO medicos
+GRANT SELECT, INSERT, UPDATE ON hospital.paciente TO medicos
+GRANT SELECT ON hospital.personal_infermeria TO medicos
+GRANT SELECT ON hospital.planta TO medicos
+GRANT SELECT ON hospital.quirofano TO medicos
+GRANT SELECT, INSERT, UPDATE ON hospital.reserva_habitacion TO medicos
+GRANT SELECT, INSERT, UPDATE ON hospital.reserva_quirofan TO medicos
+GRANT SELECT, INSERT, UPDATE ON hospital.visitas_programadas TO medicos
+```
+## Rol Infermers
 
-Rol enfermeros
+Els permisos a nivell de dades del rol de Infermers son els segunets:
+```
+GRANT SELECT, INSERT, UPDATE ON hospital.aparells_medics TO enfermeros
+GRANT SELECT ON hospital.habitacion TO enfermeros
+GRANT SELECT ON hospital.operaciones TO enfermeros
+GRANT SELECT ON hospital.planta TO enfermeros
+GRANT SELECT ON hospital.quirofano TO enfermeros
+GRANT SELECT ON hospital.reserva_habitacion TO enfermeros
+GRANT SELECT ON hospital.reserva_quirofan TO enfermeros
+GRANT SELECT ON hospital.visitas_programadas TO enfermeros
+```
+## Rol Administratius
 
-||
-| :- |
+Els permisos a nivell de dades del rol de Administratius son els seguents:
+```
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA hospital TO administrativos
+```
+## Rol Pacients
+
+Els permisos a nivell de dades del rol de Pacients son els seguents:
+```
+GRANT SELECT(nom, primer_cognom, segon_cognom, telefon, data_naixement) ON hospital.paciente TO pacientes
+```
+## Rol Conductors d'ambulancia
+
+Els usuaris membres dels rols d'ambulancia no poden fer res actualment pero si en un futur l'hospital vol fer cambis
+grans ja tindran el rol amb els permisos.
+
+## Rol Celadors
+
+Els permisos a nivell de dades del rol de Celadors son els seguents:
+```
+GRANT SELECT ON hospital.operaciones TO celadores
+GRANT SELECT ON hospital.planta TO celadores
+GRANT SELECT ON hospital.quirofano TO celadores
+GRANT SELECT ON hospital.reserva_habitacion TO celadores
+GRANT SELECT ON hospital.reserva_quirofan TO celadores
+```
 
