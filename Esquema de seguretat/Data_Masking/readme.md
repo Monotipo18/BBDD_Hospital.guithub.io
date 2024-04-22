@@ -266,7 +266,7 @@ SECURITY LABEL FOR pg_anonymize ON ROLE metges IS 'anonymize';
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visites_Programades.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
 ```
-### Rol infermer/a
+#### Rol infermer/a
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE infermers IS 'anonymize';
 ```
