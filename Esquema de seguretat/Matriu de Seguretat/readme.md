@@ -365,6 +365,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA hospital TO adminis
 Els permisos a nivell de dades del rol de Pacients son els seguents:
 ```
 GRANT SELECT(nom, primer_cognom, segon_cognom, telefon, data_naixement) ON hospital.paciente TO pacientes
+GRANT SELECT ON hospital.cita_medica TO pacients
 ```
 ## Rol Conductors d'ambulancia
 
