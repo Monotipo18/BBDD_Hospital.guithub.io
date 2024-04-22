@@ -173,7 +173,7 @@ Dins de la nostra base de dades hi ha informació esmentada anteriorment que enc
 SECURITY LABEL FOR pg_anonymize ON ROLE metges IS 'anonymize';
 ```
 
-### Anonimització de dades dels pacients per als metges
+#### Anonimització de dades dels pacients per als metges
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Pacient.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
@@ -188,7 +188,7 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Pacient.Num_Seguretat_Social
 SECURITY LABEL FOR pg_anonymize ON ROLE Administratius IS 'anonymize';
 ```
 
-### Anonimització de dades dels pacients per als administratius
+#### Anonimització de dades dels pacients per als administratius
 ``` sql
     SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Pacient.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
@@ -199,12 +199,12 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Pacient.Num_Seguretat_Social
 ```
 
 
-### Personal metge i administratiu
+#### Personal metge i administratiu
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE Administratius IS 'anonymize';
 ```
 
-### Anonimització de dades del personal
+#### Anonimització de dades del personal
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.Estudis
     IS $$CAST(REPEAT('*', LENGTH(Estudis)) AS TEXT)$$;
@@ -223,33 +223,33 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.Curriculum
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal.email
     IS $$REPEAT('*', LENGTH(email))::VARCHAR$$;
 ```
-### Personal variat
+#### Personal variat
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE Administratius IS 'anonymize';
 ```
 
-### Anonimització de dades del personal variat
+#### Anonimització de dades del personal variat
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_vari.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
 ```
 
-### Metges i metgesses
+#### Metges i metgesses
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE Administratius IS 'anonymize';
 ```
 
-### Anonimització de dades dels metges i metgesses
+#### Anonimització de dades dels metges i metgesses
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Metge_Metgessa.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
 ```
-### Visites programades
+#### Visites programades
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE Administratius IS 'anonymize';
 ```
 
-### Anonimització de dades de les visites programades
+#### Anonimització de dades de les visites programades
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visites_Programades.Diagnostic
     IS $$REPEAT('*', LENGTH(Diagnostic))::VARCHAR$$;
@@ -264,12 +264,12 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visites_Programades.DNI
 ```
 ### Rols específics
 
-### Rol pacient
+#### Rol pacient
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE metges IS 'anonymize';
 ```
 
-### Anonimització de dades dels pacients per als pacients
+#### Anonimització de dades dels pacients per als pacients
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visites_Programades.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
@@ -279,7 +279,7 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visites_Programades.DNI
 SECURITY LABEL FOR pg_anonymize ON ROLE infermers IS 'anonymize';
 ```
 
-### Anonimització de dades dels pacients i visites programades per als infermers
+#### Anonimització de dades dels pacients i visites programades per als infermers
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visites_Programades.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
@@ -290,32 +290,32 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Visites_Programades.Medicamen
 ```
 ### Especialitat mèdica
 
-### Rol metge
+#### Rol metge
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE metges IS 'anonymize';
 ```
-### Anonimització de dades de l'especialitat mèdica per als metges
+#### Anonimització de dades de l'especialitat mèdica per als metges
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.especialitat.dni_metge
     IS $$REPEAT('*', LENGTH(dni_metge))::VARCHAR$$;
 ```
-### Rol administratiu
+#### Rol administratiu
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE administratius IS 'anonymize';
 ```
 
-### Anonimització de dades de l'especialitat mèdica per als administratius
+#### Anonimització de dades de l'especialitat mèdica per als administratius
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.especialitat.dni_metge
     IS $$REPEAT('*', LENGTH(dni_metge))::VARCHAR$$;
 ```
 
 ### Personal d'infermeria
-### Rol metge
+#### Rol metge
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON metges  IS 'anonymize';
-
-### Anonimització de dades del personal d'infermeria per als metges
+```
+#### Anonimització de dades del personal d'infermeria per als metges
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_Infermeria.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
@@ -323,12 +323,12 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_Infermeria.DNI_Medic
     IS $$REPEAT('*', LENGTH(DNI_Medic))::VARCHAR$$;
 ```
 
-### Rol Administratius
+#### Rol Administratius
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE administratius IS 'anonymize';
 ```
 
-### Anonimització de dades del personal d'infermeria per als administratius
+#### Anonimització de dades del personal d'infermeria per als administratius
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_Infermeria.DNI
     IS $$REPEAT('*', LENGTH(DNI))::VARCHAR$$;
@@ -337,22 +337,22 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Personal_Infermeria.DNI_Medic
 ```
 ### Operacions
 
-### Rol metge
+#### Rol metge
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE metges IS 'anonymize';
 ```
-### Anonimització de dades d'operacions per als metges
+#### Anonimització de dades d'operacions per als metges
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operacions.dni_metge
     IS $$REPEAT('*', LENGTH(dni_metge))::VARCHAR$$;
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operacions.DNI_metge
     IS $$REPEAT('*', LENGTH(DNI_metge))::VARCHAR$$;
 ```
-### Rol administratiu
+#### Rol administratiu
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE administratius IS 'anonymize';
 ```
-### Anonimització de dades d'operacions per als administratius
+#### Anonimització de dades d'operacions per als administratius
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.operacions.id_operacions
     IS $$REPEAT('*', LENGTH(id_operacions::VARCHAR))::VARCHAR$$;
@@ -369,20 +369,20 @@ SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operacions.Num_Quirofan
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operacions.DNI_metge
     IS $$REPEAT('*', LENGTH(DNI_metge))::VARCHAR$$;
 ```
-### Rol infermer/a
+#### Rol infermer/a
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE infermers IS 'anonymize';
 ```
-### Anonimització de dades d'operacions per als infermers
+#### Anonimització de dades d'operacions per als infermers
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operacions.DNI_metge
     IS $$substr(DNI_metge, 1, 1) || '*****'$$;
 ```
-### Rol celador
+#### Rol celador
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON ROLE celador  IS 'anonymize';
 ```
-### Anonimització de dades d'operacions per als celadors
+#### Anonimització de dades d'operacions per als celadors
 ``` sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN hospital.Operacions.DNI_metge
     IS $$REPEAT('*', LENGTH(DNI_metge))::VARCHAR$$;
