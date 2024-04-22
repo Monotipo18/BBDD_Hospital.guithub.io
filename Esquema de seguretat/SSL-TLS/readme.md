@@ -50,7 +50,7 @@ sudo certbot certificates
 <p>Creem el "script" per a la renovació automàtica</p>
 
 ```bash
-mkdir /etc/letsencrypt/renewal-hooks/deploy/postgresql.deploy
+sudo nano /etc/letsencrypt/renewal-hooks/deploy/postgresql.deploy
 ```
 
 <p>Entrem en l'arxiu amb la comanda 'nano' i introduïm el següent:</p>
