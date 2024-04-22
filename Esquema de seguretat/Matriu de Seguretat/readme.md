@@ -1,7 +1,7 @@
 # Documentacio del Esquema de seguretat
 ## Projecte Intermodular
 ### Contingut
-1 [Permisos Teorics](#permisos)
+-  [Permisos Teorics](#permisos)
     -  [Metges](#Metges)
     -  [Infermer](#Infermer)
     -  [Zeladors](#Zeladors)
