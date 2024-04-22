@@ -10,14 +10,6 @@
 3. [Dades de caràcter personal de grau alt](#dades-de-caràcter-personal-de-grau-alt)
     - [Aquestes són les dades que enmascararem](#aquestes-són-les-dades-que-enmascararem)
 4. [Enmascarament de les dades de caràcter personal de grau alt](#enmascarament-de-les-dades-de-caràcter-personal-de-grau-alt)
-    - [Rol Metge](#rol-metge)
-    - [Rol Administratiu](#rol-administratiu)
-    - [Rol Pacient](#rol-pacient)
-    - [Rol Infermer](#rol-infermer)
-    - [Taula Especialitat](#taula-especialitat)
-    - [Altres Directives](#altres-directives)
-        - [Taula Personal Infermeria](#taula-personal-infermeria)
-        - [Taula Operacions](#taula-operacions)
 5. [Webgrafía](#webgrafía)
 
 
