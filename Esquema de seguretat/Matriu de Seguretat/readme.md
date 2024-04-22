@@ -1,12 +1,13 @@
 # Documentacio del Esquema de seguretat
 ## Projecte Intermodular
 ### Contingut
--  [Metges](#Metges)
--  [Infermer](#Infermer)
--  [Zeladors](#Zeladors)
--  [Administratius](#Administratius)
--  [Conductors d'ambulancia](#conductors-ambulancia)
--  [Pacients](#pacients)
+-  [Permisos_Teorics](#permisos)
+    -  [Metges](#Metges)
+    -  [Infermer](#Infermer)
+    -  [Zeladors](#Zeladors)
+    -  [Administratius](#Administratius)
+    -  [Conductors d'ambulancia](#conductors-ambulancia)
+    -  [Pacients](#pacients)
 ## Rols de Grup - Permisos de Sistema
 -  []
 # Permisos
