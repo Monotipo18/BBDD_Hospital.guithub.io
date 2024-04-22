@@ -1,15 +1,3 @@
-grant connect on database "Hospital_Pruebas" to medicos;
-grant usage on schema hospital to medicos;
-grant connect on database "Hospital_Pruebas" to enfermeros;
-grant usage on schema hospital to enfermeros;
-grant connect on database "Hospital_Pruebas" to celadores;
-grant usage on schema hospital to celadores;
-grant connect on database "Hospital_Pruebas" to administrativos;
-grant usage on schema hospital to administrativos;
---grant connect on database "Hospital_Pruebas" to conudctores_ambulancia;
---grant usage on schema hospital to grant connect on database Hospital_Pruebas to conudctores_ambulancia;
-grant connect on database "Hospital_Pruebas" to pacientes;
-grant usage on schema hospital to pacientes;
 --Medicos
 CREATE ROLE medicos WITH
 	NOLOGIN
@@ -45,7 +33,7 @@ GRANT SELECT ON hospital.operaciones TO enfermeros;
 GRANT SELECT ON hospital.planta TO enfermeros;
 GRANT SELECT ON hospital.quirofano TO enfermeros;
 GRANT SELECT ON hospital.reserva_habitacion TO enfermeros;
-GRANT SELECT ON hospital.reserva_quirofan TO enfermeros;
+GRANT SELECT ON hospital.reserva_quirofano TO enfermeros;
 GRANT SELECT ON hospital.visitas_programadas TO enfermeros;
 
 --Conductors d'ambulancia
@@ -68,13 +56,13 @@ CREATE ROLE pacient WITH
 	NOREPLICATION
 	CONNECTION LIMIT -1;
 
-GRANT SELECT(nom, primer_cognom, segon_cognom, telefon, data_naixement) ON hospital.pacient TO pacient;
-GRANT SELECT ON hospital.cita_medica TO pacients
+GRANT SELECT(nom, primer_cognom, segon_cognom, telefon, data_naixement) ON hospital.paciente TO pacient;
+GRANT SELECT ON hospital.cita_medica TO pacient;
 --Modifiquem per que només el pacient pugui veure la seva fitxa
 CREATE VIEW pacient_usuario_conectado AS
 SELECT nom, primer_cognom, segon_cognom, telefon, data_naixement
-FROM hospital.pacient
-WHERE usuario = current_user;
+FROM hospital.paciente
+WHERE nom = current_user;
 
 GRANT SELECT ON pacient_usuario_conectado TO pacient;
 
@@ -88,7 +76,7 @@ CREATE ROLE Administratius WITH
 	INHERIT
 	NOREPLICATION
 	CONNECTION LIMIT -1;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA hospital TO administrativos
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA hospital TO Administratius;
 
 
 --Celadors
@@ -100,8 +88,20 @@ CREATE ROLE Celador WITH
 	INHERIT
 	NOREPLICATION
 	CONNECTION LIMIT -1;
-GRANT SELECT ON hospital.operaciones TO celadores;
-GRANT SELECT ON hospital.planta TO celadores;
-GRANT SELECT ON hospital.quirofano TO celadores;
-GRANT SELECT ON hospital.reserva_habitacion TO celadores;
-GRANT SELECT ON hospital.reserva_quirofan TO celadores;
+GRANT SELECT ON hospital.operaciones TO Celador;
+GRANT SELECT ON hospital.planta TO Celador;
+GRANT SELECT ON hospital.quirofano TO Celador;
+GRANT SELECT ON hospital.reserva_habitacion TO Celador;
+GRANT SELECT ON hospital.reserva_quirofano TO Celador;
+grant connect on database asixhospitalbd to medicos;
+grant usage on schema hospital to medicos;
+grant connect on database asixhospitalbd to enfermeros;
+grant usage on schema hospital to enfermeros;
+grant connect on database asixhospitalbd to Celador;
+grant usage on schema hospital to Celador;
+grant connect on database asixhospitalbd to Administratius;
+grant usage on schema hospital to Administratius;
+--grant connect on database asixhospitalbd to conudctores_ambulancia;
+--grant usage on schema hospital to grant connect on database asixhospitalbd to conudctores_ambulancia;
+grant connect on database asixhospitalbd to pacient;
+grant usage on schema hospital to pacient;
