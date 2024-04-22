@@ -119,7 +119,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Reserva_Quirofan | `Tot`     |
 | Visites_programades | `Tot`    |
 
-# Conductors ambulancia
+# **Conductors ambulancia**
 
 | Taules | Permisos |
 | :---:       |     :---:      |
@@ -138,7 +138,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Reserva_Quirofan | `Res`     |
 | Visites_programades | `Res`    |
 
-# Pacients
+# **Pacients**
 | Taules | Permisos |
 | :---:       |     :---:      |
 | Aparells_medics  | `Res`    |
@@ -158,7 +158,7 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 
 # **Rols de Grup**
 ### Permisos de sistema
-## Grup Metges
+## **Grup Metges**
 
 Hem decidit crear el rol de metges per adjuntar tots el usuaris que siguin metges (o derivats d'aquest o similars) perque tinguin tots els mateixos permisos.
 
@@ -185,7 +185,7 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 ```
 grant usage on schema hospital to medicos;
 ```
-## Grup Infermers
+## **Grup Infermers**
 
 Hem decidit crear el rol de infermers per adjuntar tots el usuaris que siguin infermers (o derivats d'aquest o similars) perque tinguin tots els mateixos permisos.
 
@@ -213,7 +213,7 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 ```
 grant usage on schema hospital to enfermeros;
 ```
-## Grup Celadors
+## **Grup Celadors**
 
 Hem decidit crear el rol de celadors per adjuntar tots el usuaris que siguin celadors, perque tinguin tots els mateixos permisos.
 
@@ -240,7 +240,7 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 ```
 grant usage on schema hospital to celadores;
 ```
-## Grup Administratius
+## **Grup Administratius**
 
 Hem decidit crear el rol de Administratius per adjuntar tots el usuaris que siguin Administradors del hospital, perque tinguin tots els mateixos permisos.
 
@@ -268,7 +268,7 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 grant usage on schema hospital to administrativos;
 ```
 
-## Grup Conductors d'ambulancia
+## **Grup Conductors d'ambulancia**
 
 Hem decidit crear el rol de conductors d'ambulancia per adjuntar tots el usuaris que siguin con del mateix sector, perque tinguin tots els mateixos permisos.
 
@@ -296,7 +296,7 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 grant usage on schema hospital to grant connect on database asixhospitalbd to conudctores_ambulancia;
 ```
 
-## Grup Pacients
+## **Grup Pacients**
 
 Hem decidit crear el rol de Pacients per adjuntar tots el usuaris pacients del hospital, cada usuario nomes podra mirar el seu camp d'informacio.
 
@@ -325,7 +325,7 @@ grant usage on schema hospital to pacientes;
 ```
 
 # Permisos de roles en tablas:
-## Rol metges
+## **Rol metges**
 
 Els permisos a nivell de dades del rol de metges son els seguents:
 ```
@@ -341,7 +341,7 @@ GRANT SELECT, INSERT, UPDATE ON hospital.reserva_habitacion TO medicos
 GRANT SELECT, INSERT, UPDATE ON hospital.reserva_quirofan TO medicos
 GRANT SELECT, INSERT, UPDATE ON hospital.visitas_programadas TO medicos
 ```
-## Rol Infermers
+## **Rol Infermers**
 
 Els permisos a nivell de dades del rol de Infermers son els segunets:
 ```
@@ -354,25 +354,25 @@ GRANT SELECT ON hospital.reserva_habitacion TO enfermeros
 GRANT SELECT ON hospital.reserva_quirofan TO enfermeros
 GRANT SELECT ON hospital.visitas_programadas TO enfermeros
 ```
-## Rol Administratius
+## **Rol Administratius**
 
 Els permisos a nivell de dades del rol de Administratius son els seguents:
 ```
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA hospital TO administrativos
 ```
-## Rol Pacients
+## **Rol Pacients**
 
 Els permisos a nivell de dades del rol de Pacients son els seguents:
 ```
 GRANT SELECT(nom, primer_cognom, segon_cognom, telefon, data_naixement) ON hospital.paciente TO pacientes
 GRANT SELECT ON hospital.cita_medica TO pacients
 ```
-## Rol Conductors d'ambulancia
+## **Rol Conductors d'ambulancia**
 
 Els usuaris membres dels rols d'ambulancia no poden fer res actualment pero si en un futur l'hospital vol fer cambis
 grans ja tindran el rol amb els permisos.
 
-## Rol Celadors
+## **Rol Celadors**
 
 Els permisos a nivell de dades del rol de Celadors son els seguents:
 ```
