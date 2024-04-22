@@ -61,9 +61,9 @@ Adjunto captures de pantalla dels comandaments make i make install.
 Seguint els passos anteriors, ja tenim pg_anonymize instal·lat a la nostra màquina.
 
 
-# Cómo utilizar pg_anonymize
-## Configuraciones Previas
-#### Insertar información en la base de datos, en nuestro caso creamos la tabla y le añadimos unos datos inventados
+# Com utilizar pg_anonymize
+## Configuracions Previas
+#### Insertar informació a la base de dades, en el nuestre cas creem la taula y posem unes dades inventades
 ```sql
 CREATE TABLE public.customer(id integer,
 first_name text,
@@ -73,44 +73,83 @@ phone_number text);
 INSERT INTO public.customer VALUES (1, 'Col', 'Iflor', '00-00-00', '+34 1234 5678');
 INSERT INTO public.customer VALUES (2, 'Rosa', 'Melano', '00-00-00', '+34 1234 5678');
 ```
-#### También crearemos un usuario que en nuestro caso lo llamaremos Col
+#### També creem un usuari que en el nostre cas l'anomenarem Col
 ```sql
 CREATE ROLE Col LOGIN PASSWORD '1234'
 ```
-#### A continuación, asignaremos permisos de conexión a la base de datos hospital y de lectura a la tabla customer.
+#### A continuació, asignarem permisos de conexió a la base de dades hospital y de lectura a la taula customer.
 ```sql
 GRANT CONNECT ON DATABASE hospital TO Col;
 GRANT SELECT ON TABLE public.customer TO Col;
 ```
-## Configuración pg_anonymize
-Con los pasos anteriores realizados, nos conectamos a la Base de datos (en nuestro caso "hospital") y ejecutaremos las siguientes comandas para cargar pg_anonymize:
-En primer lugar:
+## Configuració pg_anonymize
+Amb els passos anteriors realitzats, ens connectem a la Base de dades (en el nostre cas "hospital") i executarem les següents comandes per carregar pg_anonymize:
+
+En primer lloc:
 ```sql
 LOAD 'pg_anonymize';
 ```
-Con esta comando cargamos pg_anonymize dentro de nuestra base de datos.
-En segundo lugar:
+Amb aquesta comanda carreguem pg_anonymize dins de la nostra base de dades.
+
+En segundo lloc:
 ```sql
 SECURITY LABEL FOR pg_anonymize ON ROLE Col IS 'anonymize';
 ```
-Con esta comando anonimizamos las datos que el señor Col podrá ver de la base de datos.
-En tercer lugar:
+Amb aquesta comanda anonimitzem les dades que el senyor Col podrà veure de la base de dades.
+
+En tercer lloc:
 ```sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN public.customer.last_name
     IS $$substr(last_name, 1, 1) || '*****'$$;
 ```
-Con esta comando, sustituimos todos los caracteres menos el inicial de la columna last_name de la tabla customers por *, de esta manera los usuarios que no tengan autorización, no podrán ver esta información.
-A continuación:
+Amb aquesta comanda, substituïm tots els caràcters excepte l'inicial de la columna last_name de la taula customers per *, d'aquesta manera els usuaris que no tinguin autorització no podran veure aquesta informació.
+
+A continuació:
 ```sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN public.customer.birthday
     IS $$date_trunc('year', birthday)::date$$;
 ```
-Con esta comando cortamos el año de nacimiento para que solo muestre el año.
-Y para acabar:
+Amb aquesta comanda, retallem l'any de naixement per mostrar només l'any.
+
+Y per finalitzar:
 ```sql
 SECURITY LABEL FOR pg_anonymize ON COLUMN public.customer.phone_number
     IS $$regexp_replace(phone_number, '\d', 'X', 'g')$$;
 ```
-Con esta comando sustituimos los números de teléfono por una X.
+Amb aquesta comanda, substituïm els números de telèfon per una X
+
+## Dades de caràcter personal de grau alt.
+### Aquestes son les dades que enmascararem:
+
+**Informació d'Identificació Personal (PII):**
+
+- Noms complets dels pacients.
+- Números d'identificació personal (com ara números de la Seguretat Social, números d'identificació nacional, etc.).
+- Dates de naixement.
+- Adreces residencials i de contacte.
+- Números de telèfon.
+
+**Informació Mèdica Sensible:**
+
+- Històries clíniques i mèdiques.
+- Resultats de proves mèdiques, com ara anàlisis de sang, proves de diagnòstic per imatges, etc.
+- Diagnòstics mèdics.
+- Informació sobre tractaments mèdics i medicaments recetats.
+- Informació sobre al·lèrgies i condicions mèdiques cròniques.
+
+**Informació Financera:**
+
+- Informació de següros mèdics i de salut.
+- Facturació i registres de serveis mèdics.
+- Informació de targetes de credit o dèbit utilitzades per pagar serveis mèdics.
+
+**Informació Laboral i d'Assegurança:**
+
+- Informació laboral relacionada amb beneficis de salut i llicències mèdiques.
+- Detalls sobre reclamacions de compensació laboral.
+
+Dins de la nostra base de dades hi ha informació esmentada anteriorment que encara no estem utilitzant. Aquest document és per a futurs usos i en cas de continuar ampliant la BDD, s'haurà de tenir en compte.
+
+
 ### Webgrafía
 [https://github.com/rjuju/pg_anonymize?tab=readme-ov-file](https://github.com/rjuju/pg_anonymize?tab=readme-ov-file)
