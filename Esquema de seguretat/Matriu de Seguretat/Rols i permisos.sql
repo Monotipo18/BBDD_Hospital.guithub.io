@@ -61,9 +61,11 @@ GRANT SELECT(nom, primer_cognom, segon_cognom, telefon, data_naixement) ON hospi
 GRANT SELECT ON hospital.cita_medica TO pacients
 --Modifiquem per que només el pacient pugui veure la seva fitxa
 CREATE VIEW pacient_usuario_conectado AS
-SELECT nom, primer_cognom, segon_cognom, telefon, data_naixement
-FROM hospital.pacient
+SELECT hp.nom, hp.primer_cognom, hp.segon_cognom, hp.telefon, hp.data_naixement, ci.dia, ci.hora, ci.dni, ci.nº_planta
+FROM hospital.pacient hp
+INNER JOIN cita_medica ci ON hp.id_paciente = ci.id_paciente
 WHERE usuario = current_user;
+
 
 GRANT SELECT ON pacient_usuario_conectado TO pacient;
 
