@@ -1,15 +1,29 @@
 # Documentacio del Esquema de seguretat
 ## Projecte Intermodular
 ### Contingut
--  [Permisos_Teorics](#permisos)
+-  [Permisos Teorics](#permisos)
     -  [Metges](#Metges)
     -  [Infermer](#Infermer)
     -  [Zeladors](#Zeladors)
     -  [Administratius](#Administratius)
     -  [Conductors d'ambulancia](#conductors-ambulancia)
     -  [Pacients](#pacients)
-## Rols de Grup - Permisos de Sistema
--  []
+-  [Permisos de sistema](#permisos-de-sistema)
+    -  [Rol Metges](#grup-metges)
+    -  [Rol Infermers](#grup-infermers)
+    -  [Rol Celadors](#grup-celadors)
+    -  [Rol Administratius](#grup-administratius)
+    -  [Rol Conductor d'ambulancia](#grup-conductors-dambulancia)
+    -  [Rol Pacients](#grup-pacients)
+-  [Permisos de Dades](#permisos-de-roles-en-tablas)
+    -  [Rol Metges](#rol-metges)
+    -  [Rol Infermers](#rol-infermers)
+    -  [Rol Administratius](#rol-administratius)
+    -  [Rol Pacients](#rol-pacients)
+    -  [Rol Conductors d'ambulancia](#rol-conductors-dambulancia)
+    -  [Rol Celadors](#rol-celadors)
+    
+
 # Permisos
 ## **Metges**
 
@@ -143,8 +157,8 @@ Per això hem decidit que els Zeladors poden realitzar les següents accions en 
 | Visites_programades | `Res`    |
 
 # **Rols de Grup**
+### Permisos de sistema
 ## Grup Metges
-### Permisos
 
 Hem decidit crear el rol de metges per adjuntar tots el usuaris que siguin metges (o derivats d'aquest o similars) perque tinguin tots els mateixos permisos.
 
@@ -172,7 +186,6 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 grant usage on schema hospital to medicos;
 ```
 ## Grup Infermers
-### Permisos
 
 Hem decidit crear el rol de infermers per adjuntar tots el usuaris que siguin infermers (o derivats d'aquest o similars) perque tinguin tots els mateixos permisos.
 
@@ -201,7 +214,6 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 grant usage on schema hospital to enfermeros;
 ```
 ## Grup Celadors
-### Permisos
 
 Hem decidit crear el rol de celadors per adjuntar tots el usuaris que siguin celadors, perque tinguin tots els mateixos permisos.
 
@@ -229,7 +241,6 @@ Els membres del grup podran fer servir l'schema 'hospital' (on es troben les dad
 grant usage on schema hospital to celadores;
 ```
 ## Grup Administratius
-### Permisos
 
 Hem decidit crear el rol de Administratius per adjuntar tots el usuaris que siguin Administradors del hospital, perque tinguin tots els mateixos permisos.
 
@@ -258,7 +269,6 @@ grant usage on schema hospital to administrativos;
 ```
 
 ## Grup Conductors d'ambulancia
-### Permisos
 
 Hem decidit crear el rol de conductors d'ambulancia per adjuntar tots el usuaris que siguin con del mateix sector, perque tinguin tots els mateixos permisos.
 
@@ -287,7 +297,6 @@ grant usage on schema hospital to grant connect on database asixhospitalbd to co
 ```
 
 ## Grup Pacients
-### Permisos
 
 Hem decidit crear el rol de Pacients per adjuntar tots el usuaris pacients del hospital, cada usuario nomes podra mirar el seu camp d'informacio.
 
@@ -316,7 +325,6 @@ grant usage on schema hospital to pacientes;
 ```
 
 # Permisos de roles en tablas:
-
 ## Rol metges
 
 Els permisos a nivell de dades del rol de metges son els seguents:
