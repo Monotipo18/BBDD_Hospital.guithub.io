@@ -1,7 +1,4 @@
 # Índex
-
-# Índice
-
 1. [Instal·lació](#instal·lació)
     - [Pasos de Instal·lació](#pasos-de-instalació)
 2. [Com utilitzar pg_anonymize](#com-utilitzar-pg_anonymize)
