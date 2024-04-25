@@ -146,3 +146,14 @@ CREATE TABLE Personal_Infermeria
   FOREIGN KEY (Num_Planta) REFERENCES Planta(Num_Planta),
   FOREIGN KEY (ID_Opereaciones) REFERENCES Operaciones(ID_Opereaciones)
 );
+CREATE TABLE Agenda_Metge
+(
+  DNI VARCHAR(9) NOT NULL,
+  Fecha DATE NOT NULL,
+  Hora TIME NOT NULL,
+  DNI_Metge VARCHAR(9) NOT NULL,
+  PRIMARY KEY (DNI),
+  FOREIGN KEY (DNI_Metge) REFERENCES Metge_Metgessa(DNI),
+  UNIQUE (Fecha),
+  UNIQUE (Hora)
+);
