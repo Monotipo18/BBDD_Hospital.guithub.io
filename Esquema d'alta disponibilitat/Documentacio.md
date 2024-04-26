@@ -57,7 +57,7 @@ Por ultimo una tabla con el precio total y un descuento aplicado por el vendedor
 
 Dell PowerEdge R740XD2
 
-| Servidor          | Cantidad|       |   Precio total (€) |
-|-------------------|--------------------|--------------------|
-| **Dell PowerEdge R740XD2** |   2 | **21.378**    |
-| **Descuento HPE (15%)**|  |**-3.206,7**     |
+| Servidor                   | Cantidad | Precio total (€) |
+|----------------------------|----------|------------------|
+| **Dell PowerEdge R740XD2**| 2        | 21.378,00        |
+| **Descuento HPE (15%)**   | 2         | -3.206,70        |
