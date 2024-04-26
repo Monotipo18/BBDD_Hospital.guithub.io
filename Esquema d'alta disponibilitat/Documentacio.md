@@ -1,4 +1,7 @@
 # Esquema d'alta disponibilitat
+-   [Hardware](#hardware)
+# Hardware
+Debido a las caracteristicas de la Base de Datos del hospital hemos considerado una cantidad distinta de opciones y consideramos que esta opcion es la mas 
 
 | Componente        | Cantidad | Precio unitario (€) | Precio total (€) |
 |-------------------|----------|---------------------|------------------|
