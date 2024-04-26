@@ -1,0 +1,1 @@
+# Esquema d'alta disponibilitat
