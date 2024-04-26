@@ -11,6 +11,9 @@
 | Tarjeta de Red    | 1        | 28,00               | 28,00            |
 | iDRAC             | 1        | 0,00                | 0,00             |
 | Fuente de Alimentación | 2   | 98,00               | 196,00           |
-| **Total**         |          |                     | **10.689,00**    |
-| Descuento HPE (15%) |        |                     | **-1603,35**     |
-| **Precio final**  |          |                     | **9085,65**      |
+
+| Detalles          |   Precio total (€) |
+|-------------------|--------------------|
+| **Total**         |  **10.689,00**    |
+| Descuento HPE (15%)  **-1603,35**     |
+| **Precio final**  |  **9085,65**      |
