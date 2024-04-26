@@ -50,12 +50,10 @@ Por ultimo una tabla con el precio total y un descuento aplicado por el vendedor
 | **Descuento HPE (15%)**|  **-1603,35**     |
 | **Precio final**  |  **9085,65**      |
 
-> [!IMPORTANT]  
+> # [!IMPORTANT]  
 > Como por seguridad hemos de replicar la Base de datos en otro servidor (como minimo)
 > de manera Activa-Activa o Activa-Passiva hemos de comprar un 2 servidor (si es posible igual)
 > por lo que el precio total sera el siguiente:
-
-Dell PowerEdge R740XD2
 
 | Servidor                   | Cantidad | Precio total (€) |
 |----------------------------|----------|------------------|
