@@ -14,7 +14,7 @@ Las caracteristicas aproximades eran, una CPU de 12/16 nucleos, 64/128 GB de ram
 > Hemos escogido 2 sistema de almacenamiento porque, 1 sera para almacenar el sistema operativo (SSD 2.5)
 > y el otro para almacenar los datos de la Base de Datos (HDD SAS 2.5)
 
-En la siguiente tabla se encuentra la informacion de cada componente
+En la siguiente tabla se encuentra la informacion/caracteristicas de cada componente.
 
 | Componente      | Descripción                                                                         |
 |-----------------|-------------------------------------------------------------------------------------|
@@ -28,6 +28,7 @@ En la siguiente tabla se encuentra la informacion de cada componente
 | IDRAC           | DELL - iDRAC Enterprise License                                                     |
 | Power Supply    | DELL - PSU 1100W R530 R630 R730 R730 R930 T630 R640 R740              |
 
+Aparte hemos hecho una tabla con la cantidad y los precios de cada componente.
 
 | Componente        | Cantidad | Precio unitario (€) | Precio total (€) |
 |-------------------|----------|---------------------|------------------|
@@ -41,9 +42,22 @@ En la siguiente tabla se encuentra la informacion de cada componente
 | iDRAC             | 1        | 0,00                | 0,00             |
 | Fuente de Alimentación | 2   | 98,00               | 196,00           |
 
+Por ultimo una tabla con el precio total y un descuento aplicado por el vendedor
+
 | Detalles          |   Precio total (€) |
 |-------------------|--------------------|
 | **Total**         |  **10.689,00**    |
 | **Descuento HPE (15%)**|  **-1603,35**     |
 | **Precio final**  |  **9085,65**      |
 
+> [!IMPORTANT]  
+> Como por seguridad hemos de replicar la Base de datos en otro servidor (como minimo)
+> de manera Activa-Activa o Activa-Passiva hemos de comprar un 2 servidor (si es posible igual)
+> por lo que el precio total sera el siguiente:
+
+Dell PowerEdge R740XD2
+
+| Servidor          | Cantidad|       |   Precio total (€) |
+|-------------------|--------------------|--------------------|
+| **Dell PowerEdge R740XD2** |   2 | **21.378**    |
+| **Descuento HPE (15%)**|  |**-3.206,7**     |
