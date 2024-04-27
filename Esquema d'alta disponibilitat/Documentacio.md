@@ -59,3 +59,5 @@ Por ultimo una tabla con el precio total y un descuento aplicado por el vendedor
 |----------------------------|----------|------------------|
 | **Dell PowerEdge R740XD2**| 2        | 21.378,00        |
 | **Descuento HPE (15%)**   | 2         | -3.206,70        |
+
+
