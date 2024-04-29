@@ -1,5 +1,10 @@
 # Esquema d'alta disponibilitat
+## Index
 -   [Hardware](#hardware)
+-   [Componentes](#componentes)
+-   [Precios](#precios)
+-   [Precio Total](#precio-total)
+
 ## Hardware
 
 Debido a las caracteristicas de la Base de Datos del hospital (cantidad de informacion almacenada) hemos considerado una cantidad distinta de opciones y consideramos que la opcion mas adiente para las necesidades del hospital es la siguiente:
@@ -8,12 +13,14 @@ Debido a las caracteristicas de la Base de Datos del hospital (cantidad de infor
 
 Hemos escogido el servidor Dell PowerEdge R740XD2 debido a que hemos podido personalizar para unas caracteristicas de hardware que se aproximarian a lo necesario para el buen funcionamiento del sistema.
 
-Las caracteristicas aproximades eran, una CPU de 12/16 nucleos, 64/128 GB de ram, 50/100 TB de almencamiento y sobretodo que tenga una garantia general en caso de fallada.
+Las caracteristicas aproximades son, una CPU de 12/16 nucleos, 64/128 GB de ram, 50/100 TB de almencamiento y sobretodo que tenga una garantia general en caso de fallada.
+
+Consideramos que estas especificaciones son las mas adientes teneiendo en cuenta el volumen de datos con el que se trabajara, ademas teniendo en cuenta que el hospital cuenta con recursos limitados no seria muy correcto optar por una solucion mas cara.
 
 > [!NOTE]  
 > Hemos escogido 2 sistema de almacenamiento porque, 1 sera para almacenar el sistema operativo (SSD 2.5)
 > y el otro para almacenar los datos de la Base de Datos (HDD SAS 2.5)
-
+## Componentes
 En la siguiente tabla se encuentra la informacion/caracteristicas de cada componente.
 
 | Componente      | Descripción                                                                         |
@@ -28,6 +35,8 @@ En la siguiente tabla se encuentra la informacion/caracteristicas de cada compon
 | IDRAC           | DELL - iDRAC Enterprise License                                                     |
 | Power Supply    | DELL - PSU 1100W R530 R630 R730 R730 R930 T630 R640 R740              |
 
+## Precios 
+
 Aparte hemos hecho una tabla con la cantidad y los precios de cada componente.
 
 | Componente        | Cantidad | Precio unitario (€) | Precio total (€) |
@@ -41,6 +50,8 @@ Aparte hemos hecho una tabla con la cantidad y los precios de cada componente.
 | Tarjeta de Red    | 1        | 28,00               | 28,00            |
 | iDRAC             | 1        | 0,00                | 0,00             |
 | Fuente de Alimentación | 2   | 98,00               | 196,00           |
+
+## Precio Total
 
 Por ultimo una tabla con el precio total y un descuento aplicado por el vendedor
 
