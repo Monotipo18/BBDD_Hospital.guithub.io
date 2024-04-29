@@ -11,7 +11,7 @@ Debido a las caracteristicas de la Base de Datos del hospital (cantidad de infor
 
 ### Servidor
 
-Hemos escogido el servidor Dell PowerEdge R740XD2 debido a que hemos podido personalizar para unas caracteristicas de hardware que se aproximarian a lo necesario para el buen funcionamiento del sistema.
+Hemos escogido el servidor Dell PowerEdge R740XD2 debido a que hemos podido personalizar para unas caracteristicas de hardware que se aproximarian a lo necesario para el buen funcionamiento del sistema. Hemos utilizado la pagina web https://www.renewtech.es/dell-poweredge-r740xd2-configure-to-order.html para personalizar el servidor segun las necesidades.
 
 Las caracteristicas aproximades son, una CPU de 12/16 nucleos, 64/128 GB de ram, 50/100 TB de almencamiento y sobretodo que tenga una garantia general en caso de fallada.
 
