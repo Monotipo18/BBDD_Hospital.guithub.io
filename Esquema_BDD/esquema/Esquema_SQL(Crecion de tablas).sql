@@ -5,7 +5,7 @@ CREATE TABLE Paciente
   Nom VARCHAR(25) NOT NULL,
   Primer_Cognom VARCHAR(50) NOT NULL,
   Segon_Cognom VARCHAR(50) NOT NULL,
-  Telefon VARCHAR(9) NOT NULL,
+  Telefon VARCHAR(15) NOT NULL,
   Data_Naixement DATE NOT NULL,
   Sexe VARCHAR(1) NOT NULL,
   Num_Seguretat_Social VARCHAR(12) NOT NULL,
