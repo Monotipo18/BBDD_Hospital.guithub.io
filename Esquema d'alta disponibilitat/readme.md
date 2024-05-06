@@ -8,6 +8,5 @@ Així que mai escatimis en despeses d'alta disponibilitat i seguretat, mai saps 
 <ol>
     <li>Hardware</li>
     <li>Replicacio</li>
-    <li>Backups</li>
-    <li>Restaurar</li>
+    <li>Backups y Restaurar</li>
 </ol>
