@@ -43,10 +43,13 @@ El proceso de backup se automatiza mediante la herramienta crontab. Se han cread
 ## Script
 
 El script para configurar las copias fisicas Locales y en la nube esta en el siguiente enlace:
+- [Script Backup](#Esquema d'alta disponibilitat/script_backup_local_nube.sh)
 
 ## Pasos y Permisos
 
-Para poder utilizar el servicio en la nube OneDrive se tiene que seguir los pasos del siguiente repositorio de Github:
+Para poder utilizar el servicio en la nube OneDrive se tiene que seguir
+la siguiente documentacion de instalacion, configuracion y uso de OneDrive en este repositiorio de GitHub:
+ - [Documentacion](https://github.com/abraunegg/onedrive).
 
 Una vez instalado y configurado, se le dara permisos a la ruta donde guardan las copias locales
 ```
