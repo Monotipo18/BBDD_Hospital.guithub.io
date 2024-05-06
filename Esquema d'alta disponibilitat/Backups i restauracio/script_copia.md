@@ -53,7 +53,7 @@ El script para configurar las copias fisicas Locales y en la nube esta en el sig
 
 -  [Script Backup Tarde](Backups%20y%20Restauracion/Esquema%20d'alta%20disponibilitat/script_backup_local_nube.sh)
 -  [Script Backup Noche](Backups%20y%20Restauracion/Esquema%20d'alta%20disponibilitat/script_backup_local_nube.sh)
--  [Script Restauracion](Backups%20y%20Restauracion/Esquema%20d'alta%20disponibilitat/script_backup_local_nube.sh)
+-  [Script Restauracion](Backups%20y%20Restauracion/Esquema%20d'alta%20disponibilitat/script_restauracion.sh)
 
 ## Pasos y Permisos
 
