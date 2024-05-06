@@ -49,15 +49,21 @@ El script para configurar las copias fisicas Locales y en la nube esta en el sig
 Para poder utilizar el servicio en la nube OneDrive se tiene que seguir los pasos del siguiente repositorio de Github:
 
 Una vez instalado y configurado, se le dara permisos a la ruta donde guardan las copias locales
-``` chmod 777 /ruta/del/directorio ```
+```
+chmod 777 /ruta/del/directorio 
+```
 
 Despues de darle permisos a la ruta de las copisa Locales , se tendra que dar tambien permisos a la ruta
 donde se guardan las copias en la nube
-``` chmod 777 /home/"usuario"/OneDrive ```
+```
+chmod 777 /home/"usuario"/OneDrive
+```
 
 Una vez dado los permisoa a las 2 rutas se tendra que dar permisoa tanto al script de backup como al de restauracion
-``` chmod 777 copia_local_nube.sh ```
-``` chmod 777 restauracion.sh ```
+```
+chmod 777 copia_local_nube.sh 
+ chmod 777 restauracion.sh
+```
 
 ## Crontab
 
