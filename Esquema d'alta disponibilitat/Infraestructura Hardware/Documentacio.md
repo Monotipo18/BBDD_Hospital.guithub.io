@@ -3,7 +3,7 @@
 -   [Hardware](#hardware)
 -   [Componentes](#componentes)
 -   [Precios](#preus)
--   [Precio Total](#preu total) 
+-   [Precio Total](#preu-total) 
 
 ## Hardware
 
