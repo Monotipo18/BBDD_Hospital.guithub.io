@@ -25,7 +25,7 @@ El proceso de backup consta de las siguientes etapas:
 > [!NOTE]  
 > Originalmente se habia decidido que se reaizarian copias de seguiridad diferenciales debido a la facilidad
 > que se tiene a la hora de restaurar las copias, pero como Postgresql no se pueden realizar copias diferenciales
-> se ha tenido que optar por realizar copias 
+> se ha tenido que optar por realizar copias logicas.
 
 ## Estructura de Directorios
 
@@ -38,8 +38,7 @@ Se ha establecido la siguiente estructura de directorios para almacenar los back
 
 El proceso de backup se automatiza mediante la herramienta crontab. Se han creado los siguientes scripts:
 
-1. **Script de Backup Completo (copia_completa.sh)**: Realiza el backup completo inicial
-2. **Script de Backup Fisico (Completo) subida a la nube (copia_local_nube.sh)**: Realiza la copia Local y al mismo tiempo se sube a la nube (OneDrive)
+1. **Script de Backup Logico subida a la nube (copia_local_nube.sh)**: Realiza la copia Local y al mismo tiempo se sube a la nube (OneDrive)
 
 ## Script
 
