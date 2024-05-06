@@ -30,15 +30,15 @@ El proceso de backup consta de las siguientes etapas:
 
 Se ha establecido la siguiente estructura de directorios para almacenar los backups:
 
-1. ** /etc/postgresql/15/backup ** (Almacenamiento de copias de seguridad Locales)
-2. ** /home/"usuario"/OneDrive ** (Es la ruta donde se instala y configura por defecto la carpeta OneDrive que se sincroniza en la nube)
+1. ** ```/etc/postgresql/15/backup``` ** (Almacenamiento de copias de seguridad Locales)
+2. **``` /home/"usuario"/OneDrive``` ** (Es la ruta donde se instala y configura por defecto la carpeta OneDrive que se sincroniza en la nube)
 
 ## Planificación y Automatización
 
 El proceso de backup se automatiza mediante la herramienta crontab. Se han creado los siguientes scripts:
 
-1. **Script de Backup Logico subida a la nube (copia_local_nube.sh)**: Realiza la copia Local y al mismo tiempo se sube a la nube (OneDrive)
-2. **Script de restauracion (restauracion.sh)**: Realiza la restauracion de la base de datos a traves de la copia mas reciente existente ( Copia Logica)
+1. **Script de Backup Logico subida a la nube ```(copia_local_nube.sh)**```: Realiza la copia Local y al mismo tiempo se sube a la nube (OneDrive)
+2. **Script de restauracion ```(restauracion.sh)**```: Realiza la restauracion de la base de datos a traves de la copia mas reciente existente ( Copia Logica)
 
 ## Script
 
