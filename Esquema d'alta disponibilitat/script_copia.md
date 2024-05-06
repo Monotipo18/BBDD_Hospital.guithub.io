@@ -6,7 +6,13 @@ Este documento proporciona instrucciones detalladas sobre cómo realizar backups
 
 Debido a las caracteristicas de la BD del hospital trafico de usuarios y cantidad de informacion almacenado, se ha desarrollado un sistema de backup automatizado para la base de datos. 
 Hemos decidido crear scripts en Bash para realizar copias de seguridad tanto en local como en la nube, utilizando el servicio de almacenamiento OneDrive.
-Además, se ha configurado un crontab para ejecutar los scripts correspondientes diariamente y por ultimo se ha creado un script para realizar la 
+
+Además, se ha configurado un crontab para ejecutar los scripts correspondientes diariamente y por ultimo se ha creado 
+un script para realizar la restauracion de la base de datos de maner mas rapida y sencilla.
+
+> [!IMPORTANT]  
+> En este caso se realizan 2 copias de seguridad diarias, una en cambio de turno 2 PM y la otra
+> a las 12:00 PM , donde el trafico es el mas bajo posible.
 
 ## Requisitos del Sistema
 
