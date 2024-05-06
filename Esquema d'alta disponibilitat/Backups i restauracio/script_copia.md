@@ -51,10 +51,9 @@ El proceso de backup se automatiza mediante la herramienta crontab. Se han cread
 
 El script para configurar las copias fisicas Locales y en la nube esta en el siguiente enlace:
 
-- [Script Backup Tarde](Esquema%20d'alta%20disponibilitat/Backups%20y%20restauracio/script_backup_local_nube.sh)
-- [Script Backup Noche](Esquema%20d'alta%20disponibilitat/Backups%20y%20restauracio/script_backup_local_nube.sh)
-- [Script Restauracion](Esquema%20d'alta%20disponibilitat/Backups%20y%20restauracio/script_restauracion.sh)
-
+- [Script Backup Tarde](Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_backup_local_nube.sh)
+- [Script Backup de Nit](Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_backup_local_nube.sh)
+- [Script Restauració](Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_restauracio.sh)
 
 ## Pasos y Permisos
 
