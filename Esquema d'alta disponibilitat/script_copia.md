@@ -89,6 +89,7 @@ Se configuran los siguiente scripts en crontab para que se ejecuten diariamente:
 # Realizar copias de seguridad diarias
 #Copia por la tarde 2PM, cambio de turno
 0 14 * * * sh /ruta/del/script.sh
+#Copia por la noche 0:00 AM / 12:00 PM
 0 0 * * * sh /ruta/del/script.sh
 ```
 
