@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 # Datos de acceso al servidor PostgreSQL
 USER="postgres"
@@ -8,7 +8,7 @@ DATABASE="hr"
 
 # Ruta donde guardaremos los archivos de respaldo
 BACKUP_PATH="/etc/postgresql/15/backup1"
-DATE=$(date +"%d-%b-%Y")
+DATE=$(date +"%d-%b-%Y_%H-%M-%S") # Se agrega la hora al formato de fecha
 
 # Creamos el directorio de respaldo si no existe
 mkdir -p $BACKUP_PATH

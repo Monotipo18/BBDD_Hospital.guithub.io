@@ -69,6 +69,6 @@ Por ultimo una tabla con el precio total y un descuento aplicado por el vendedor
 | Servidor                   | Cantidad | Precio total (€) |
 |----------------------------|----------|------------------|
 | **Dell PowerEdge R740XD2**| 2        | 21.378,00        |
-| **Descuento HPE (15%)**   | 2         | -3.206,70        |
+| **Descuento HPE (15%)**   | 1         | -3.206,70        |
 
-
+El Costo total de los 2 servidores mas el descuento aplicado por la empresa asciende a : ``` **18.171,3** ``` euros
