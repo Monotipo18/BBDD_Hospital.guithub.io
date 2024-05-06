@@ -8,7 +8,7 @@ Així que mai escatimis en despeses d'alta disponibilitat i seguretat, mai saps 
 
 <p><b>Els tres pilars de la integritat i disponibilitat són:</b><p>
 <ol>
-    ''' <li>Hardware</li> '''
-    ''' <li>Replicacio</li> '''
-    ''' <li>Backups y Restaurar</li> '''
+    ``` <li>Hardware</li> ```
+    ``` <li>Replicacio</li> ```
+    ''' <li>Backups y Restaurar</li> ```
 </ol>
