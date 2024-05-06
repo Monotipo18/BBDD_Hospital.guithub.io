@@ -2,24 +2,24 @@
 ## Index
 -   [Hardware](#hardware)
 -   [Componentes](#componentes)
--   [Precios](#precios)
--   [Precio Total](#precio-total)
+-   [Precios](#preus)
+-   [Precio Total](#preu total) 
 
 ## Hardware
 
-Debido a las caracteristicas de la Base de Datos del hospital (cantidad de informacion almacenada) hemos considerado una cantidad distinta de opciones y consideramos que la opcion mas adiente para las necesidades del hospital es la siguiente:
+A causa de les caracteristicas de la Base de dades de l'hospital (quantitat d'informacio emmagatzemada) hem considerat una quantitat diferent d'opcions i considerem que l'opcion mes adient per a les necessitats de l'hospital és la següent:
 
 ### Servidor
 
-Hemos escogido el servidor Dell PowerEdge R740XD2 debido a que hemos podido personalizar para unas caracteristicas de hardware que se aproximarian a lo necesario para el buen funcionamiento del sistema. Hemos utilizado la pagina web https://www.renewtech.es/dell-poweredge-r740xd2-configure-to-order.html para personalizar el servidor segun las necesidades.
+Hem triat el servidor Dell PowerEdge R740XD2 pel fet que hem pogut personalitzar per a unes caracteristiques de maquinari que s'ha aproximarian al necessari per al bon funcionament del sistema. Hem utilitzat la pàgina web https://www.renewtech.es/dell-poweredge-r740xd2-configure-to-order.html per a personalitzar el servidor segons les necessitats.
 
-Las caracteristicas aproximades son, una CPU de 12/16 nucleos, 64/128 GB de ram, 50/100 TB de almencamiento y sobretodo que tenga una garantia general en caso de fallada.
+Les caracteristicas aproximades són, una CPU de 12/16 nucleos, 64/128 GB de ram, 50/100 TB de emmagatzament i sobretot que tingui una garantia general en cas de fallada.
 
-Consideramos que estas especificaciones son las mas adientes teneiendo en cuenta el volumen de datos con el que se trabajara, ademas teniendo en cuenta que el hospital cuenta con recursos limitados no seria muy correcto optar por una solucion mas cara.
+Considerem que aquestes especificacions són les mes adients tenint en compte el volum de dades amb el qual es treballés, a mes tenint en compte que l'hospital compta amb recursos limitats no seria molt correcte optar per una solucio mes cara.
 
 > [!NOTE]  
-> Hemos escogido 2 sistema de almacenamiento porque, 1 sera para almacenar el sistema operativo (SSD 2.5)
-> y el otro para almacenar los datos de la Base de Datos (HDD SAS 2.5)
+> Hem triat 2 sistemes d'emmagatzematge perquè, 1 seria per a emmagatzemar el sistema operatiu (SSD 2.5)
+> i l'altre per a emmagatzemar les dades de la Base de dades (HDD SAS 2.5)
 ## Componentes
 En la siguiente tabla se encuentra la informacion/caracteristicas de cada componente.
 
@@ -35,9 +35,9 @@ En la siguiente tabla se encuentra la informacion/caracteristicas de cada compon
 | IDRAC           | DELL - iDRAC Enterprise License                                                     |
 | Power Supply    | DELL - PSU 1100W R530 R630 R730 R730 R930 T630 R640 R740              |
 
-## Precios 
+## Preus
 
-Aparte hemos hecho una tabla con la cantidad y los precios de cada componente.
+A mes hem fet una taula amb la quantitat i els preus de cada component.
 
 | Componente        | Cantidad | Precio unitario (€) | Precio total (€) |
 |-------------------|----------|---------------------|------------------|
@@ -51,9 +51,9 @@ Aparte hemos hecho una tabla con la cantidad y los precios de cada componente.
 | iDRAC             | 1        | 0,00                | 0,00             |
 | Fuente de Alimentación | 2   | 98,00               | 196,00           |
 
-## Precio Total
+## Preu Total
 
-Por ultimo una tabla con el precio total y un descuento aplicado por el vendedor
+Per ultim una taula amb el preu total i un descompte aplicat pel venedor
 
 | Detalles          |   Precio total (€) |
 |-------------------|--------------------|
@@ -62,13 +62,13 @@ Por ultimo una tabla con el precio total y un descuento aplicado por el vendedor
 | **Precio final**  |  **9085,65**      |
 
 > [!IMPORTANT]  
-> Como por seguridad hemos de replicar la Base de datos en otro servidor (como minimo)
-> de manera Activa-Activa o Activa-Passiva hemos de comprar un 2 servidor (si es posible igual)
-> por lo que el precio total sera el siguiente:
+> Com per seguretat hem de replicar la Base de dades en un altre servidor (com a minim)
+> de manera Activa-Activa o Activa-Passiva hem de comprar un 2 servidor (si és possible igual)
+> pel que el preu total seria el següent:
 
 | Servidor                   | Cantidad | Precio total (€) |
 |----------------------------|----------|------------------|
 | **Dell PowerEdge R740XD2**| 2        | 21.378,00        |
 | **Descuento HPE (15%)**   | 1         | -3.206,70        |
 
-El Costo total de los 2 servidores mas el descuento aplicado por la empresa asciende a : ``` **18.171,3** ``` euros
+El Cost total dels 2 servidors mes el descompte aplicat per l'empresa ascendeix a : ``` **18.171,3** ``` euros.
