@@ -124,7 +124,7 @@ CREATE TABLE Operaciones
   ID_Opereaciones SERIAL NOT NULL,
   Data DATE NOT NULL,
   Hora TIME NOT NULL,
-  Tipus_Operacio VARCHAR(25) NOT NULL,
+  Tipus_Operacio VARCHAR(250) NOT NULL,
   ID_Paciente INT NOT NULL,
   Num_Quirofano INT NOT NULL,
   DNI_metge VARCHAR(9) NOT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE Operaciones
 CREATE TABLE Personal_Infermeria
 (
   DNI VARCHAR(9) NOT NULL,
-  DNI_Medic VARCHAR(9) NOT NULL,
+  DNI_Medic VARCHAR(9),
   Num_Planta INT NOT NULL,
   ID_Opereaciones INT NOT NULL,
   PRIMARY KEY (DNI),
