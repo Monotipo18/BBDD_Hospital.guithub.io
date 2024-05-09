@@ -4,96 +4,131 @@
 
 
 Añadir el repositorio PostgreSQL al sistema
+```
 dnf install -y [https://download.postgresql.org/pub/r...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbEhHdHV3dllrN0lfbFJTVVVvc25KcEU0VXhWd3xBQ3Jtc0tselBvRG5VZVNmTVBjN1h0Sk1DRDJmVzNOa2NkZnpTVXJqT3ZJcFdBMlF0YnZfU1VnOG5vTXQ5V0tndWQzZ0VYeHZDY2JsaEVmT2g1SXhHLUxQU0JteklSZkpEVDRJOXpVT2FQMDl0dlB2U1dmWVZnMA&q=https%3A%2F%2Fdownload.postgresql.org%2Fpub%2Frepos%2Fyum%2Freporpms%2FEL-9-x86_64%2Fpgdg-redhat-repo-latest.noarch.rpm&v=GIsD1BgFnWc)
+```
 
-disable the built-in PostgreSQL module
+Desactivar el módulo PostgreSQL integrado
+```
 sudo dnf -qy module disable postgresql
+```
 
-install PostgreSQL 15 on both Primary and secondary servers.
+Instalar PostgreSQL 15 tanto el servidor primario como en el secundario.
+```
 dnf install -y postgresql15-server postgresql15
+```
 
-initialize the database
+Inicializar la base de datos
+```
 /usr/pgsql-15/bin/postgresql-15-setup initdb
+```
 
-start the PostgreSQL service and enable it to start automatically on boot. 
+Iniciar el servicio PostgreSQL y habilitarlo para que se inicie automáticamente al arrancar.
+```
 systemctl enable --now postgresql-15
+```
 
-Edit the PostgreSQL configuration file on the primary server to allow replication.
+Editar el archivo de configuración de PostgreSQL en el servidor primario para permitir la replicación.
+```
 vi /var/lib/pgsql/15/data/postgresql.conf
-
+```
+```
 listen_addresses = '*'
 wal_level = replica
 max_wal_senders = 10
 wal_keep_segments = 8
 hot_standby = on
+```
 
-Save and exit the configuration file.
+Guardar los cambios en el archivo y salir.
 
-create a replication user on the primary server.
+Ahora se crea un usuario de replicación en el servidor primario.
+```
 sudo su - postgres
 psql
 CREATE USER replicator REPLICATION LOGIN ENCRYPTED PASSWORD 'replicator_password';
 \q
+```
 
-add a rule in the host-based authentication file
+Añadir una regla en el archivo de autenticación basada en host
+```
 vi /var/lib/pgsql/15/data/pg_hba.conf
 host    replication     replicator      192.168.100.75/32       trust
+```
 
-Now save and exit.
-
+Ahora se guarda y se sale
+```
 restart the PostgreSQL service
 systemctl restart postgresql-15
+```
 
 Firewall
-add a new rule to the firewall of both primary and secondary servers
+
+Añada una nueva regla al cortafuegos de los servidores primario y secundario
+```
 firewall-cmd --zone=public --add-port=5432/tcp --permanent
 firewall-cmd --reload
+```
 
-Now that you have created the replication user and configured the primary server, you can move on to configuring the secondary server.
+Ahora que se ha creado el usuario de replicación y configurado el servidor primario, se puede pasar a configurar el servidor secundario.
 
-Change as postgres user and run the pg_basebackup command.
+Cambia como usuario postgres y ejecute el comando ```pg_basebackup```.
+```
 sudo su - postgres
 pg_basebackup -h 192.168.100.72 -U replicator -Fp -Xs -P -R -D /var/lib/pgsql/15/data/
+```
 
-execute systemctl command to start and enable on boot the PostgreSQL service on the secondary server.
+Ejecuta el comando ```systemctl`` para iniciar y habilitar en el arranque el servicio PostgreSQL en el servidor secundario.
+```
 systemctl enable --now postgresql-15
+```
 
-At this point, you have configured the secondary server and enabled asynchronous replication.
+En este punto, se ha configurado el servidor secundario y activado la replicación asíncronizada.
 
-Verification
-To test the replication setup, insert some data into the primary database and verifying that it appears on the secondary server.
+Verficicacion
 
+Para probar la configuración de la replicación, se insertan algunos datos en la base de datos primaria y luego se comprueba que aparecen en el servidor secundario.
+```
 su - postgres
 psql -c "CREATE TABLE test1 (id serial PRIMARY KEY, data text);"
 psql -c "INSERT INTO test (data) VALUES ('test data');"
 psql -c "SELECT * FROM test;"
+```
 
-If the replication is working correctly, the SELECT statement should return the inserted row on both the primary and secondary servers.
+Si la replicación funciona correctamente, la sentencia SELECT debería devolver la fila insertada tanto en el servidor primario como en el secundario.
 
-You can do additional test by performing a 'WRITE' action from the 'SLAVE' server.
-
+Se Pueden hacer pruebas adicionales realizando una acción **'WRITE'** desde el servidor **'SLAVE'**.
+```
 psql -c "CREATE TABLE test1 (id serial PRIMARY KEY, data text);"
+```
+El resultado debería ser ```'No se puede ejecutar CREATE TABLE'``` como se muestra aquí.
 
-The result should be 'Cannot execute CREATE TABLE' as shown here.
-
-To verify the streaming status of a secondary server,
+Para verificar el estado de streaming de un servidor secundario.
+```
 psql -x -c "SELECT * FROM pg_stat_replication;"
+```
 
-To view the status of the WAL receiver process on a secondary server in PostgreSQL, you can use this command
-
+Para ver el estado del proceso receptor de WAL en un servidor secundario en PostgreSQL, se puede utilizar este comando:
+```
 psql -x -c "select * from pg_stat_wal_receiver;"
+```
 
-Failover
-To perform a failover from a primary PostgreSQL server to a secondary server, you need to promote the secondary server by running the pg_ctl promote command as postgres user.
+Conmutación por error
 
-The pg_ctl promote command is used to initiate the failover process. It signals the standby server to take over as the new primary server and start accepting read-write connections. 
+Para realizar una conmutación por error de un servidor PostgreSQL primario a un servidor secundario, es necesario promover el servidor secundario ejecutando el comando pg_ctl promote como usuario postgres.
 
-To enable WAL log hints, you can set the parameter in the postgresql.conf file.
+El comando ``pg_ctl`` promote se utiliza para iniciar el proceso de conmutación por error. Indica al servidor en espera que se convierta en el nuevo servidor primario y comience a aceptar conexiones de lectura-escritura.
+
+Para activar las sugerencias de registro de **WAL**, puede establecer el parámetro en el archivo ```postgresql.conf```.
+```
 vi /var/lib/pgsql/15/data/postgresql.conf
 wal_log_hints = on
+```
 
-SECONDARY
-On your secondary server, verify that it's still in a read-only state by running the following command.
+**SECONDARY**
+En el servidor secundario, se comprueba que sigue en estado de sólo lectura ejecutando el siguiente comando.
+```
 psql -c "SELECT pg_is_in_recovery();"
 
 /usr/pgsql-15/bin/pg_ctl promote
+```
