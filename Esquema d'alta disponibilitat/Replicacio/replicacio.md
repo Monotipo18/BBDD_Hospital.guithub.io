@@ -17,8 +17,9 @@ sudo nano /etc/postgresql/15/main/postgresql.conf
 ```bash
 listen_addresses = '*'
 wal_level = replica
-max_wal_senders = 3
+max_wal_senders = 2
 wal_keep_size = 1GB
+
 ```
 
 <p>Ara ens anem a pg_hba.conf</p>
@@ -30,14 +31,9 @@ sudo nano /etc/postgresql/15/main/pg_hba.conf
 <p>I al final de tot posem el següent:</p>
 
 ```bash	
-host replication replicator [SECOND_SERVER_IP]/32 trust
+host replication replicator [IPServidor.Secundari]/[Mascara-IP] scram-sha-256
 ```
 
-<p>Recorda reiniciar el servei de postgres!</p>
-
-```bash	
-systemctl restart postgresql
-```
 <h3>Crea un usuari replicació (node principal)</h3>
 <p>Se pot fer de moltes maneras aqui com hem fet:</p>
 
@@ -53,20 +49,53 @@ LOGIN CONNECTION LIMIT 3 ENCRYPTED
 PASSWORD 'c0ntr4s3gur4!';
 ```
 
-<p>Configurar el segon node</p>
-<p>Parem el postgre,
-amb el paquet rysnc creem el directori de dades per al node</p>
+<p>Recorda reiniciar el servei de postgres!</p>
 
 ```bash	
-sudo rsync -av /var/lib/postgresql/[POSTGRESQL_VERSION]/main/ /var/lib/postgresql/[POSTGRESQL_VERSION]/main/
+systemctl restart postgresql
+```
+
+<p>Configurar el segon node</p>
+<p>Parem el postgre, y fem un pg_basebackup, recomano elimina o guarda en una altralloc la carpeta</p>
+
+```bash	
+pg_basebackup -h [IP.Servidor.Secunadri] -U replicator -Fp -Xs -P -R -D /var/lib/pgsql/15/data/
 ```
 
 <p>Ens anem a l'arxiu de configuració del postgres i a dalt de tot posem això:</p>
 
 ```bash	
 hot_standby = on
-primary_conninfo = 'host=[FIRST_SERVER_IP] port=5432 user=replication password=[YOUR_PASSWORD] sslmode=prefer'
+primary_conninfo = 'host=[FIRST_SERVER_IP] port=5432 user=replicator password=[YOUR_PASSWORD] sslmode=prefer'
 primary_slot_name = 'standby_slot'
 ```
 
 <p>Tornem a encendre el postgres i ja el tindríem</p>
+
+<h3>Exemple de funcionalitat en Python</h3>
+
+<p>Per fer la HA ho fem d'una manera molt fàcil amb un try i un exepct si falla una connexió entra a l'altra:</p>
+
+```python
+def conectar_bd():
+    ''' Función para conectar a PostgreSQL'''
+    try:
+        conn = psycopg2.connect(
+            dbname="asixhospitalbd",
+            user="grupomaviunal",
+            password="uN@i3st4fu3rtE",
+            host="snakeeater1.equemmfoundation.top",
+        )
+        cur = conn.cursor()
+        return conn, cur
+    except psycopg2.Error as e:
+        conn = psycopg2.connect(
+            dbname="asixhospitalbd",
+            user="grupomaviunal",
+            password="uN@i3st4fu3rtE",
+            host="revolverocelot.equemmfoundation.top",
+            port="5433"
+        )
+        cur = conn.cursor()
+        return conn, cur
+```
