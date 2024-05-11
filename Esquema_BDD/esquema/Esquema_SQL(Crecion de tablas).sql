@@ -154,6 +154,5 @@ CREATE TABLE Agenda_Metge
   DNI_Metge VARCHAR(9) NOT NULL,
   PRIMARY KEY (id_Agenda_Metge),
   FOREIGN KEY (DNI_Metge) REFERENCES hospital.metge_metgessa(DNI),
-  UNIQUE (Fecha),
   UNIQUE (Hora)
 );
