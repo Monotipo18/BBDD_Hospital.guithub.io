@@ -148,12 +148,12 @@ CREATE TABLE Personal_Infermeria
 );
 CREATE TABLE Agenda_Metge
 (
-  DNI VARCHAR(9) NOT NULL,
+  id_Agenda_Metge SERIAL NOT NULL,
   Fecha DATE NOT NULL,
   Hora TIME NOT NULL,
   DNI_Metge VARCHAR(9) NOT NULL,
-  PRIMARY KEY (DNI),
-  FOREIGN KEY (DNI_Metge) REFERENCES Metge_Metgessa(DNI),
+  PRIMARY KEY (id_Agenda_Metge),
+  FOREIGN KEY (DNI_Metge) REFERENCES hospital.metge_metgessa(DNI),
   UNIQUE (Fecha),
   UNIQUE (Hora)
 );
