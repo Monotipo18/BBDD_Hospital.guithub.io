@@ -105,7 +105,7 @@ CREATE TABLE Quirofano
 CREATE TABLE Aparells_Medics
 (
   ID_Aparells_Medics SERIAL NOT NULL,
-  Nombre_Aperell_Medic VARCHAR(50) NOT NULL,
+  Nombre_Aperell_Medic VARCHAR(250) NOT NULL,
   Num_Quirofano INT NOT NULL,
   PRIMARY KEY (ID_Aparells_Medics),
   FOREIGN KEY (Num_Quirofano) REFERENCES Quirofano(Num_Quirofano)
