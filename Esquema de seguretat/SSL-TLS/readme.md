@@ -31,7 +31,7 @@ sudo apt install certbot
 <p>Anem a la carpeta de configuracio PostgreSQL, normalment sol ser aquesta:</p>
 
 ```bash
-cd /etc/postgresql/14/main
+cd /etc/postgresql/15/main
 ```
 
 <p>Generem el certificat</p>
@@ -59,7 +59,7 @@ sudo nano /etc/letsencrypt/renewal-hooks/deploy/postgresql.deploy
 #!/bin/bash
 umask 0177
 export DOMAIN=example.com
-export DATA_DIR=/var/lib/pgsql/data
+export DATA_DIR=/etc/postgresql/15/main
 cp /etc/letsencrypt/live/$DOMAIN/fullchain.pem $DATA_DIR/server.crt
 cp /etc/letsencrypt/live/$DOMAIN/privkey.pem   $DATA_DIR/server.key
 chown postgres:postgres  $DATA_DIR/server.crt $DATA_DIR/server.key
