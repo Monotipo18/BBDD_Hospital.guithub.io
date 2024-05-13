@@ -99,9 +99,20 @@ grant connect on database asixhospitalbd to enfermeros;
 grant usage on schema hospital to enfermeros;
 grant connect on database asixhospitalbd to Celador;
 grant usage on schema hospital to Celador;
+--Nateja
+CREATE ROLE Personal_Nateja WITH
+	NOLOGIN
+	NOSUPERUSER
+	NOCREATEDB
+	NOCREATEROLE
+	INHERIT
+	NOREPLICATION
+	CONNECTION LIMIT -1;
+--Administratius
 grant connect on database asixhospitalbd to Administratius;
 grant usage on schema hospital to Administratius;
 --grant connect on database asixhospitalbd to conudctores_ambulancia;
 --grant usage on schema hospital to grant connect on database asixhospitalbd to conudctores_ambulancia;
+--Paciente
 grant connect on database asixhospitalbd to pacient;
 grant usage on schema hospital to pacient;
