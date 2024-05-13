@@ -68,7 +68,7 @@ def dummy_data(usuario, contraseña):
     Lista_Fecha_Pac = []
     Lista_Sexe_Pac = []
     Lista_num_seg_soc = []
-    Generar_Numeros(Inserciones_Paciente, Lista_ID_Pac, inicio=101) #Canviar a 1
+    Generar_Numeros(Inserciones_Paciente, Lista_ID_Pac, inicio=1) #Canviar a 1
     Generar_Nombre(Inserciones_Paciente, Lista_Nombre_Pac)
     Generar_Cognom(Inserciones_Paciente, Lista_Cognom_Pac)
     Generar_Cognom(Inserciones_Paciente, Lista_Cognom2_Pac)
