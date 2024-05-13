@@ -19,4 +19,4 @@ Esta biblioteca se utiliza para extraer datos de documentos HTML y XML, más con
 **PdfKit**
 PdfKit es una biblioteca de Python que te permite crear y manipular archivos PDF. Puedes convertir HTML o texto plano a PDF, agregar contenido dinámico como texto e imágenes, y controlar el estilo del documento. Es útil para generar documentos PDF personalizados desde nuestra aplicación. Sigue el patrón del texto y pásalo todo a markdown.
 
-Utlitzan aquetes dues llibreries podem generar 
+Utlitzan aquetes dues llibreries podem generar els curriculum en format PDF
