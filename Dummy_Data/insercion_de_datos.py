@@ -269,18 +269,18 @@ def dummy_data(usuario, contraseña):
 # Comienza la insercion de datos;
 
     '''Tabla Pacientes'''
-    #for i in range(Inserciones_Paciente):
-    #    cur.execute("INSERT INTO hospital.paciente(id_paciente, dni, nom, primer_cognom, segon_cognom, telefon, data_naixement, sexe, num_seguretat_social) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
-    #                (Lista_ID_Pac[i], Lista_DNI_Pac[i], Lista_Nombre_Pac[i], Lista_Cognom_Pac[i], Lista_Cognom2_Pac[i], Lista_Tlf_Pac[i], Lista_Fecha_Pac[i], Lista_Sexe_Pac[i], Lista_num_seg_soc[i]))
-    #    conn.commit()
+    for i in range(Inserciones_Paciente):
+        cur.execute("INSERT INTO hospital.paciente(id_paciente, dni, nom, primer_cognom, segon_cognom, telefon, data_naixement, sexe, num_seguretat_social) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                    (Lista_ID_Pac[i], Lista_DNI_Pac[i], Lista_Nombre_Pac[i], Lista_Cognom_Pac[i], Lista_Cognom2_Pac[i], Lista_Tlf_Pac[i], Lista_Fecha_Pac[i], Lista_Sexe_Pac[i], Lista_num_seg_soc[i]))
+        conn.commit()
     '''Fin Tabla Pacientes'''
 
     '''Paciente rusos'''
     print("Tablas Rusos")
-    #for i in range(Insercion_Caracteres_Cirilicos):
-    #    cur.execute("INSERT INTO hospital.paciente(id_paciente, dni, nom, primer_cognom, segon_cognom, telefon, data_naixement, sexe) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
-    #                (Lista_ID_Pac_Rus[i], Lista_DNI_Pac_rus[i], Lista_Nombre_Pac_rus[i], Lista_Cognom_Pac_rus[i], Lista_Cognom2_Pac_rus[i], Lista_Tlf_Pac_rus[i], Lista_Fecha_Pac_rus[i], Lista_Sexe_Pac_rus[i]))
-    #    conn.commit()
+    for i in range(Insercion_Caracteres_Cirilicos):
+        cur.execute("INSERT INTO hospital.paciente(id_paciente, dni, nom, primer_cognom, segon_cognom, telefon, data_naixement, sexe) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+                    (Lista_ID_Pac_Rus[i], Lista_DNI_Pac_rus[i], Lista_Nombre_Pac_rus[i], Lista_Cognom_Pac_rus[i], Lista_Cognom2_Pac_rus[i], Lista_Tlf_Pac_rus[i], Lista_Fecha_Pac_rus[i], Lista_Sexe_Pac_rus[i]))
+        conn.commit()
 
     print("Fin Tablas Rusos")
 
