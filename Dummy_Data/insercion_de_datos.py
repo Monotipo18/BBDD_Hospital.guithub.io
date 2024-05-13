@@ -9,12 +9,15 @@ from bs4 import BeautifulSoup
 from Generacion_De_Datos import *
 import pdfkit
 from Generacion_De_Datos import *
-from Funciones_Login import *
 # Conéctate a la base de datos PostgreSQL
     # Crea una instancia de Faker
 fake = Faker()
 def dummy_data(usuario, contraseña):
     conn, cur = login(usuario, contraseña)
+
+# Crea un cursor
+    cur = conn.cursor()
+
 # 100k de vistas
     Insercion_Visitas = 100 
 # FIN 100k de vistas
@@ -264,7 +267,89 @@ def dummy_data(usuario, contraseña):
     Generar_Numeros(Insercion_Agenda_Medico,Lista_ID_Agenda_Medico)
     Generar_Fecha_Mismo_Mes(Insercion_Agenda_Medico,Lista_Fecha_Agenda_Medico)
     Generar_Hora(Insercion_Agenda_Medico,Lisa_Hora_Agenda_Medico)
+#Curriculum
+    print("Incio Generar Curriculum")
+    Cantidad_Curriculum=100
+    Lista_FechaIncio_Emp=[]
+    Lista_Fecha2Fin_Emp=[]
+    Lista_Fecha_Incio_Est=[]
+    Lista_Fecha_Fin_Est=[]
+    Lista_Direccion=[]
+    Lista_Empresa=[]
+    Lista_Empleo=[]
+    Lista_Centro_Educativo=[]
+    Lista_habilidad1=[]
+    Lista_habilidad2=[]
+    Lista_Tlf_Personal=[]
+    generar_dos_fechas_en_rango(Cantidad_Curriculum,Lista_FechaIncio_Emp,Lista_Fecha2Fin_Emp)
+    generar_dos_fechas_en_rango(Cantidad_Curriculum,Lista_Fecha_Incio_Est,Lista_Fecha_Fin_Est)
+    generar_dirreccion(Cantidad_Curriculum,Lista_Direccion)
+    Generar_Tlf(Cantidad_Curriculum,Lista_Tlf_Personal)
+    generar_empleo(Cantidad_Curriculum,Lista_Empleo)
+    generar_centro_educativo(Cantidad_Curriculum,Lista_Centro_Educativo)
+    habilidad(Cantidad_Curriculum,Lista_habilidad1,Lista_habilidad2)
+    Generar_empresa(Cantidad_Curriculum,Lista_Empresa)
+    print("Fin Generar Curriculum")
+    #Esto de aqui es la insercion de datos del curriculum
 
+    '''Curriculum'''
+
+    def llenar_datos_en_html(html_str, nombre, direccion, telefono, correo_electronico, nombre_empresa, fechas_Empleo, Empleo, Estudios, Fecha_Inicio_Fecha_Estudios, Centro_Educativo,Habilidad_1,Habilidad_2):
+        soup = BeautifulSoup(html_str, 'html.parser')
+
+        for tag in soup.find_all():
+            if tag.string and "{" in tag.string and "}" in tag.string:
+                contenido = tag.string.strip('{}')
+                if contenido == "Nombre":
+                    tag.string.replace_with(nombre)
+                elif contenido == "Dirrecion":
+                    tag.string.replace_with(direccion)
+                elif contenido == "Telefono":
+                    tag.string.replace_with(telefono)
+                elif contenido == "Correo_Electronico":
+                    tag.string.replace_with(correo_electronico)
+                elif contenido == "Nombre_Empresa":
+                    tag.string.replace_with(nombre_empresa)
+                elif contenido == "Fecha_Inicio_Fecha":
+                    tag.string.replace_with(fechas_Empleo)
+                elif contenido == "Empleo":
+                    tag.string.replace_with(Empleo)
+                elif contenido == "Titulo":
+                    tag.string.replace_with(Estudios)
+                elif contenido == "Fecha_Inicio_Fecha_Estudios":
+                    tag.string.replace_with(Fecha_Inicio_Fecha_Estudios)
+                elif contenido == "Centro_Educativo":
+                    if Centro_Educativo:
+                        tag.string.replace_with(Centro_Educativo.pop(0))
+                    else:
+                        tag.string.replace_with("IES SAPAlOMERA")  
+                elif contenido == "Habilidad_1":
+                    tag.string.replace_with(Habilidad_1)
+                elif contenido == "Habilidad_2":
+                    tag.string.replace_with(Habilidad_2)
+        return str(soup)
+
+
+    def generar_pdf_con_datos(template_file, nombre, direccion, telefono, correo_electronico, nombre_empresa, fechas_Empleo,empleo,Estudios,Fecha_Inicio_Fecha_Estudios,Centro_Educativo,Habilidad1,Habilidad2,output_pdf):    # Leer el contenido del archivo de plantilla HTML
+        with open(template_file, "r") as file:
+            html_original = file.read()
+
+        # Llenar los datos en el HTML
+        html_con_datos = llenar_datos_en_html(html_original, nombre, direccion, telefono, correo_electronico, nombre_empresa,empleo,fechas_Empleo,Estudios,Fecha_Inicio_Fecha_Estudios,Centro_Educativo,Habilidad1,Habilidad2)
+
+        # Guardar el HTML con los datos en un archivo temporal
+        with open("temp.html", "w") as f:
+            f.write(html_con_datos)
+
+        # Convertir el HTML a PDF
+        pdfkit.from_file("temp.html", output_pdf)
+
+        print(f"PDF '{output_pdf}' generado exitosamente.")
+
+
+    
+    # Nombre del archivo de plantilla HTML
+    template_file = "/mnt/DATOS/ASIX/M02/PROYECTO/Fake_Data/Curriculum/template.html"
 
 # Comienza la insercion de datos;
 
@@ -289,13 +374,30 @@ def dummy_data(usuario, contraseña):
 #Insercion de datos medicos
     print("Medicos")
     for i in range(Inserciones_Medicos):
-
+        Empleo=random.choice(Lista_Empleo)
+        Tlf_Personal=random.choice(Lista_Tlf_Personal)
+        Empleo=random.choice(Lista_Empleo)
+        habilidad1=random.choice(Lista_habilidad1)
+        habilidad2=random.choice(Lista_habilidad1)
+        Dirrecion=random.choice(Lista_Direccion)
+        Empresa=random.choice(Lista_Empresa)
+        output_pdf = f"cv_{i+1}.pdf"
+        fecha_inicio_empleo = Lista_FechaIncio_Emp[i]
+        fecha_fin_empleo = Lista_Fecha2Fin_Emp[i]      
+        fechas_str_empleo = f"{fecha_inicio_empleo} - {fecha_fin_empleo}"
+        fecha_inicio_estudios = Lista_Fecha_Incio_Est[i]
+        fecha_fin_estudios = Lista_Fecha_Fin_Est[i]
+        fechas_str_estudios = f"{fecha_fin_estudios} - {fecha_inicio_estudios}"
+        generar_pdf_con_datos(template_file, Lista_Nombre_Med[i], Dirrecion, Tlf_Personal, Lista_Email_Med[i], 
+                               Empresa, fechas_str_empleo, Empleo,"Medicina",fechas_str_estudios,
+                                Lista_Centro_Educativo,habilidad1,habilidad2,output_pdf)
     
-    
+        with open(output_pdf, "rb") as f:
+           pdf_data = f.read()
 
           # Insertar el archivo PDF en la base de datos
-        cur.execute("INSERT INTO hospital.personal(id_personal, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
-               (Lista_ID_Med[i] , "Medicina", Lista_DNI_Med[i], Lista_Nombre_Med[i], Lista_Cognom_Med[i], Lista_Cognom2_Med[i], Lista_Tlf_Med[i], Lista_Fecha_Med[i], Lista_Email_Med[i], "Medico"))
+        cur.execute("INSERT INTO hospital.personal(id_personal, curriculum, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+               (Lista_ID_Med[i], psycopg2.Binary(pdf_data), "Medicina", Lista_DNI_Med[i], Lista_Nombre_Med[i], Lista_Cognom_Med[i], Lista_Cognom2_Med[i], Lista_Tlf_Med[i], Lista_Fecha_Med[i], Lista_Email_Med[i], "Medico"))
  
      
         conn.commit()
@@ -303,34 +405,111 @@ def dummy_data(usuario, contraseña):
 #Insercion de datos enfermeros
     print("Enfermeros")
     for i in range(100):
-      
-        cur.execute("INSERT INTO hospital.personal(id_personal, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
-                (Lista_ID_Personal_Inf[i], "Enfermeria", Lista_DNI_Personal_Inf[i], Lista_Nombre_Personal_Inf[i], Lista_Cognom_Personal_Inf[i], Lista_Cognom2_Personal_Inf[i], Lista_Tlf_Personal_Inf[i], Lista_Fecha_Personal_Inf[i], Lista_Email_Personal_Inf[i], "Enfermero"))
+        Empleo=random.choice(Lista_Empleo)
+        Tlf_Personal=random.choice(Lista_Tlf_Personal)
+        Empleo=random.choice(Lista_Empleo)
+        habilidad1=random.choice(Lista_habilidad1)
+        habilidad2=random.choice(Lista_habilidad1)
+        Dirrecion=random.choice(Lista_Direccion)
+        Empresa=random.choice(Lista_Empresa)
+        output_pdf = f"cv_{i+1}.pdf"
+        fecha_inicio_empleo = Lista_FechaIncio_Emp[i]
+        fecha_fin_empleo = Lista_Fecha2Fin_Emp[i]      
+        fechas_str_empleo = f"{fecha_inicio_empleo} - {fecha_fin_empleo}"
+        fecha_inicio_estudios = Lista_Fecha_Incio_Est[i]
+        fecha_fin_estudios = Lista_Fecha_Fin_Est[i]
+        fechas_str_estudios = f"{fecha_fin_estudios} - {fecha_inicio_estudios}"
+        generar_pdf_con_datos(template_file, Lista_Nombre_Med[i], Dirrecion, Tlf_Personal, Lista_Email_Personal_Inf[i], 
+                              Empresa, fechas_str_empleo, Empleo,"Enfermería",fechas_str_estudios,
+                                Lista_Centro_Educativo,habilidad1,habilidad2
+        ,output_pdf)
+        with open(output_pdf, "rb") as f:
+            pdf_data = f.read()
+        cur.execute("INSERT INTO hospital.personal(id_personal, curriculum, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+                (Lista_ID_Personal_Inf[i], psycopg2.Binary(pdf_data), "Enfermeria", Lista_DNI_Personal_Inf[i], Lista_Nombre_Personal_Inf[i], Lista_Cognom_Personal_Inf[i], Lista_Cognom2_Personal_Inf[i], Tlf_Personal, Lista_Fecha_Personal_Inf[i], Lista_Email_Personal_Inf[i], "Enfermero"))
         conn.commit()
     conn.commit()
     print("Fin enfermeros")
 #Insercion de datos enfermeros planta
     print("enfermeros Planta")
     for i in range(100):
-        
-        cur.execute("INSERT INTO hospital.personal(id_personal, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
-                (Lista_ID_Personal_Inf_planta[i], "Enfermeria", Lista_DNI_Personal_Inf_planta[i], Lista_Nombre_Personal_Inf_planta[i], Lista_Cognom_Personal_Inf_planta[i], Lista_Cognom2_Personal_Inf_planta[i], Lista_Tlf_Personal_Inf_planta[i], Lista_Fecha_Personal_Inf_planta[i], Lista_Email_Personal_Inf_planta[i], "Enfermero"))
+        Empleo=random.choice(Lista_Empleo)
+        Tlf_Personal=random.choice(Lista_Tlf_Personal)
+        Empleo=random.choice(Lista_Empleo)
+        habilidad1=random.choice(Lista_habilidad1)
+        habilidad2=random.choice(Lista_habilidad1)
+        Dirrecion=random.choice(Lista_Direccion)
+        Empresa=random.choice(Lista_Empresa)
+        output_pdf = f"cv_{i+1}.pdf"
+        fecha_inicio_empleo = Lista_FechaIncio_Emp[i]
+        fecha_fin_empleo = Lista_Fecha2Fin_Emp[i]      
+        fechas_str_empleo = f"{fecha_inicio_empleo} - {fecha_fin_empleo}"
+        fecha_inicio_estudios = Lista_Fecha_Incio_Est[i]
+        fecha_fin_estudios = Lista_Fecha_Fin_Est[i]
+        fechas_str_estudios = f"{fecha_fin_estudios} - {fecha_inicio_estudios}"
+        generar_pdf_con_datos(template_file, Lista_Nombre_Med[i], Dirrecion, Tlf_Personal, Lista_Email_Personal_Inf[i], 
+                               Empresa, fechas_str_empleo, Empleo,"Enfermería",fechas_str_estudios,
+                                Lista_Centro_Educativo,habilidad1,habilidad2
+        ,output_pdf)
+        with open(output_pdf, "rb") as f:
+            pdf_data = f.read()
+        cur.execute("INSERT INTO hospital.personal(id_personal, curriculum, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+                (Lista_ID_Personal_Inf_planta[i], psycopg2.Binary(pdf_data), "Enfermeria", Lista_DNI_Personal_Inf_planta[i], Lista_Nombre_Personal_Inf_planta[i], Lista_Cognom_Personal_Inf_planta[i], Lista_Cognom2_Personal_Inf_planta[i], Tlf_Personal, Lista_Fecha_Personal_Inf_planta[i], Lista_Email_Personal_Inf_planta[i], "Enfermero"))
         conn.commit()
     conn.commit()
     print("Fin enfermeros Planta")
 #Insercion de datos personal nateja
     print("Limpieza")
-    for i in range(100):
-        cur.execute("INSERT INTO hospital.personal(id_personal, , estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
-                (Lista_ID_Personal_Net[i], "ESO", Lista_DNI_Personal_Net[i], Lista_Nombre_Personal_Inf_planta[i], Lista_Cognom_Personal_Net[i], Lista_Cognom2_Personal_Net[i], Lista_Tlf_Personal_Net[i], Lista_Fecha_Personal_Net[i], Lista_Email_Personal_Net[i], "Personal de neteja"))
+    for i in range(Inserciones_personal_nateja):
+        Empleo=random.choice(Lista_Empleo)
+        Tlf_Personal=random.choice(Lista_Tlf_Personal)
+        Empleo=random.choice(Lista_Empleo)
+        habilidad1=random.choice(Lista_habilidad1)
+        habilidad2=random.choice(Lista_habilidad1)
+        Dirrecion=random.choice(Lista_Direccion)
+        Empresa=random.choice(Lista_Empresa)
+        email=random.choice(Lista_Email_Personal_Net)
+        output_pdf = f"cv_{i+1}.pdf"
+        fecha_inicio_empleo = Lista_FechaIncio_Emp[i]
+        fecha_fin_empleo = Lista_Fecha2Fin_Emp[i]      
+        fechas_str_empleo = f"{fecha_inicio_empleo} - {fecha_fin_empleo}"
+        fecha_inicio_estudios = Lista_Fecha_Incio_Est[i]
+        fecha_fin_estudios = Lista_Fecha_Fin_Est[i]
+        fechas_str_estudios = f"{fecha_fin_estudios} - {fecha_inicio_estudios}"
+        generar_pdf_con_datos(template_file, Lista_Nombre_Med[i], Dirrecion, Tlf_Personal, Lista_Email_Personal_Inf[i], 
+                               Empresa, fechas_str_empleo, Empleo,"Enfermería",fechas_str_estudios,
+                                Lista_Centro_Educativo,habilidad1,habilidad2
+        ,output_pdf)
+        with open(output_pdf, "rb") as f:
+            pdf_data = f.read()
+        cur.execute("INSERT INTO hospital.personal(id_personal, curriculum, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+                (Lista_ID_Personal_Net[i], psycopg2.Binary(pdf_data), "ESO", Lista_DNI_Personal_Net[i], Lista_Nombre_Personal_Inf_planta[i], Lista_Cognom_Personal_Net[i], Lista_Cognom2_Personal_Net[i], Tlf_Personal, Lista_Fecha_Personal_Net[i], email, "Personal de neteja"))
         conn.commit()
     print("Fin Limpieza")
 #Insercion de datos Administradores
     print("Administradores")
     for i in range(Inserciones_Administradores):
-        
-        cur.execute("INSERT INTO hospital.personal(id_personal, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
-                (Lista_ID_Personal_Adm[i], "ASIR", Lista_DNI_Personal_Adm[i], Lista_Nombre_Personal_Adm[i], Lista_Cognom_Personal_Adm[i], Lista_Cognom2_Personal_Adm[i], Lista_Tlf_Personal_Adm[i], Lista_Fecha_Personal_Adm[i], Lista_Email_Personal_Adm[i], "Personal de administració"))
+        Empleo=random.choice(Lista_Empleo)
+        Tlf_Personal=random.choice(Lista_Tlf_Personal)
+        habilidad1=random.choice(Lista_habilidad1)
+        habilidad2=random.choice(Lista_habilidad1)
+        Dirrecion=random.choice(Lista_Direccion)
+        output_pdf = f"cv_{i+1}.pdf"
+        fecha_inicio_empleo = Lista_FechaIncio_Emp[i]
+        fecha_fin_empleo = Lista_Fecha2Fin_Emp[i]      
+        fechas_str_empleo = f"{fecha_inicio_empleo} - {fecha_fin_empleo}"
+        fecha_inicio_estudios = Lista_Fecha_Incio_Est[i]
+        fecha_fin_estudios = Lista_Fecha_Fin_Est[i]
+        fechas_str_estudios = f"{fecha_fin_estudios} - {fecha_inicio_estudios}"
+        generar_pdf_con_datos(template_file, Lista_Nombre_Personal_Adm[i], Lista_Direccion[i], Tlf_Personal, Lista_Email_Personal_Adm[i], 
+                               Empresa, fechas_str_empleo, Empleo,"ASIR",fechas_str_estudios,
+                                Lista_Centro_Educativo,habilidad1,habilidad2
+        ,output_pdf)
+        # Leer el contenido del archivo PDF en modo binario
+        with open(output_pdf, "rb") as f:
+            pdf_data = f.read()
+        cur.execute("INSERT INTO hospital.personal(id_personal, curriculum, estudis, dni, nom, primer_cognom, segon_cognom, telefon, fecha, email, tipus_personal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+                (Lista_ID_Personal_Adm[i], psycopg2.Binary(pdf_data), "ASIR", Lista_DNI_Personal_Adm[i], Lista_Nombre_Personal_Adm[i], Lista_Cognom_Personal_Adm[i], Lista_Cognom2_Personal_Adm[i], Lista_Tlf_Personal_Adm[i], Lista_Fecha_Personal_Adm[i], Lista_Email_Personal_Adm[i], "Personal de administració"))
         conn.commit()
     print("Fin Administradores")
     ''' Fin Tabla Personal'''
@@ -469,3 +648,4 @@ def dummy_data(usuario, contraseña):
     # Cierra la conexión
     cur.close()
     conn.close()
+dummy_data()
