@@ -25,6 +25,9 @@
     
 
 # Permisos
+
+<h5><em>Papers, Please</em></h5>
+
 ## **Metges**
 
 Considerem que el grup de metges inclou tots els treballadors que siguin professionals de la salut capacitats i autoritzats per a diagnosticar, tractar i prevenir malalties i lesions 
