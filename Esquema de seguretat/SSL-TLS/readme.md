@@ -1,5 +1,6 @@
 <!-- Introduccion -->
 <h1>SSL/TLS x PostgreSQL</h1>
+<h5><em>Security First!</em></h5>
 <p>Primer de tot cal aclarir una cosa SSL, avui dia no s'utilitza, ja que el protocol TLS (Transport Layer Security) el va substituir en 1999, a dia d'avui, 12 d'abril de 2024, és l'estàndard en la seva versió TLS 1.3, però el terme SSL es continua utilitzant per a referir-se a connexions segures</p>
 <p>Ara bé, per què hauries d'utilitzar TLS per a PostgreSQL?
 La resposta curta és seguretat, la llarga és una mica més complexa, quan et connectes amb el teu client al servidor estàs transmetent informació per la xarxa, ja sigui per WAN o LAN, de per si mateix aquesta informació no sol estar encriptada, així que posar un TLS encripta l'informació entre servidor i client, assegurant-se que la informació ni es llegeixi, ni es modifiqui.
