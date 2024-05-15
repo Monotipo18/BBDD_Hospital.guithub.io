@@ -1,5 +1,4 @@
 # Esquema d'alta disponibilitat
-<h5><em>LTT have mercy!</em></h5>
 
 ## Index
 -   [Hardware](#hardware)
@@ -8,6 +7,8 @@
 -   [Precio Total](#preu-total) 
 
 ## Hardware
+
+<h5><em>LTT have mercy!</em></h5>
 
 A causa de les caracteristicas de la Base de dades de l'hospital (quantitat d'informacio emmagatzemada) hem considerat una quantitat diferent d'opcions i considerem que l'opcion mes adient per a les necessitats de l'hospital és la següent:
 
