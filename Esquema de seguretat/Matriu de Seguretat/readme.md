@@ -28,6 +28,8 @@
 
 <h5><em>Papers, Please</em></h5>
 
+La primera línia de defensa davant un atac són els permisos, igual que un base militar no deixes entrar a qualsevol el mateix amb la informàtica, els permisos és una cosa bàsica, i recorda, no hi ha defensa perfecta, només hi ha capes, quantes més capes, més difícil és que entrin.
+
 ## **Metges**
 
 Considerem que el grup de metges inclou tots els treballadors que siguin professionals de la salut capacitats i autoritzats per a diagnosticar, tractar i prevenir malalties i lesions 
