@@ -1,4 +1,5 @@
 # Esquema d'alta disponibilitat
+<h5><em>LTT have mercy!</em></h5>
 ## Index
 -   [Hardware](#hardware)
 -   [Componentes](#componentes)
