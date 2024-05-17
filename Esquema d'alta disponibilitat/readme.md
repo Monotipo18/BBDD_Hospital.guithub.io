@@ -8,4 +8,4 @@ Abans d'entrar en profunditat, hem de tenir alguna cosa en compte, quan treballe
 
 1.  [Hardware](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Esquema%20d'alta%20disponibilitat/Infraestructura%20Hardware)
 2.  [Replicacio](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/blob/main/Esquema%20d'alta%20disponibilitat/Replicacio/readme.md)
-3.  [Backups y Restaurar](Esquema%20d'alta%20disponibilitat/Replicacio/readme.md)
+3.  [Backups y Restaurar](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio)
