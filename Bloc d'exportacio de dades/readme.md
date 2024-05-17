@@ -76,6 +76,48 @@ with open(f"{nombre_archivo}.xml", "w", encoding="utf-8") as file:
   -  2.Guarda el XML: Escribe el árbol XML en un archivo con codificación UTF-8.
   -  3.Formatea el XML: Usa minidom para agregar indentación y hacer que el XML sea más legible.
 
+### Que es random.sampele
+
+La función sample se utiliza para obtener una lista de elementos seleccionados aleatoriamente de una secuencia (como una lista, tupla, o cadena). 
+La función no modifica la secuencia original y no permite duplicados, es decir, cada elemento seleccionado es único.
+
+### Funcionamiento
+
+En el siguiente codigo podemos ver una funcion que hace uso de ```sample``` :
+```
+def Generar_Nombre(longitud):
+  
+    # Definimos los caracteres y simbolos
+    
+    abc_minusculas = "abcdefghijklmnopqrstuvwxyz"
+    
+    # HACK: upper() transforma las letras de una cadena en mayusculas
+    abc_mayusculas = abc_minusculas.upper() 
+    
+    numeros = "0123456789"
+
+    
+    # Definimos la secuencia
+    secuencia = abc_minusculas + abc_mayusculas + numeros 
+    
+    # Llamamos la función sample() utilizando la secuencia, y la longitud
+    password_union = sample(secuencia, longitud)
+    
+    # Con join insertamos los elementos de una lista en una cadena
+    password_result = "".join(password_union)
+    
+    # Retornamos la variables "password_result"
+    return password_result
+```
+Como vemos la funcion de sample se utiliza en este trozo de codigo:
+```
+    # Llamamos la función sample() utilizando la secuencia, y la longitud
+    password_union = sample(secuencia, longitud)
+```
+  -  Propósito: Seleccionar una muestra aleatoria de longitud caracteres únicos de la cadena secuencia.
+  -  Qué hace: sample(secuencia, longitud) devuelve una lista de longitud caracteres elegidos aleatoriamente de secuencia. Cada carácter en la lista es único y la selección se hace sin reemplazo.
+     Por ejemplo, si longitud es 8, sample podría devolver una lista como ['a', 'G', '1', 'b', 'Z', '3', 'x', '5'].
+
 
 
 
