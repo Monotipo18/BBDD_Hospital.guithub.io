@@ -3,7 +3,7 @@
 ### Contingut
 
 
-## Descarregar Visites entre 2 datas
+## Exportar Visitas entre 2 fechas
 ### Conexto
 Como el hospital dispone de muchas visitas a lo largo de los dias, meses y años es posible que nos interese poder visiualizar las visitas que han 
 habido entre 2 fechas como un informe, por si mas tarde se requiere enviar el informe a otro hospital o otros sitios que se requieran.
@@ -119,8 +119,37 @@ Como vemos la funcion de sample se utiliza en este trozo de codigo:
      Por ejemplo, si longitud es 8, sample podría devolver una lista como ['a', 'G', '1', 'b', 'Z', '3', 'x', '5'].
 
 
+# Informes en PowerBi
+## Instalacion
 
+Para instalar la herramienta PowerBi se recomienda instalar el Setup a traves de la pagina web https://www.microsoft.com/es-es/download/details.aspx?id=58494, la version
+que se encuentra en la Microsoft Store da algunos problemas.
 
+## Configuracion
+
+Una vez instalado se crea un nuevo informe y se le da a obtener datos de otro origen, y que sea a traves de Base de Datos de PostgreSql,
+ahi se indica Dns o Ip del servidor, nombre de la base de datos, Modo conectividad de Base datos y Instruccion Sql (opcional) si solo queremos introducir datos de un consulta.
+
+### Modo de Conectividad de Datos
+
+#### Importar
+
+Importar los datos significa que Power BI toma una copia de los datos desde la base de datos de PostgreSQL
+y los almacena en su propio modelo de datos en memoria.
+
+  -  Rendimiento: Una vez que los datos están importados, las consultas y visualizaciones en Power BI son muy rápidas porque los datos se encuentran en la memoria del modelo de datos de Power BI.
+  -  Actualización de datos: Debes programar las actualizaciones de datos para mantener la información actualizada. Esto se hace mediante "refresh" programados, que vuelven a importar los datos desde la BD
+  -  Capacidad: Estás limitado por la capacidad de almacenamiento de Power BI. Si trabajas con conjuntos de datos muy grandes, podrías enfrentar problemas de capacidad.
+
+#### DirectQuery
+
+DirectQuery es un método en el que Power BI no almacena los datos en su propia memoria. En lugar de eso,
+envía consultas a la base de datos de PostgreSQL cada vez que se necesita acceder a los datos.
+
+  -  Rendimiento: Las consultas pueden ser más lentas porque cada interacción con los datos requiere una consulta a la base de datos. El rendimiento depende en gran medida del rendimiento de la base de datos de        origen y de la red.
+  -  Actualización de datos: Los datos siempre están actualizados porque Power BI consulta la base de datos en tiempo real.
+  -  Capacidad: No hay límites significativos en la cantidad de datos que se pueden manejar, ya que los datos no se almacenan en Power BI.
+  -  Seguridad: Las políticas de seguridad de la base de datos se aplican directamente, lo que puede ser una ventaja para ciertos escenarios de seguridad.
 
 
 
