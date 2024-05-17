@@ -2,46 +2,45 @@
 ## Projecte Intermodular
 ### Contingut
 
+## Exportar Visites entre 2 dates
+### Context
+Com que l'hospital disposa de moltes visites al llarg dels dies, mesos i anys, és possible que ens interessi poder visualitzar les visites que hi ha hagut entre 2 dates com un informe, per si més tard es requereix enviar l'informe a un altre hospital o altres llocs que es requereixin. És per això que la idea és guardar les dades en format XML perquè el traspàs de dades sigui més senzill.
 
-## Exportar Visitas entre 2 fechas
-### Conexto
-Como el hospital dispone de muchas visitas a lo largo de los dias, meses y años es posible que nos interese poder visiualizar las visitas que han 
-habido entre 2 fechas como un informe, por si mas tarde se requiere enviar el informe a otro hospital o otros sitios que se requieran.
-Es por eso que lo idea es guardar los datos en formato Xml para que el traspaso de datos sea mas sencillo.
+### Què és xml.etree.ElementTree i xml.dom.minidom
 
-### Que es xml.etree.ElementTree y xml.dom.minidom 
+Per poder guardar la informació en XML i que estiguin indentats és necessari utilitzar la llibreria integrada/estàndard de Python ```xml.etree.ElementTree``` i també ```xml.dom.minidom```.
 
-Para poder guardar la informacion en Xml y que esten indentados es necessario utilizar la libreria integrada/estandart de pyhton ```xml.etree.ElementTree``` y tambien ```xml.dom.minidom ```.
+```xml.etree.ElementTree``` és una llibreria en Python que ens permet treballar amb fitxers XML de manera simple i ràpida, algunes funcions són:
 
-```xml.etree.ElementTree``` es una librería en Python que nos permite trabajar con archivos XML de manera simple y rápida, algunas funciones son:
+  -  **Llegir XML**: Obrir i llegir fitxers XML per tal que es puguin treballar des de Python.
+  -  **Modificar XML**: Canvia el contingut de l'XML, afegeix o elimina contingut.
+  -  **Guardar XML**: Escriure els canvis en un fitxer XML nou o que ja existeixi.
 
-  -  **Leer XML**: Abrir y lee archivos XML para que se puedan trabajar desde Python.
-  -  **Modificar XML**: Cambia el contenido del XML, añade o elimina contenido.
-  -  **Guardar XML**: Escribir los cambios en un archivo XML nuevo o que ya exista.
+```xml.dom.minidom``` és una altra llibreria en Python que també treballa amb XML però d'una manera més detallada, serveix per:
+  -  **Formatejar XML**: Fa que l'XML sigui més fàcil de llegir.
+  -  **Control detallat**: Et permet manipular l'XML amb més precisió.
 
-```xml.dom.minidom```  es otra librería en Python que también trabaja con XML pero de una manera más detallada, sirve para:
-  -  **Formatear XML**: Hace que el XML sea más fácil de leer.
-  -  **Control detallado**: Te permite manipular el XML con más precisión.
-Las 2 librerias se implementan de la siguiente manera:
+Les dues llibreries s'implementen de la següent manera:
+
 ```
 import xml.etree.ElementTree as ET
 import xml.dom.minidom
 ```
-### Funcionamiento
+### Funcionament
 
-Para empezar todo documento Xml ha de tener el elemento raiz, en este caso deberia ser:
+Per començar, tot document XML ha de tenir l'element arrel, en aquest cas hauria de ser:
 ```
 root = ET.Element("visitas")
 ```
-Despues de crear el elemento raiz es neccesario crear subelementos raiz ( en este caso 1, que se repetira tantas veces como sea necesario)
-  -   Propósito: Añadir un subelemento bajo el elemento raíz "visitas" para cada visita.
-  -   Qué hace: Crea un nuevo elemento XML llamado "visita" como hijo del elemento raíz "visitas". Este elemento representará una visita específica.
+Després de crear l'element arrel és necessari crear subelements arrel (en aquest cas 1, que es repetirà tantes vegades com sigui necessari)
+  -  **Propòsit**: Afegir un subelement sota l'element arrel "visites" per a cada visita.
+  -  **Què fa**: Crea un nou element XML anomenat "visita" com a fill de l'element arrel "visites". Aquest element representarà una visita específica.
 ```
 visita = ET.SubElement(root, "visita")
 ```
-Añadir subelementos con datos específicos de la visita
-  -  Propósito: Añadir detalles específicos de cada visita como subelementos del elemento "visita".
-  -  Qué hace: Para cada dato crea un subelemento dentro de"visita" con el nombre correspondiente.
+Afegir subelements amb dades específiques de la visita
+  -  **Propòsit**: Afegir detalls específics de cada visita com subelements de l'element "visita".
+  -  **Què fa**: Per a cada dada crea un subelement dins de "visita" amb el nom corresponent.
 ```
 ET.SubElement(visita, "ID").text = str(resultado[0])
 ET.SubElement(visita, "Fecha").text = resultado[1].strftime("%Y-%m-%d")
@@ -50,40 +49,40 @@ ET.SubElement(visita, "PrimerCognomMetge").text = resultado[3]
 ET.SubElement(visita, "NomPacient").text = resultado[4]
 ET.SubElement(visita, "PrimerCognomPacient").text = resultado[5]
 ```
-Crear el árbol XML y guardarlo en un archivo
+Crear l'arbre XML i guardar-lo en un fitxer
 
-  -  Propósito: Guardar el contenido del árbol XML en un archivo.
-  -  Qué hace: Crea un objeto ElementTree a partir del elemento raíz root , escribe el árbol XML en un archivo con el nombre especificado por nombre_archivo.
-     El archivo se guarda con codificación UTF-8 e incluye una declaración XML (<?xml version='1.0' encoding='utf-8'?>).
+  -  **Propòsit**: Guardar el contingut de l'arbre XML en un fitxer.
+  -  **Què fa**: Crea un objecte ElementTree a partir de l'element arrel `root`, escriu l'arbre XML en un fitxer amb el nom especificat per `nom_fitxer`.
+     El fitxer es guarda amb codificació UTF-8 i inclou una declaració XML (`<?xml version='1.0' encoding='utf-8'?>`).
 ```
 xml_tree = ET.ElementTree(root)
 xml_tree.write(f"{nombre_archivo}.xml", encoding="utf-8", xml_declaration=True)
 ```
-Formatear el XML para que esté bien indentado y tabulado
+Formatejar l'XML perquè estigui ben indentat i tabulat
 
-  -  Propósito: Formatear el archivo XML para que sea más legible, con indentación y nuevas líneas.
-  -  Qué hace: Usa minidom para parsear el archivo XML que se acaba de escribir.
-     oprettyxml() convierte el XML en una cadena de texto con una bonita indentación.
-     Abre el archivo XML nuevamente en modo escritura ("w") y escribe la cadena de texto formateada, reemplazando el contenido anterior.
+  -  **Propòsit**: Formatejar el fitxer XML perquè sigui més llegible, amb indentació i noves línies.
+  -  **Què fa**: Utilitza `minidom` per parsejar el fitxer XML que s'acaba d'escriure.
+     `toprettyxml()` converteix l'XML en una cadena de text amb una bonica indentació.
+     Obre el fitxer XML novament en mode escriptura ("w") i escriu la cadena de text formatejada, reemplaçant el contingut anterior.
 ```
 dom = xml.dom.minidom.parse(f"{nombre_archivo}.xml")
 with open(f"{nombre_archivo}.xml", "w", encoding="utf-8") as file:
     file.write(dom.toprettyxml())
 ```
-## Resumen
+## Resum
 
-  -  1.Crea la estructura del XML: Elementos "visitas" y "visita", y añade subelementos con detalles específicos.
-  -  2.Guarda el XML: Escribe el árbol XML en un archivo con codificación UTF-8.
-  -  3.Formatea el XML: Usa minidom para agregar indentación y hacer que el XML sea más legible.
+  -  1. Crea l'estructura de l'XML: Elements "visites" i "visita", i afegeix subelements amb detalls específics.
+  -  2. Guarda l'XML: Escriu l'arbre XML en un fitxer amb codificació UTF-8.
+  -  3. Formateja l'XML: Utilitza `minidom` per afegir indentació i fer que l'XML sigui més llegible.
 
-### Que es random.sampele
+### Què és random.sample
 
-La función sample se utiliza para obtener una lista de elementos seleccionados aleatoriamente de una secuencia (como una lista, tupla, o cadena). 
-La función no modifica la secuencia original y no permite duplicados, es decir, cada elemento seleccionado es único.
+La funció `sample` s'utilitza per obtenir una llista d'elements seleccionats aleatòriament d'una seqüència (com una llista, tupla o cadena).
+La funció no modifica la seqüència original i no permet duplicats, és a dir, cada element seleccionat és únic.
 
-### Funcionamiento
+### Funcionamient
 
-En el siguiente codigo podemos ver una funcion que hace uso de ```sample``` :
+En el següent codi podem veure una funció que fa servir ```sample``` :
 ```
 def Generar_Nombre(longitud):
   
@@ -109,68 +108,64 @@ def Generar_Nombre(longitud):
     # Retornamos la variables "password_result"
     return password_result
 ```
-Como vemos la funcion de sample se utiliza en este trozo de codigo:
+Com veiem, la funció `sample` s'utilitza en aquest tros de codi:
 ```
     # Llamamos la función sample() utilizando la secuencia, y la longitud
     password_union = sample(secuencia, longitud)
 ```
-  -  Propósito: Seleccionar una muestra aleatoria de longitud caracteres únicos de la cadena secuencia.
-  -  Qué hace: sample(secuencia, longitud) devuelve una lista de longitud caracteres elegidos aleatoriamente de secuencia. Cada carácter en la lista es único y la selección se hace sin reemplazo.
-     Por ejemplo, si longitud es 8, sample podría devolver una lista como ['a', 'G', '1', 'b', 'Z', '3', 'x', '5'].
-
+  -  **Propòsit**: Seleccionar una mostra aleatòria de longitud caràcters únics de la cadena seqüència.
+  -  **Què fa**: `sample(seqüència, longitud)` retorna una llista de longitud caràcters triats aleatòriament de seqüència. Cada caràcter a la llista és únic i la selecció es fa sense reemplaçament.
+     Per exemple, si longitud és 8, `sample` podria retornar una llista com ['a', 'G', '1', 'b', 'Z', '3', 'x', '5'].
 
 # Informes en PowerBi
-## Instalacion
+## Instal·lació
 
-Para instalar la herramienta PowerBi se recomienda instalar el Setup a traves de la pagina web https://www.microsoft.com/es-es/download/details.aspx?id=58494, la version
-que se encuentra en la Microsoft Store da algunos problemas.
+Per instal·lar l'eina PowerBi es recomana instal·lar el Setup a través de la pàgina web [https://www.microsoft.com/es-es/download/details.aspx?id=58494](https://www.microsoft.com/es-es/download/details.aspx?id=58494), la versió que es troba a la Microsoft Store dóna alguns problemes.
 
-## Configuracion
+## Configuració
 
-Una vez instalado se crea un nuevo informe y se le da a obtener datos de otro origen, y que sea a traves de Base de Datos de PostgreSql,
-ahi se indica Dns o Ip del servidor, nombre de la base de datos, Modo conectividad de Base datos y Instruccion Sql (opcional) si solo queremos introducir datos de un consulta.
+Un cop instal·lat es crea un nou informe i s'obté dades d'una altra font, i que sigui a través de Base de Dades de PostgreSQL, on s'indica Dns o Ip del servidor, nom de la base de dades, Mode connectivitat de Base de dades i Instrucció SQL (opcional) si només volem introduir dades d'una consulta.
 
-### Modo de Conectividad de Datos
+### Mode de Connectivitat de Dades
 
 #### Importar
 
-Importar los datos significa que Power BI toma una copia de los datos desde la base de datos de PostgreSQL
-y los almacena en su propio modelo de datos en memoria.
+Importar les dades significa que Power BI pren una còpia de les dades des de la base de dades de PostgreSQL i les emmagatzema en el seu propi model de dades en memòria.
 
-  -  Rendimiento: Una vez que los datos están importados, las consultas y visualizaciones en Power BI son muy rápidas porque los datos se encuentran en la memoria del modelo de datos de Power BI.
-  -  Actualización de datos: Debes programar las actualizaciones de datos para mantener la información actualizada. Esto se hace mediante "refresh" programados, que vuelven a importar los datos desde la BD
-  -  Capacidad: Estás limitado por la capacidad de almacenamiento de Power BI. Si trabajas con conjuntos de datos muy grandes, podrías enfrentar problemas de capacidad.
+  -  **Rendiment**: Un cop les dades estan importades, les consultes i visualitzacions a Power BI són molt ràpides perquè les dades es troben a la memòria del model de dades de Power BI.
+  -  **Actualització de dades**: Has de programar les actualitzacions de dades per mantenir la informació actualitzada. Això es fa mitjançant "refresh" programats, que tornen a importar les dades des de la BD.
+  -  **Capacitat**: Estàs limitat per la capacitat d'emmagatzematge de Power BI. Si treballes amb conjunts de dades molt grans, podries enfrontar-te a problemes de capacitat.
 
 #### DirectQuery
 
-DirectQuery es un método en el que Power BI no almacena los datos en su propia memoria. En lugar de eso,
-envía consultas a la base de datos de PostgreSQL cada vez que se necesita acceder a los datos.
+DirectQuery és un mètode en què Power BI no emmagatzema les dades a la seva pròpia memòria. En lloc d'això, envia consultes a la base de dades de PostgreSQL cada vegada que es necessita accedir a les dades.
 
-  -  Rendimiento: Las consultas pueden ser más lentas porque cada interacción con los datos requiere una consulta a la base de datos. El rendimiento depende en gran medida del rendimiento de la base de datos de        origen y de la red.
-  -  Actualización de datos: Los datos siempre están actualizados porque Power BI consulta la base de datos en tiempo real.
-  -  Capacidad: No hay límites significativos en la cantidad de datos que se pueden manejar, ya que los datos no se almacenan en Power BI.
-  -  Seguridad: Las políticas de seguridad de la base de datos se aplican directamente, lo que puede ser una ventaja para ciertos escenarios de seguridad.
+  -  **Rendiment**: Les consultes poden ser més lentes perquè cada interacció amb les dades requereix una consulta a la base de dades. El rendiment depèn en gran mesura del rendiment de la base de dades d'origen                      i de la xarxa.
+  -  **Actualització de dades**: Les dades sempre estan actualitzades perquè Power BI consulta la base de dades en temps real.
+  -  **Capacitat**: No hi ha límits significatius en la quantitat de dades que es poden gestionar, ja que les dades no s'emmagatzemen a Power BI.
+  -  **Seguretat**: Les polítiques de seguretat de la base de dades s'apliquen directament, la qual cosa pot ser una avantatge per a certes situacions de seguretat.
 
-## Configuracion Alternativa
+## Configuració Alternativa
 
-Debido a que a la hora de intentar conectar a la Base de datos, puede dar Error de Certificado Remoto ( SSL) se puede optar por hacer la conexion mediante un intermediario (herramienta de terceros),
-dentro de las diferentes herramientas se puede utilizar ODBC.
+Degut a que a l'hora d'intentar connectar a la Base de dades, pot donar Error de Certificat Remot (SSL) es pot optar per fer la connexió mitjançant un intermediari (eina de tercers), dins de les diferents eines es pot utilitzar ODBC.
 
-### Instalacion
+### Instal·lació
 
-Para instalar la herramientas de terceros ODBC se ha de instalar a traves de la pagina oficial de postgresql : https://www.postgresql.org/ftp/odbc/releases/REL-16_00_0004/
+Per instal·lar les eines de tercers ODBC s'ha d'instal·lar a través de la pàgina oficial de PostgreSQL: [https://www.postgresql.org/ftp/odbc/releases/REL-16_00_0004/](https://www.postgresql.org/ftp/odbc/releases/REL-16_00_0004/)
 
-### Configuracion
+### Configuració
 
-Una vez instalado se tendra que ejecutasr el ODBC ( Administrador de Origen de datos ODBC 64 bits) y hacer los siguiente
+Un cop instal·lat es haurà d'executar l'ODBC (Administrador d'Origen de Dades ODBC de 64 bits) i fer el següent:
+
 
      1. Agregar...
      2. Postgresql Unicode(x64)
-     3. Introducir: Nombre BD, Servidor, Nombre de Usuario, Modo SSL, Puerto, Contraseña
-     4. Guardar configuracion
+     3. Introduir: Nom BD, Servidor, Nom d'usuari, Mode SSL, Por, Contrasenya
+     4. Guardar configuracio
      
-Una vez guardada la configuracion se accede a PowerBi se sigen los mismos pasos pero se selecciona la opcion ODBC,
-se introducen las credenciales y se seleccion las tablas que se quieren importar.
+Un cop guardada la configuració, s'accedeix a PowerBi i es segueixen els mateixos passos però s'ha de seleccionar l'opció ODBC. 
+S'introdueixen les credencials i s'han de seleccionar les taules que es volen importar.
+
 
     
 
