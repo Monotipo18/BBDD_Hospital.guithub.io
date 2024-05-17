@@ -171,6 +171,11 @@ Un cop instal·lat es haurà d'executar l'ODBC (Administrador d'Origen de Dades 
 Un cop guardada la configuració, s'accedeix a PowerBi i es segueixen els mateixos passos però s'ha de seleccionar l'opció ODBC. 
 S'introdueixen les credencials i s'han de seleccionar les taules que es volen importar.
 
+## Explicacio Informes
+
+Els informes que s'han adjuntat haurien de ser amb un ```current_date``` perque nomes es pugui visitualitzar el mateix dia y no diferents, aixo es perque si el informa es genera amb 
+moltisims dias pot causar problemas o funcionar, a mes que es mes facil de visualitzar.
+
 
     
 
