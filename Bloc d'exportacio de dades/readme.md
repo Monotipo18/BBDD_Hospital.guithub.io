@@ -70,6 +70,11 @@ dom = xml.dom.minidom.parse(f"{nombre_archivo}.xml")
 with open(f"{nombre_archivo}.xml", "w", encoding="utf-8") as file:
     file.write(dom.toprettyxml())
 ```
+## Resumen
+
+  -  1.Crea la estructura del XML: Elementos "visitas" y "visita", y añade subelementos con detalles específicos.
+  -  2.Guarda el XML: Escribe el árbol XML en un archivo con codificación UTF-8.
+  -  3.Formatea el XML: Usa minidom para agregar indentación y hacer que el XML sea más legible.
 
 
 
