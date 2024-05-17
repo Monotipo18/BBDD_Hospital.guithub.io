@@ -50,9 +50,9 @@ El procés de còpia de seguretat s'automatitza mitjançant l'eina crontab. S'ha
 
 El script per configurar les còpies físiques locals i a la núvol es troba en el següent enllaç:
 
-- [Script Backup Tarde](Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_backup_local_nube.sh)
-- [Script Backup de Nit](Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_backup_local_nube.sh)
-- [Script Restauració](Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_restauracio.sh)
+- [Script Backup Tarde](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/blob/main/Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_backup_local_nube.sh)
+- [Script Backup de Nit](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/blob/main/Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_backup_local_nube.sh)
+- [Script Restauració](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/blob/main/Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio/script_restauracio.sh)
 
 ## Pasos i Permisos
 
