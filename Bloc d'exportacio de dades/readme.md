@@ -9,6 +9,8 @@ Como el hospital dispone de muchas visitas a lo largo de los dias, meses y años
 habido entre 2 fechas como un informe, por si mas tarde se requiere enviar el informe a otro hospital o otros sitios que se requieran.
 Es por eso que lo idea es guardar los datos en formato Xml para que el traspaso de datos sea mas sencillo.
 
+### Que es xml.etree.ElementTree y xml.dom.minidom 
+
 Para poder guardar la informacion en Xml y que esten indentados es necessario utilizar la libreria integrada/estandart de pyhton ```xml.etree.ElementTree``` y tambien ```xml.dom.minidom ```.
 
 ```xml.etree.ElementTree``` es una librería en Python que nos permite trabajar con archivos XML de manera simple y rápida, algunas funciones son:
@@ -20,11 +22,39 @@ Para poder guardar la informacion en Xml y que esten indentados es necessario ut
 ```xml.dom.minidom```  es otra librería en Python que también trabaja con XML pero de una manera más detallada, sirve para:
   -  **Formatear XML**: Hace que el XML sea más fácil de leer.
   -  **Control detallado**: Te permite manipular el XML con más precisión.
-La libreria se implementa de la siguiente manera:
+Las 2 librerias se implementan de la siguiente manera:
 ```
 import xml.etree.ElementTree as ET
-```
-Y tambien :
-```
 import xml.dom.minidom
 ```
+### Funcionamiento
+
+Para empezar todo documento Xml ha de tener el elemento raiz, en este caso deberia ser:
+```
+root = ET.Element("visitas")
+```
+Despues de crear el elemento raiz es neccesario crear subelementos raiz ( en este caso 1, que se repetira tantas veces como sea necesario)
+  -   Propósito: Añadir un subelemento bajo el elemento raíz "visitas" para cada visita.
+  -   Qué hace: Crea un nuevo elemento XML llamado "visita" como hijo del elemento raíz "visitas". Este elemento representará una visita específica.
+```
+visita = ET.SubElement(root, "visita")
+```
+Añadir subelementos con datos específicos de la visita
+  -  Propósito: Añadir detalles específicos de cada visita como subelementos del elemento "visita".
+  -  Qué hace: Para cada dato crea un subelemento dentro de"visita" con el nombre correspondiente.
+```
+ET.SubElement(visita, "ID").text = str(resultado[0])
+ET.SubElement(visita, "Fecha").text = resultado[1].strftime("%Y-%m-%d")
+ET.SubElement(visita, "NomMetge").text = resultado[2]
+ET.SubElement(visita, "PrimerCognomMetge").text = resultado[3]
+ET.SubElement(visita, "NomPacient").text = resultado[4]
+ET.SubElement(visita, "PrimerCognomPacient").text = resultado[5]
+```
+
+
+
+
+
+
+
+
