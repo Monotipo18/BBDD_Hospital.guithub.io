@@ -1,10 +1,10 @@
 # Bloc d’exportació de dades
 ## Projecte Intermodular
 ### Contingut
-  -  [Que es XmlTree](#Què és xml.etree.ElementTree i xml.dom.minidom)
-  -  [Funcionament XmlTree(#Funcionament)
+  -  [Què és XmlTree](#Què és xml.etree.ElementTree i xml.dom.minidom)
+  -  [Funcionament XmlTree](#Funcionament)
   -  [Resum Xmltree](#Resum)
-  -  [Que es Random Sample](# Què és random.sample)
+  -  [Què és Random Sample](# Què és random.sample)
   -  [Funcionament Sample](#Funcionament Sample)
   -  [Informes PowerBi](#Informes PowerBi)
 ## Exportar Visites entre 2 dates
