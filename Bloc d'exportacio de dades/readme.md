@@ -1,12 +1,12 @@
 # Bloc d’exportació de dades
 ## Projecte Intermodular
 ### Contingut
-  -  [Què és XmlTree](#Què és xml.etree.ElementTree i xml.dom.minidom)
+  -  [Què és XmlTree](#Què%20és%20xml.etree.ElementTree%20i%20xml.dom.minidom)
   -  [Funcionament XmlTree](#Funcionament)
   -  [Resum Xmltree](#Resum)
-  -  [Què és Random Sample](# Què és random.sample)
-  -  [Funcionament Sample](#Funcionament Sample)
-  -  [Informes PowerBi](#Informes PowerBi)
+  -  [Què és Random Sample](#Què%20és%20random.sample)
+  -  [Funcionament Sample](#Funcionament%20Sample)
+  -  [Informes PowerBi](#Informes%20PowerBi)
 ## Exportar Visites entre 2 dates
 ### Context
 Com que l'hospital disposa de moltes visites al llarg dels dies, mesos i anys, és possible que ens interessi poder visualitzar les visites que hi ha hagut entre 2 dates com un informe, per si més tard es requereix enviar l'informe a un altre hospital o altres llocs que es requereixin. És per això que la idea és guardar les dades en format XML perquè el traspàs de dades sigui més senzill.
