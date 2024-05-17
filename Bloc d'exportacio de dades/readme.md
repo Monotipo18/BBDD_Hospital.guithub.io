@@ -151,7 +151,28 @@ envía consultas a la base de datos de PostgreSQL cada vez que se necesita acced
   -  Capacidad: No hay límites significativos en la cantidad de datos que se pueden manejar, ya que los datos no se almacenan en Power BI.
   -  Seguridad: Las políticas de seguridad de la base de datos se aplican directamente, lo que puede ser una ventaja para ciertos escenarios de seguridad.
 
+## Configuracion Alternativa
 
+Debido a que a la hora de intentar conectar a la Base de datos, puede dar Error de Certificado Remoto ( SSL) se puede optar por hacer la conexion mediante un intermediario (herramienta de terceros),
+dentro de las diferentes herramientas se puede utilizar ODBC.
+
+### Instalacion
+
+Para instalar la herramientas de terceros ODBC se ha de instalar a traves de la pagina oficial de postgresql : https://www.postgresql.org/ftp/odbc/releases/REL-16_00_0004/
+
+### Configuracion
+
+Una vez instalado se tendra que ejecutasr el ODBC ( Administrador de Origen de datos ODBC 64 bits) y hacer los siguiente
+
+     1. Agregar...
+     2. Postgresql Unicode(x64)
+     3. Introducir: Nombre BD, Servidor, Nombre de Usuario, Modo SSL, Puerto, Contraseña
+     4. Guardar configuracion
+     
+Una vez guardada la configuracion se accede a PowerBi se sigen los mismos pasos pero se selecciona la opcion ODBC,
+se introducen las credenciales y se seleccion las tablas que se quieren importar.
+
+    
 
 
 
