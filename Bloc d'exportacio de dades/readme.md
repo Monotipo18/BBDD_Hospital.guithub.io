@@ -1,7 +1,12 @@
 # Bloc d’exportació de dades
 ## Projecte Intermodular
 ### Contingut
-
+  -  [Que es XmlTree](#Què és xml.etree.ElementTree i xml.dom.minidom)
+  -  [Funcionament XmlTree(#Funcionament)
+  -  [Resum Xmltree](#Resum)
+  -  [Que es Random Sample](# Què és random.sample)
+  -  [Funcionament Sample](#Funcionament Sample)
+  -  [Informes PowerBi](#Informes PowerBi)
 ## Exportar Visites entre 2 dates
 ### Context
 Com que l'hospital disposa de moltes visites al llarg dels dies, mesos i anys, és possible que ens interessi poder visualitzar les visites que hi ha hagut entre 2 dates com un informe, per si més tard es requereix enviar l'informe a un altre hospital o altres llocs que es requereixin. És per això que la idea és guardar les dades en format XML perquè el traspàs de dades sigui més senzill.
@@ -80,7 +85,7 @@ with open(f"{nombre_archivo}.xml", "w", encoding="utf-8") as file:
 La funció `sample` s'utilitza per obtenir una llista d'elements seleccionats aleatòriament d'una seqüència (com una llista, tupla o cadena).
 La funció no modifica la seqüència original i no permet duplicats, és a dir, cada element seleccionat és únic.
 
-### Funcionamient
+### Funcionament Sample
 
 En el següent codi podem veure una funció que fa servir ```sample``` :
 ```
