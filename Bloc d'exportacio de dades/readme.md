@@ -1,7 +1,7 @@
 # Bloc d’exportació de dades
 ## Projecte Intermodular
 ### Contingut
-  -  [Què és XmlTree](#Què%20és%20xml.etree.ElementTree%20i%20xml.dom.minidom)
+  -  [Què és XmlTree](#Quèésxml.etree.ElementTreeixml.dom.minidom)
   -  [Funcionament XmlTree](#Funcionament)
   -  [Resum Xmltree](#Resum)
   -  [Què és Random Sample](#Què%20és%20random.sample)
