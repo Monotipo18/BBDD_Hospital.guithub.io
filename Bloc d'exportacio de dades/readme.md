@@ -50,6 +50,29 @@ ET.SubElement(visita, "PrimerCognomMetge").text = resultado[3]
 ET.SubElement(visita, "NomPacient").text = resultado[4]
 ET.SubElement(visita, "PrimerCognomPacient").text = resultado[5]
 ```
+Crear el árbol XML y guardarlo en un archivo
+
+  -  Propósito: Guardar el contenido del árbol XML en un archivo.
+  -  Qué hace: Crea un objeto ElementTree a partir del elemento raíz root , escribe el árbol XML en un archivo con el nombre especificado por nombre_archivo.
+     El archivo se guarda con codificación UTF-8 e incluye una declaración XML (<?xml version='1.0' encoding='utf-8'?>).
+```
+xml_tree = ET.ElementTree(root)
+xml_tree.write(f"{nombre_archivo}.xml", encoding="utf-8", xml_declaration=True)
+```
+Formatear el XML para que esté bien indentado y tabulado
+
+  -  Propósito: Formatear el archivo XML para que sea más legible, con indentación y nuevas líneas.
+  -  Qué hace: Usa minidom para parsear el archivo XML que se acaba de escribir.
+     oprettyxml() convierte el XML en una cadena de texto con una bonita indentación.
+     Abre el archivo XML nuevamente en modo escritura ("w") y escribe la cadena de texto formateada, reemplazando el contenido anterior.
+```
+dom = xml.dom.minidom.parse(f"{nombre_archivo}.xml")
+with open(f"{nombre_archivo}.xml", "w", encoding="utf-8") as file:
+    file.write(dom.toprettyxml())
+```
+
+
+
 
 
 
