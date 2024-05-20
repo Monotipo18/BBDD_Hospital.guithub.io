@@ -231,6 +231,25 @@ Para encontrar los siguientes apartados realizados , que son una mejora del ante
 
 #### Dummy Data
 
+Para poner a prueba la Base de datos se ha decidido realizar un dummy data de la sigiente manera:
+
+Per la creació del dummy data per validar el performance del sistema, se crearan (100.000  visites  ,50.000 pacients, 100 metges, 200 infermeres, 100 persones de neteja i 50 persones d’administració), i se crearan los índexs que pertoquin, escollint el més adequat per cada taula Una petita mostra d’aquesta información estara en alfabeto cirílic.
+
+La creació del dummy data se podra executar des de l’aplicació com una opció del menú. Tambien tendra una opcion para eliminar tota la informació dummy de la Base de dades.
+
+> [!NOTE]  
+> Se ha decidido almacenar los currículums del personal del hospital en la base de datos (formato pdf)
+
+Para poder implementar el Dummy Data se ha de instalar previamente las siguientes librerias de Pyhton:
+
+  -  ```Beautiful Soup```:  Esta biblioteca se utiliza para extraer datos de documentos HTML y XML, más concretamente para extraer información de un HTML que se le ha dado formato en currículum.
+  -  ```PdfKit ```       :  Permite crear y manipular archivos PDF. Puede convertir HTML o texto plano a PDF, agregar contenido dinámico como texto e imágenes, y controlar el estilo del documento.
+
+En el siguiente enlace se encuentras la dcoumentacion y los codigos para implementar el Dummy Data en la base de datos en PostgreSql:
+
+  -  [Implementacion Dummy Data](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Dummy_Data)
+
+
 
 
 
