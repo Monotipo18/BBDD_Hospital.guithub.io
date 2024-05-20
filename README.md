@@ -53,7 +53,7 @@ En esa documentacion se encuentran 2 esquemas distintos (es el mismo pero difere
 script pero se considera que la forma que se ha hecho es la mas adiente.
 
 ### Esquema de Seguridad
-
+#### Roles y Permisos
 Dado los diferentes trabajadores que hay en el hospital se ha hecho una Matriu de seguretat on apareixin els usuaris/rols i los diferentes permissos que tenen sobre els objectes(datos) de la BD.
 Es por eso que ha modo de resumen los roles que van a existtir en la BD son los siguientes:
 
@@ -67,6 +67,41 @@ Es por eso que ha modo de resumen los roles que van a existtir en la BD son los 
 Para ver los permisos detalladamente se recomienda consultar la siguiente documentacion del Esquema de seguridad:
 
 [Usarios, Grupos y Permisos](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Esquema%20de%20seguretat/Matriu%20de%20Seguretat)
+
+Ademas de ver los permisos que tienen los roles de usuario y grupo de la BD , lo ideal seria crear un script ```.sql``` para implementar la creacion Usuarios, grupos y permisoa 
+de una sola vez para asi no ir implentando tantos comandos de uno en uno.
+
+> [!NOTE]  
+> El Script ```.sql``` tambien se encuentra en el mismo Bloque que la documentacion de permisos( el enlace adjuntado), tambien hay una tabla en excel para entender mejor los permisos.
+
+#### SSL-TLS
+
+Primer de tot cal aclarir una cosa SSL, avui dia no s'utilitza, ja que el protocol TLS (Transport Layer Security) el va substituir en 1999, a dia d'avui, 12 d'abril de 2024, és l'estàndard en la seva versió TLS 1.3, però el terme SSL es continua utilitzant per a referir-se a connexions segures.
+
+Una vez los roles y permisos esten creados, se ha de implementar una encriptacion del trafico de la BD, porque?, por la sencilla razon de que SSL permite cifrar el tráfico de datos, eso es muy conveniente
+ya que si los datos no esta cifrados un intermediarios podria interceptar los datos ( Man in the Middle) y eso en una BD de un hospital es totalmente inpensable.
+
+Pero antes de aplicar un certificado SSL, se ha decido utilizar un domino con ```Cloudfare``` para que sea un poco mas seguro (se evitan ataques DDDOS) y ademas la renovacion automatica del certificado sera mas facil.
+
+> [!NOTE]  
+> Cloudfare es el servicio que se esta utilizandpo en este caso, pero se pueden utilizar otras opciones distintasa que ofrecen el mismo servicio
+> aunque por nuestra parte se recomienda utilizar este servicio.
+
+Es muy importante configurar el firewall donde este instalado la BD ya que un mala configuracion de puertos puede suponer un gran riesgo en la seguridad del sistema.
+
+#### Generar Certificado 
+
+Para generar el certificado SSL-TLS para la base de datos del Hospital se necesita una herramienta, en este caso se ha decidido utilizar Certbot, como la BD esta instalada en un Debian en ```PROMOX```
+una vez creado y configurado el certificado SSL se tendra que configurar el Postgresql para que tambien lo implente.
+
+Para poder hacer todos los pasos anteriormente mencionados, se recomienda seguir todos los pasos de la siguiente documentacion SSL-TLS:
+
+  -  [Configuracion Firewall y SSL](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Esquema%20de%20seguretat/SSL-TLS)
+
+#### Data Masking
+
+Un paso muy importante que ayudara a proteger aun mas los datos de la BD, es implementar Data Masking a los datos de caracter mas importante, para poder hacer
+
 
 
 
