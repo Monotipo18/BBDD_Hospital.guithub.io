@@ -100,7 +100,46 @@ Para poder hacer todos los pasos anteriormente mencionados, se recomienda seguir
 
 #### Data Masking
 
-Un paso muy importante que ayudara a proteger aun mas los datos de la BD, es implementar Data Masking a los datos de caracter mas importante, para poder hacer
+Un paso muy importante que ayudara a proteger aun mas los datos de la BD, es implementar Data Masking a los datos de caracter mas importante. Pero antes de aplicar Data Masking
+hay que saber que tipo de datos se consideran de caràcter personal de grau alt en una based de datos de un hospital, a continuacion se presenta algunaos ejemplos de ello:
+
+  -  Informació d'Identificació Personal (PII)
+  -  Informació Mèdica Sensible
+  -  Informació Financera
+  -  Informació Laboral i d'Assegurança
+
+Una vez se sabe con que tipo de datos se va a trabajar, es recomendable hacer un estudio para saber a que datos de la BD se va aplicar el Data Masking teniendo en cuenta los apartados anteriormente mencionados.
+
+Para poder configurar el Data Masking es necessario instalar y configurar una serie de herramientas, una de ellas es el repositorio de github ```pg_anonymize``` , esta repositiorio permite aplicar una serie de parametros y configuraciones en Postgresql ( se puede hacer a traves de PgAdmin) para poder anonimizar los datos que se consideren de caracter personal de grado alto.
+
+Pero para realizar todo esto se recomienda seguir los pasos que se encuentra en la siguiente documentacion:
+
+-  [Data Masking](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/blob/main/Esquema%20de%20seguretat/Data_Masking/readme.md)
+
+Con esta documentacion se podran instalar las herramientas neccesarias para poder configurar Postgresql para aplicar el respectivo DataMasking. Ademas explica en mas detalle que tipo de datos de caracter personal son de grado alto.
+
+### Legislacion AGPD
+
+Respecto a la legislacion AGPD es un apartado bastante extenso , es por eso que se ha considerado dividir la proteccion de datos y documentacion en 3 apartado distintos:
+
+  -  Requisitos Altos:  Els enmascararem amb Data masking dins de la base de dades juntament amb SSL per tenir encriptada la conecció entre el servidor i la BDD. A mes restringirem el acces a les dades depenent de la teva profecio dins de l'hospital.
+  -  Requisitos Intermedios: Tot i que l'informacio que contenen els documents es menys relevant que els anteriors, encara s'han d'encriptar dades personals importants com DNI, telefons, noms, etc. Utilitzarem datamasking i el SSL com en l'anterior.
+  -  Requisitos Bajos: Aquest documents son necesaris i obligatoris, pero poc relevants, per tant tindran poca necesitat d'encriptació. Utilitzarem datamasking minimament i l'encriptacio SSL
+
+Cabe mencionar que el hospital implementa diferentes tecnicas para asegurar, proteger y minimizar el acceso a todo tipos de datos del hospital mediante medidas de seguridad tenicas, 
+analisis de riesgos, mediadas de seguridad organizativas, gestion de acceso, proteccion de la infraestructura fisica, revisiones y actualizaciones y por ultimo en Procediments de Seguretat en Cas d'Incidents.
+
+En la siguiente apartado adjuntado se explica muchos mas en detalle como se aplican esta serie de tecnicas y que tipos de datos se consideran de mayor o menor importancia y muchos muchas detalles:
+
+-  [Legislacion AGPD](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/blob/main/Esquema%20de%20seguretat/Documentacion%20RGPD/Documento%20de%20seguridad.md)
+
+
+
+
+
+
+
+
 
 
 
