@@ -165,6 +165,62 @@ Para aprender en mas detalle como funcionan y como utilizar estas libreria es re
 
 ### Alta disponibilitat
 
+#### Infraestructura Hardware
+
+A causa de les caracteristicas de la Base de dades de l'hospital (quantitat d'informacio emmagatzemada) se ha considerado una quantitat diferent d'opcions i se ha decidido que l'opcion mes adient per a les necessitats de l'hospital és la següent:
+
+Se ha escogido el servidor Dell PowerEdge R740XD2 que te unes caracteristiques de maquinari que s'ha aproximarian al necessari per al bon funcionament del sistema. Se ha utilitzado la pàgina web https://www.renewtech.es/dell-poweredge-r740xd2-configure-to-order.html per a personalitzar el servidor segons les necessitats.
+
+Les caracteristicas aproximades són, una CPU de 12/16 nucleos, 64/128 GB de ram, 50/100 TB de emmagatzament i sobretot que tingui una garantia general en cas de fallada.
+
+Considerem que aquestes especificacions són les mes adients tenint en compte el volum de dades amb el qual es treballés, a mes tenint en compte que l'hospital compta amb recursos limitats no seria molt correcte optar per una solucio mes cara.
+
+Note
+
+Hem triat 2 sistemes d'emmagatzematge perquè, 1 seria per a emmagatzemar el sistema operatiu (SSD 2.5) i l'altre per a emmagatzemar les dades de la Base de dades (HDD SAS 2.5)
+
+Para mas detalles de componentes escogidos, cantidad comprada y precios se recomienda revisar la siguiente documentacion:
+
+  -  [Hardware Escogido](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Esquema%20d'alta%20disponibilitat/Infraestructura%20Hardware)
+    
+#### Replicacio 
+
+Para la replicacion de la base de datos se propone los siguiente: 
+
+Una rèplica entre dos nodes de base de dades (En actiu-actiu o actiu-passiu). A part s’ha de crear un diagrama del funcionament replicació i un manual de com s’instal·la i s’administra la replica entre els dos nodes. S’haurà de poder treballar amb cadascun dels dos nodes i veure com la informació es replica
+
+Para realizar la replicacion de la BD es neccesario seguir los pasos de la siguente documentacion :
+
+  -  [Replicacion BD](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Esquema%20d'alta%20disponibilitat/Replicacio)
+
+#### Backups i restauracion
+
+Se ha decidit crear scripts en Bash per fer còpies de seguretat tant localment com a la núvol, utilitzant el servei d'emmagatzematge OneDrive. A més, s'ha configurat un crontab per executar els scripts corresponents diàriament, i finalment s'ha creat un script per a la restauració de la base de dades de manera més ràpida i senzilla.
+
+Para el apartado de Backups i Restauracion se ha propuesto hacer lo siguiente:
+
+     1. Backup Complet Inicial: Es realitzarà una còpia de seguretat completa de la base de dades una vegada (manualment o mitjançant un script).
+     2. Emmagatzament Local: Es guardaran un total de 5 còpies de seguretat localment, eliminant la més antiga quan s'arribi al límit.
+     3. Emmagatzament en el nuvol: Es crearà una còpia de seguretat a la núvol (OneDrive) cada dia que es realitzi una còpia incremental
+
+El procés de còpia de seguretat s'automatitza mitjançant l'eina crontab. S'han creat els seguents scripts:
+
+  -  Script de Backup Lògic pujada a la núvol (copia_local_nube_tarde.sh): Realitza la còpia local i al mateix temps es puja a la núvol, durant el canvi de torn a les 2 PM (OneDrive).
+  -  Script de Backup Lògic pujada a la núvol (copia_local_nube_noche.sh): Realitza la còpia local i al mateix temps es puja a la núvol, en horari nocturn 00:00 AM (OneDrive).
+  -  Script de restauració (restauracion.sh): Realitza la restauració de la base de dades a través de la còpia més recent existent (còpia lògica).
+
+Para configurar los scripts y el crontab se recomienda seguir paso a paso la siguiente documentacion:
+
+  -  [Backups y Restauracion](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Esquema%20d'alta%20disponibilitat/Backups%20i%20restauracio)
+
+A parte de la documentacion se encuentan los 2 scripts, uno para configurar un script de copia de seguridad en la nube y local al mismo tiempo y otro script para restaurar la copia mas reciente realizada.
+
+
+
+
+
+
+
 
  
   
