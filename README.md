@@ -249,6 +249,60 @@ En el siguiente enlace se encuentras la dcoumentacion y los codigos para impleme
 
   -  [Implementacion Dummy Data](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Dummy_Data)
 
+### Exportacion de Datos
+#### Exportar visites XMl
+
+Para la exportacion de datos se ha propuesto, descàrgar de totes les visites que hi ha hagut entre dues dates on figuri un identificador de visita, dia, metge que ha atès i les dades de pacient,
+la descàrrega s’ha de fer amb XML y El document ha de gravar-se identat (amb tabulacions).
+
+Para poder realziar el siguiente apartado es neccesario importar las siguientes librerias de ```python``` ( ya vienen integradas):
+```
+import xml.etree.ElementTree as ET
+import xml.dom.minidom
+```
+Una vez importadas las librerias se recomiendas seguir la documentacion de Exportacion de datos para configurarlo correctamente, ademas en ese apartado se encuentran los codigos fianlizados de exportacion:
+
+  -  [Exportacion de Datos](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Bloc%20d'exportacio%20de%20dades)
+
+#### Informes en PowerBi
+
+Para poder utilizar PowerBi se ha de instalar a traves de la pagina web de Microsoft en el siguiente enlace:
+
+-  [PowerBi Descarga](https://www.microsoft.com/es-es/download/details.aspx?id=58494)
+
+> [!WARNING]  
+> No se recmienda instalar el programa a traves de la tienda de Microsoft porque puede dar problemas
+
+Un cop instal·lat es crea un nou informe i s'obté dades d'una altra font, i que sigui a través de Base de Dades de PostgreSQL, 
+on s'indica Dns o Ip del servidor, nom de la base de dades, Mode connectivitat de Base de dades i Instrucció SQL (opcional) si només volem introduir dades d'una consulta.
+
+PowerBi nos permite insertar datos para informes de 2 maneras que son las siguiente:
+
+**Importar**
+Importar les dades significa que Power BI pren una còpia de les dades des de la base de dades de PostgreSQL i les emmagatzema en el seu propi model de dades en memòria.
+
+**DirectQuery**
+DirectQuery és un mètode en què Power BI no emmagatzema les dades a la seva pròpia memòria. En lloc d'això, envia consultes a la base de dades de PostgreSQL cada vegada que es necessita accedir a les dades.
+
+> [!WARNING]  
+> Es psoible que la configuracion normal no llegue a funcionar y aparezca el error de "Error Certificado Remoto no Valido"
+> En caso de que ocurre se recomienda hacer lo siguiente:
+
+#### Configuracion Alternativa
+
+En caso de que la configuracion convencional no funcione se puede optar por utilizar herramientas de terceros que el propio Microsoft permite y recomienda una de ella es la herramiente ODBC,
+esta herramienta hace de intermediarios entre la BD y el PowerBi y permite la conexion sin que aparezca el error de **Certificado Remoto no Valido**.
+
+Para mas informacion se recomienda revisar la siguiente documentacion , donde se encuentra la explciacion paso a paso de como configurar el ODBC:
+
+  -  [ODBC Alternatica](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Bloc%20d'exportacio%20de%20dades)
+
+
+
+
+
+
+
 
 
 
