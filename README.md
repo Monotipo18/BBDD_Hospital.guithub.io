@@ -118,7 +118,7 @@ Pero para realizar todo esto se recomienda seguir los pasos que se encuentra en 
 
 Con esta documentacion se podran instalar las herramientas neccesarias para poder configurar Postgresql para aplicar el respectivo DataMasking. Ademas explica en mas detalle que tipo de datos de caracter personal son de grado alto.
 
-### Legislacion AGPD
+#### Legislacion AGPD
 
 Respecto a la legislacion AGPD es un apartado bastante extenso , es por eso que se ha considerado dividir la proteccion de datos y documentacion en 3 apartado distintos:
 
@@ -132,6 +132,48 @@ analisis de riesgos, mediadas de seguridad organizativas, gestion de acceso, pro
 En la siguiente apartado adjuntado se explica muchos mas en detalle como se aplican esta serie de tecnicas y que tipos de datos se consideran de mayor o menor importancia y muchos muchas detalles:
 
 -  [Legislacion AGPD](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/blob/main/Esquema%20de%20seguretat/Documentacion%20RGPD/Documento%20de%20seguridad.md)
+
+### Bloque de Mantenimiento
+
+El bloque de mantenimiento es un apartado para mejorar el anterior apartado de Conectividadad y Login, parea realizar eso se plante realizar las siguientes tareas e implementarlas en la aplicacion:
+
+   1. Donar d’alta nou personal al centre (metge/ssa, infermer/a, administratiu/va,neteja…)
+   2. Donar d’alta nous pacients.
+   3. Pel personal d’infermeria, saber si depèn d’un metge/ssa o bé és de planta.
+   4. Per un determinat dia, saber per a cada quiròfan, les operacions que hi ha previstes, el pacient a operar, l’hora, el metge/ssa que les farà i el personal d’infermeria que intervindrà.
+   5. Per un determinat dia, saber les visites que hi ha planificades, l’hora d’entrada, el metge/ssa i el pacient.
+   6. Amb PGPLSQL crea dos procediments/funcions/triggers per gestionar/validar la informació que esteu entrant des del manteniment.
+   7. Donada una habitació cal saber les reserves previstes, mostrant la data ingrés, data prevista de sortida i el pacient que l’ocuparà.
+   8. Donat un/a pacient saber les visites que ha fet, el diagnòstic, els medicaments que li han receptat, les vegades que ha estat ingressat/da (en cas que ho hagi estat ), així com saber les vegades que ha passat pel quiròfan ( en cas que l’hagin operat).
+   9. Donat un/a metge/ssa saber les visites i les operacions que té programades i les seves hores disponibles.
+   10. Per a cada quiròfan és vol saber quants aparells mèdics té assignat i quina quantitat (per exemple, el quiròfan 1 de la primera planta té assignats 2 respiradors, 2 equips d’oxigen, etc.)
+
+Para poder realizar estos apartados, previamente se han de instalar las siguientes librerias de pyhton:
+
+  -  ```Pwinput```
+  -  ```Psycopg2```
+  -  ```Werkzeug.security```
+  -  ```Tabulate```: La biblioteca tabulate en Python proporciona una manera convenient de formatar dades tabulars en una varietat d'estils.
+  -  ```Dotenv```  : Es una eina útil en el món de Python per gestionar les variables d'entorn d'una manera senzilla i eficaç.
+
+Para aprender en mas detalle como funcionan y como utilizar estas libreria es recomendable visitar el siguiente apartado, ademas cuenta con las funciones, procedimientos y triggers junto con los codigos mejorados del apartado de Conectividad y Login para poder modificarlos segun las necesidades:
+
+  -  [Bloque de Mantenimiento](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Bloc%20de%20Manteniment)
+
+> [!TIP]
+> Aunque este apartado aun no contiene la version final de l'aplicacion se recomienda hacerlo para evitar confusiones.
+
+### Alta disponibilitat
+
+
+ 
+  
+
+
+
+
+
+
 
 
 
