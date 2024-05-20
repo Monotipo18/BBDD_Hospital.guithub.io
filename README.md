@@ -1,5 +1,5 @@
 # Document Final d'instalacio
-## Equilibri neurodivergent
+## Hospital: Equilibri neurodivergent
 
 ## Contingut
   -  [Conectivitat i Login](#conectivitat-i-login)
