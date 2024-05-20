@@ -270,7 +270,7 @@ Para poder utilizar PowerBi se ha de instalar a traves de la pagina web de Micro
 
 -  [PowerBi Descarga](https://www.microsoft.com/es-es/download/details.aspx?id=58494)
 
-> [!WARNING]  
+> [!IMPORTANT]  
 > No se recmienda instalar el programa a traves de la tienda de Microsoft porque puede dar problemas
 
 Un cop instal·lat es crea un nou informe i s'obté dades d'una altra font, i que sigui a través de Base de Dades de PostgreSQL, 
@@ -296,6 +296,32 @@ esta herramienta hace de intermediarios entre la BD y el PowerBi y permite la co
 Para mas informacion se recomienda revisar la siguiente documentacion , donde se encuentra la explciacion paso a paso de como configurar el ODBC:
 
   -  [ODBC Alternatica](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Bloc%20d'exportacio%20de%20dades)
+
+### Manual de Usuario
+
+En el siguiente enlace se encuentra el Manual de Usario para poder utilizar la aplicacion sin ningun tipo de dificultad:
+
+  -  [Manual de Usuari](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/blob/main/Login/Connexio%20al%20Programa/GHEN%20User%20Manual.pdf)
+
+
+## Extra 1: Logs BD
+
+Por motivos de seguridad se ha decidido implementar un sistema de logs en la BD para saber si los propios trabajdores hacen consultas de pacientes o de otro tipo cuando no deberian.
+
+Para hacer eso se ha de configurar el archvio ```/etc/postgresql/15/main/postgresql.conf```
+Una vez dentro activar ```logging_collector``` activa el colector de logs, luego ```log_directory``` y ```log_statement```. Los 3 modificaciones han de quedar de la siguiene manera:
+
+```
+logging_collector = on
+log_directory = 'ruta/del/archivo'
+log_statement = 'ddl'
+```
+
+
+  
+
+
+
 
 
 
