@@ -2,8 +2,16 @@
 ## Equilibri neurodivergent
 
 ## Contingut
-  -  [Conectivitat i Login](
-
+  -  [Conectivitat i Login](#conectivitat-i-login)
+  -  [Esquema BD Relacional](#esquema-bd-relacional)
+  -  [Esquema de Seguretat](#esquema-de-seguretat)
+  -  [Bloc de Mantenimient](#bloc-de-mantenimient)
+  -  [Alta Disponibilitat](#alta-disponibilitat)
+  -  [Bloc de Consultes](#bloc-de-consultas)
+  -  [Dummy Data](#dummy-data)
+  -  [Exportacio de Dades](#exportacio-de-dades)
+  -  [Manual d'usuari](#manual-dusuari)
+  -  [Extra 1: Logs](#extra-1-logs-bd)
 ### Projecte Intermodular
 ### Explicacio
 La idea en aquest projecte consisteix que l'Hospital de Blanes era un hospital petit amb pocs pacients i poca dotació de personal, però l’increment d’habitants tant a Blanes com a Lloret ha canviat la realitat. Per això la Direcció del Centre es planteja començar a informatitzar l’Hospital. A partir d'aquesta idea, hem de crear tot el sistema informàtic per a l'"Hospital de Blanes", que inclou base de dades, aplicació, seguretat, esquemes de BD, exportació de dades, alta disponibilitat, etc.
@@ -227,7 +235,7 @@ Per trobar els següents apartats realitzats, que són una millora de l'anterior
 
   -  [Bloc de consultas](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Bloc%20de%20Consultes)
 
-#### Dummy Data
+### Dummy Data
 
 Per posar a prova la Base de dades s'ha decidit crear dades fictícies de la següent manera:
 
