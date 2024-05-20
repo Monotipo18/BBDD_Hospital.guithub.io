@@ -215,6 +215,22 @@ Para configurar los scripts y el crontab se recomienda seguir paso a paso la sig
 
 A parte de la documentacion se encuentan los 2 scripts, uno para configurar un script de copia de seguridad en la nube y local al mismo tiempo y otro script para restaurar la copia mas reciente realizada.
 
+### Bloque de consultas 
+
+Para el bloque de consultos se propone cumplir con los siguientes apartados
+
+  -  Donada una planta de l'hospital, saber quantes habitacions, quiròfans i personal d’infermeria té.
+  -  Informe de tot el personal que treballa a l’hospital
+  -  Informe de nombre de visites ateses per dia
+  -  Ranking de metges que atenen més pacients.
+  -  Malalties més comunes.
+
+Para encontrar los siguientes apartados realizados , que son una mejora del anterior apartado que mejoraba la "Aplicacion" se encuentra en el siguiente enlace:
+
+  -  [Bloque de consultas](https://github.com/Monotipo18/BBDD_Hospital.guithub.io/tree/main/Bloc%20de%20Consultes)
+
+#### Dummy Data
+
 
 
 
