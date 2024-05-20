@@ -301,10 +301,10 @@ En el següent enllaç es troba el Manual d'Usuari per poder utilitzar l'aplicac
 
 ## Extra 1: Logs BD
 
-Por motivos de seguridad se ha decidido implementar un sistema de logs en la BD para saber si los propios trabajdores hacen consultas de pacientes o de otro tipo cuando no deberian.
+Per motius de seguretat s'ha decidit implementar un sistema de logs a la Base de Dades per saber si els propis treballadors fan consultes de pacients o d'un altre tipus quan no haurien de fer-ho.
 
-Para hacer eso se ha de configurar el archvio ```/etc/postgresql/15/main/postgresql.conf```
-Una vez dentro activar ```logging_collector``` activa el colector de logs, luego ```log_directory``` y ```log_statement```. Los 3 modificaciones han de quedar de la siguiene manera:
+Per fer-ho, s'ha de configurar l'arxiu `/etc/postgresql/15/main/postgresql.conf`. Un cop dins, s'ha d'activar `logging_collector` per
+activar el col·lector de logs, després `log_directory` i `log_statement`. Les 3 modificacions han de quedar de la següent manera:
 
 ```
 logging_collector = on
