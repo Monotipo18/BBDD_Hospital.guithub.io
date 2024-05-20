@@ -312,8 +312,8 @@ log_directory = 'ruta/del/archivo'
 log_statement = 'ddl'
 ```
 
-
-  
+> [!CAUTION]
+> Projecte realitzat per: Unai, Alex, Victor i Manuel
 
 
 
