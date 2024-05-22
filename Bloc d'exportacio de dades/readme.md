@@ -1,7 +1,7 @@
 # Bloc d’exportació de dades
 ## Projecte Intermodular
 ### Contingut
-  -  [Què és XmlTree](#Quèésxml.etree.ElementTreeixml.dom.minidom)
+  -  [Què és XmlTree](#Què és xml.etree.ElementTree i xml.dom.minidom)
   -  [Funcionament XmlTree](#Funcionament)
   -  [Resum Xmltree](#Resum)
   -  [Què és Random Sample](#Què%20és%20random.sample)
@@ -11,7 +11,7 @@
 ### Context
 Com que l'hospital disposa de moltes visites al llarg dels dies, mesos i anys, és possible que ens interessi poder visualitzar les visites que hi ha hagut entre 2 dates com un informe, per si més tard es requereix enviar l'informe a un altre hospital o altres llocs que es requereixin. És per això que la idea és guardar les dades en format XML perquè el traspàs de dades sigui més senzill.
 
-### Què és xml.etree.ElementTree i xml.dom.minidom
+###Què és xml.etree.ElementTree i xml.dom.minidom
 
 Per poder guardar la informació en XML i que estiguin indentats és necessari utilitzar la llibreria integrada/estàndard de Python ```xml.etree.ElementTree``` i també ```xml.dom.minidom```.
 
