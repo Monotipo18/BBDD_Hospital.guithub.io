@@ -1,7 +1,4 @@
-'''
-grupomaviunal
-uN@i3st4fu3rtE
-'''
+
 import time
 from Funciones_Login import *
 from Funciones_Menu import *
