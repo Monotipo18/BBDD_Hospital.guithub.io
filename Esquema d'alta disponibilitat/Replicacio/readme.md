@@ -1,8 +1,8 @@
 <h1>Replicació</h1>
 <h5><em>The more the Better!</em></h5>
-<p>Primer volia explicar una mica que és la replicació, la replicació consisteix a fer còpies de la BBDD, en aquest cas, per a assegurar que en cas que caigui una còpia, puguis continuar accedint la BBDD, cada còpia se li sol dir NODE, per a fer una replicació necessitem mínim dos NODES i si pot ser que estiguin els més lluny possible, també hi ha uns quants tipus de replicació si vols veure més pots veure'ls en la pàgina oficial de postgres, en el nostre cas és Rèplica.</p>
+<p>Primer voliem explicar una mica que és la replicació. Consisteix a fer còpies de la BBDD per assegurar que en cas que caigui una còpia, puguis continuar accedint a la BBDD, cada còpia se li sol dir NODE, per a fer una replicació necessitem mínim dos NODES i si pot ser que estiguin els més lluny possible. També hi ha uns quants tipus de replicació si vols veure més pots veure'ls en la pàgina oficial de postgres, en el nostre cas és Rèplica.</p>
 
-<p>Òbviament, necessitarem mínim dues màquines amb postgres, en el nostre cas és la versió 15, que les dues màquines es poden comunicar entre elles i paciència.</p>
+<p>Òbviament, necessitarem mínim dues màquines amb postgres. En el nostre cas utilitzarem la versió 15 i les dues màquines es poden comunicar entre elles.</p>
 
 
 <h3>Configuracio del servidor primari</h3>
@@ -12,7 +12,7 @@
 ```bash
 sudo nano /etc/postgresql/15/main/postgresql.conf
 ```
-<p>I canviem les següents línies perquè quedin com l'exemple:</p>
+<p>Seguidament canviem les següents línies perquè quedin com l'exemple:</p>
 
 ```bash
 listen_addresses = '*'
@@ -34,8 +34,8 @@ sudo nano /etc/postgresql/15/main/pg_hba.conf
 host replication replicator [IPServidor.Secundari]/[Mascara-IP] scram-sha-256
 ```
 
-<h3>Crea un usuari replicació (node principal)</h3>
-<p>Se pot fer de moltes maneras aqui com hem fet:</p>
+<h3>Crear un usuari per la replicació (node principal)</h3>
+<p>Es pot fer de moltes maneras, aquesta es la que nosaltres hem escollit:</p>
 
 ```bash	
 sudo -u postgres psql
@@ -56,13 +56,13 @@ systemctl restart postgresql
 ```
 
 <p>Configurar el segon node</p>
-<p>Parem el postgre, y fem un pg_basebackup, recomano elimina o guarda en una altralloc la carpeta</p>
+<p>Parem el postgres, y fem un pg_basebackup (recomano eliminar o guardar en una altrr lloc la carpeta</p>
 
 ```bash	
 pg_basebackup -h [IP.Servidor.Secunadri] -U replicator -Fp -Xs -P -R -D /var/lib/pgsql/15/data/
 ```
 
-<p>Ens anem a l'arxiu de configuració del postgres i a dalt de tot posem això:</p>
+<p>Anem a l'arxiu de configuració del postgres i dalt de tot posem això:</p>
 
 ```bash	
 hot_standby = on
@@ -70,11 +70,11 @@ primary_conninfo = 'host=[FIRST_SERVER_IP] port=5432 user=replicator password=[Y
 primary_slot_name = 'standby_slot'
 ```
 
-<p>Tornem a encendre el postgres i ja el tindríem</p>
+<p>Tornem a encendre el postgres i ja ho tindríem</p>
 
 <h3>Exemple de funcionalitat en Python</h3>
 
-<p>Per fer la HA ho fem d'una manera molt fàcil amb un try i un exepct si falla una connexió entra a l'altra:</p>
+<p>Per fer la HA o la hight availability hem creat una petita funcio amb python realitzan un try i un except el cual comproba la conectivitat amb un servidor i en cas de fallar ataca l'altre:</p>
 
 ```python
 def conectar_bd():
@@ -84,7 +84,7 @@ def conectar_bd():
             dbname="asixhospitalbd",
             user="grupomaviunal",
             password="uN@i3st4fu3rtE",
-            host="snakeeater1.equemmfoundation.top",
+            host="snakeeater.equemmfoundation.top",
         )
         cur = conn.cursor()
         return conn, cur
