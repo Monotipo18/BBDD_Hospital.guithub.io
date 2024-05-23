@@ -62,34 +62,34 @@ documentació d'instal·lació, configuració i ús de OneDrive en aquest reposi
 
 Un cop instal·lat i configurat, se li donaran permisos a la ruta on es guarden les còpies lògiques en local:
 
-'''
+```
 chmod 777 /ruta/del/directori
-'''
+```
 
 Després de donar permisos a la ruta de les còpies locals, també s'hauran de donar
 permisos a la ruta on es guarden les còpies al núvol (OneDrive), on posteriorment es sincronitzaran amb l'script.
 
-'''
+```
 chmod 777 /home/"usuari"/OneDrive
-'''
+```
 
 Un cop donats els permisos a les dues rutes, també s'hauran de donar permisos tant als scripts de còpia de seguretat que s'executaran per la matinada com als scripts de la nit i de restauració.
 
-'''
+```
 chmod 777 copia_local_nube_tarda.sh
 chmod 777 copia_local_nube_nit.sh
 chmod 777 restauracio.sh
-'''
+```
 
 ## Crontab
 
 Es configuraran els següents scripts en crontab perquè s'executin diàriament:
 
-'''
+```
 # Realitzar còpies de seguretat diàries
 #Copia a la tarda 2PM, canvi de torn
 0 14 * * * sh /ruta/del/script.sh
 #Copia a la nit 0:00 AM / 12:00 PM
 0 0 * * * sh /ruta/del/script.sh
-'''
+```
 
