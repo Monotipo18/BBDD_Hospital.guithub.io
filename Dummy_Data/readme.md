@@ -1,22 +1,22 @@
-# PROJECTO PROGRAMACIÓN Y BASE DE DATOS
+# PROJECTE PROGRAMACIÓ I BASE DE DADES
 
-## Proyecto Intermodular
+## Projecte internodular
 
-### Contenido
-### Índice
-#### Explicación del Código (Inserción de datos)
-En nuestra Base de datos decidimos almacenar los currículos del personal del hospital. Por esta razón, nos vimos obligados a utilizar listas.
+### Contingut
+### Índex
+#### Explicació del Codi (Inserció de dades)
+En la nostra Base de dades decidim emmagatzemar els currículums del personal de l'hospital. Per aquesta raó, ens vam veure obligats a utilitzar llistes.
 
-En el código, encontramos una cantidad considerable de listas, y esto tiene un motivo. Para realizar una creación e inserción masiva de datos, se pueden utilizar bibliotecas como Faker (que es nuestro caso). Sin embargo, surge un problema cuando queremos generar un archivo PDF para crear este currículo.
+En el codi, trobem una quantitat considerable de llistes, i això té un motiu. Per a realitzar una creació i inserció massiva de dades, es poden utilitzar biblioteques com Faker (que és el nostre cas). No obstant això, sorgeix un problema quan volem generar un arxiu PDF per a crear aquest currículum.
 
-Intentamos de diferentes maneras la creación del currículo, sin embargo, los datos que generaba eran totalmente aleatorios y no coincidían con los que teníamos dentro de la Base de Datos. Para solucionar este problema, decidimos crear listas. De esta manera, al insertar los datos dentro del currículo, seguirían un patrón de orden junto con la inserción de datos en la BD.
+Intentem de diferents maneres la creació del currículum, tanmateix, les dades que generava eren totalment aleatoris i no coincidien amb els que teníem dins de la Base de dades. Per a solucionar aquest problema, decidim crear llistes. D'aquesta manera, en inserir les dades dins del currículum, seguirien un patró d'ordre juntament amb la inserció de dades en la BD.
 
-En este trabajo, hemos utilizado nuevas bibliotecas no mencionadas hasta ahora. Estas son:
+En aquest treball, hem utilitzat noves biblioteques no esmentades fins ara. Aquestes són:
 
-**Beautiful Soup**, en concreto, hemos importado bs4.
-Esta biblioteca se utiliza para extraer datos de documentos HTML y XML, más concretamente para extraer información de un HTML que le hemos dado formato en currículum (archivo.html) que se encuentra en este repositorio.
+**Beautiful Soup**, en concret, hem importat bs4.
+Aquesta biblioteca s'utilitza per a extreure dades de documents HTML i XML, més concretament per a extreure informació d'un HTML que li hem donat format en currículum (arxiu.HTML) que es troba en aquest repositori.
 
 **PdfKit**
-PdfKit es una biblioteca de Python que te permite crear y manipular archivos PDF. Puedes convertir HTML o texto plano a PDF, agregar contenido dinámico como texto e imágenes, y controlar el estilo del documento. Es útil para generar documentos PDF personalizados desde nuestra aplicación. Sigue el patrón del texto y pásalo todo a markdown.
+PdfKit és una biblioteca de Python que et permet crear i manipular arxius PDF. Pots convertir HTML o text pla a PDF, agregar contingut dinàmic com a text i imatges, i controlar l'estil del document. És útil per a generar documents PDF personalitzats des de la nostra aplicació. Segueix el patró del text i passa'l tot a markdown.
 
-Utlitzan aquetes dues llibreries podem generar els curriculum en format PDF
+Utilitzen aquestes dues llibreries podem generar els currículums en format PDF
