@@ -2,31 +2,32 @@
 
 ## Index
 -   [Hardware](#hardware)
--   [Componentes](#componentes)
--   [Precios](#preus)
--   [Precio Total](#preu-total) 
-
+-   [Components](#componentes)
+-   [Preus](#preus)
+-   [Preu Total](#preu-total) 
 ## Hardware
 
 <h5><em>LTT have mercy!</em></h5>
-
-A causa de les caracteristicas de la Base de dades de l'hospital (quantitat d'informacio emmagatzemada) hem considerat una quantitat diferent d'opcions i considerem que l'opcion mes adient per a les necessitats de l'hospital és la següent:
+A causa de les característiques de la Base de dades de l'hospital (quantitat d'informació emmagatzemada) hem considerat una quantitat diferent d'opcions i considerem que l'opció més adient per a les necessitats de l'hospital és la següent:
 
 ### Servidor
 
-Hem triat el servidor Dell PowerEdge R740XD2 pel fet que hem pogut personalitzar per a unes caracteristiques de maquinari que s'ha aproximarian al necessari per al bon funcionament del sistema. Hem utilitzat la pàgina web https://www.renewtech.es/dell-poweredge-r740xd2-configure-to-order.html per a personalitzar el servidor segons les necessitats.
+Hem triat el servidor Dell PowerEdge R740XD2 pel fet que hem pogut personalitzar per a unes característiques de maquinari que s'ha aproximarien al necessari per al bon funcionament del sistema. Hem utilitzat la pàgina web https://www.renewtech.es/dell-poweredge-r740xd2-configure-to-order.html per a personalitzar el servidor segons les necessitats.
 
-Les caracteristicas aproximades són, una CPU de 12/16 nucleos, 64/128 GB de ram, 50/100 TB de emmagatzament i sobretot que tingui una garantia general en cas de fallada.
+Les característiques aproximades són, una CPU de 12/16 nuclis, 64/128 GB de ram, 50/100 TB de emmagatzemant i sobretot que tingui una garantia general en cas de fallada.
 
-Considerem que aquestes especificacions són les mes adients tenint en compte el volum de dades amb el qual es treballés, a mes tenint en compte que l'hospital compta amb recursos limitats no seria molt correcte optar per una solucio mes cara.
+Considerem que aquestes especificacions són les més adients tenint en compte el volum de dades amb el qual es treballés, a més tenint en compte que l'hospital compta amb recursos limitats no seria molt correcte optar per una solució més cara.
 
 > [!NOTE]  
 > Hem triat 2 sistemes d'emmagatzematge perquè, 1 seria per a emmagatzemar el sistema operatiu (SSD 2.5)
-> i l'altre per a emmagatzemar les dades de la Base de dades (HDD SAS 2.5)
-## Componentes
-En la siguiente tabla se encuentra la informacion/caracteristicas de cada componente.
 
-| Componente      | Descripción                                                                         |
+> i l'altre per a emmagatzemar les dades de la Base de dades (HDD SAS 2.5)
+
+## Components
+
+En la seguent taula es trova l'informació/característiques de cada component.
+
+| Component      | Descripció                                                                         |
 |-----------------|-------------------------------------------------------------------------------------|
 | Chasis          | DELL - PowerEdge R740XD2 26x3.5 1xPCI MINI MONO                                    |
 | CPU             | DELL - Intel Gold 5218 2.30GHz 16C 22M 125W                                         |
@@ -40,38 +41,39 @@ En la siguiente tabla se encuentra la informacion/caracteristicas de cada compon
 
 ## Preus
 
-A mes hem fet una taula amb la quantitat i els preus de cada component.
+A més hem fet una taula amb la quantitat i els preus de cada component.
 
-| Componente        | Cantidad | Precio unitario (€) | Precio total (€) |
+| Component        | Cuantitat | Preu unitari(€) | Preu total (€) |
 |-------------------|----------|---------------------|------------------|
 | Chasis            | 1        | 2800,00             | 2800,00          |
 | CPU               | 1        | 595,00              | 595,00           |
 | Memoria           | 2        | 392,00              | 784,00           |
 | Controlador RAID  | 1        | 203,00              | 203,00           |
-| Discos Duros      | 26       | 6370,00             | 6370,00          |
+| Discs Durs      | 26       | 6370,00             | 6370,00          |
 | SSD               | 1        | 203,00              | 203,00           |
-| Tarjeta de Red    | 1        | 28,00               | 28,00            |
+| Tarjetas de Xarxa   | 1        | 28,00               | 28,00            |
 | iDRAC             | 1        | 0,00                | 0,00             |
-| Fuente de Alimentación | 2   | 98,00               | 196,00           |
+| Font d'alimentacio | 2   | 98,00               | 196,00           |
 
 ## Preu Total
 
-Per ultim una taula amb el preu total i un descompte aplicat pel venedor
+Per últim una taula amb el preu total i un descompte aplicat pel venedor
 
-| Detalles          |   Precio total (€) |
+| Detalls          |   Preu total (€) |
 |-------------------|--------------------|
-| **Total**         |  **10.689,00**    |
-| **Descuento HPE (15%)**|  **-1603,35**     |
-| **Precio final**  |  **9085,65**      |
+| Total         |  10.689,00    |
+| Descompte HPE (15%)|  -1603,35     |
+| Preu final  |  9085,65      |
 
 > [!IMPORTANT]  
-> Com per seguretat hem de replicar la Base de dades en un altre servidor (com a minim)
+> Com per seguretat hem de replicar la Base de dades en un altre servidor (com a mínim)
 > de manera Activa-Activa o Activa-Passiva hem de comprar un 2 servidor (si és possible igual)
 > pel que el preu total seria el següent:
 
-| Servidor                   | Cantidad | Precio total (€) |
+| Servidor                   | Cuantitat| Preu total (€) |
 |----------------------------|----------|------------------|
-| **Dell PowerEdge R740XD2**| 2        | 21.378,00        |
-| **Descuento HPE (15%)**   | 1         | -3.206,70        |
+| Dell PowerEdge R740XD2| 2        | 21.378,00        |
+| Descompte HPE (15%)   | 1         | -3.206,70        |
 
-El Cost total dels 2 servidors mes el descompte aplicat per l'empresa ascendeix a : ``` **18.171,3** ``` euros.
+El Cost total dels 2 servidors més el descompte aplicat per l'empresa ascendeix a : ``` 18.171,3 ``` euros.
+
