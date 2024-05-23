@@ -1,10 +1,10 @@
 <!-- Introduccion -->
 <h1>SSL/TLS x PostgreSQL</h1>
 <h5><em>Security First!</em></h5>
-<p>Primer de tot cal aclarir una cosa SSL, avui dia no s'utilitza, ja que el protocol TLS (Transport Layer Security) el va substituir en 1999, a dia d'avui, 12 d'abril de 2024, és l'estàndard en la seva versió TLS 1.3, però el terme SSL es continua utilitzant per a referir-se a connexions segures</p>
+<p>Primer de tot cal aclarir una cosa SSL, avui dia no s'utilitza, ja que el protocol TLS (Transport Layer Security) el va substituir en 1999, el dia d'avui, 12 d'abril de 2024, és l'estàndard en la seva versió TLS 1.3, però el terme SSL es continua utilitzant per a referir-se a connexions segures</p>
 <p>Ara bé, per què hauries d'utilitzar TLS per a PostgreSQL?
-La resposta curta és seguretat, la llarga és una mica més complexa, quan et connectes amb el teu client al servidor estàs transmetent informació per la xarxa, ja sigui per WAN o LAN, de per si mateix aquesta informació no sol estar encriptada, així que posar un TLS encripta l'informació entre servidor i client, assegurant-se que la informació ni es llegeixi, ni es modifiqui.
-També cal tenir en compte reglaments,estàndards i lleis, que varien segons el país, però normalment totes tenen el mateix objectiu, la seguretat d'informació confidencial i sensible</p>
+La resposta curta és seguretat, la llarga és una mica més complexa, quan et connectes amb el teu client al servidor estàs transmetent informació per la xarxa, ja sigui per WAN o LAN, per si mateix aquesta informació no sol estar encriptada, així que posar un TLS encripta la informació entre servidor i client, assegurant-se que la informació ni es llegeixi, ni es modifiqui.
+També cal tenir en compte reglaments, estàndards i lleis, que varien segons el país, però normalment totes tenen el mateix objectiu, la seguretat d'informació confidencial i sensible</p>
 
 <!-- Instalacion -->
 <h3>Preparar domini</h3>
@@ -15,13 +15,13 @@ També cal tenir en compte reglaments,estàndards i lleis, que varien segons el 
 
 <h3>Preparar al Firewall</h3>
 
-<p>Important hem de tenir ben filtrat els ports, en aquest cas el 80, important cal anar amb compte a l'hora de tractar amb ports, ja pot ser una vulneravilitat de seguretat, cal permetre en la màquina, en el meu cas és PROXMOX VEU, com en l'encaminador, encara que nosaltres no vam mostrar com fer-ho en l'encaminador, ja que cada encaminador és un món igualment hi ha molta informació de com obrir un port d'encaminador, però hauria de quedar una cosa així:<p>
+<p>Important hem de tenir ben filtrat els ports, en aquest cas el 80, important cal anar amb compte a l'hora de tractar amb ports, ja pot ser una vulnerabilitat de seguretat, cal permetre en la màquina, en el meu cas és PROXMOX VEU, com en l'encaminador, encara que nosaltres no vam mostrar com fer-ho en l'encaminador, ja que cada encaminador és un món igualment hi ha molta informació de com obrir un port d'encaminador, però hauria de quedar una cosa així:<p>
 <p>PROXMOX VE:</p>
 <img src="/img/proxmoxvefirewall.png">
 <p>Router:</p>
 <img src="/img/routerejemplofirewall.png">
 
-<h3>Instalar Certbot</h3>
+<h3>Instal·lar Cert bot</h3>
 
 <p>Per a generar els certificats utilitzarem Certbot,
 nosaltres utilitzarem la comanda per a sistemes basats en Ubuntu/Debian:</p>
@@ -29,7 +29,7 @@ nosaltres utilitzarem la comanda per a sistemes basats en Ubuntu/Debian:</p>
 ```bash
 sudo apt install certbot
 ```
-<p>Anem a la carpeta de configuracio PostgreSQL, normalment sol ser aquesta:</p>
+<p>Anem a la carpeta de configuració PostgreSQL, normalment sol ser aquesta:</p>
 
 ```bash
 cd /etc/postgresql/15/main
@@ -103,7 +103,7 @@ ssl_prefer_server_ciphers = on
 hostssl all all 0.0.0.0/0 md5
 ```
 
-<p>I ja ho tindríem, ara si volem comprovar-ho podem fer-ho de diverses maneres, per exemple des de pgadmin 4:</p>
+<p>I ja ho tindríem, ara si volem comprovar-ho podem fer-ho de diverses maneres, per exemple des de pgadmin 4</p>
 
 ```sql
 SELECT * FROM pg_catalog.pg_stat_ssl
